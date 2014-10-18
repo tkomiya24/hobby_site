@@ -1,0 +1,10 @@
+<h3>Destroy User</h3>
+
+	<%= form_for(:user, :url => {:action => 'destroy'}) do |u| %>
+
+		<p>Are you sure you want to permanently delete your account?</p>
+		<%= submit_tag("Confirm") %>
+
+		<%= link_to("Go back!", :action => 'show') %>
+
+	<% end %> 

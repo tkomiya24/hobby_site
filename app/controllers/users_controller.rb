@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   layout "main"
 
   before_action :check_login, :except => [:login, :new, :create, :attempt_login, :logout]
+  before_action :get_user, :except => [:new, :create, :login, :attempt_login, :logout]
 
+  #CRUD actions
   def new
   	@user = User.new
   end
@@ -23,15 +25,14 @@ class UsersController < ApplicationController
   end
 
   def show
-      @user = User.find(session[:user_id])
+      
   end
 
   def edit
-    @user = User.find(session[:user_id])
+
   end
 
   def update
-    @user = User.find(session[:user_id])
 
     if @user.update_attributes(user_params)
       flash[:notice] = "Update Successful"
@@ -42,6 +43,17 @@ class UsersController < ApplicationController
 
   end
 
+  def delete
+    
+  end
+
+  def destroy
+    @user.destroy
+    flash[:notice] = "User '" + @user.username + "' successfully deleted"
+    redirect_to(:action => 'login')
+  end
+
+  #authentication
   def login
 
   end
@@ -71,11 +83,18 @@ class UsersController < ApplicationController
     redirect_to(:action => 'login')
   end
 
+  #private methods
   private
 
   	def user_params
   		params.require(:user).permit(:first_name, :last_name, :username, :password, :city, :email, :password_confirmation, :email_confirmation)
   	end
+
+    def get_user
+
+      @user = User.find(session[:user_id])
+
+    end
 
 
 
