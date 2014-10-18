@@ -1,0 +1,13 @@
+
+<tr>
+	<th><%= u.label(:background_vocals) %></th>
+	<td><%= u.check_box(:background_vocals)%></td>
+</tr>
+<tr>
+	<th><%= u.label(:experience, "Years played") %></th>
+	<td><%= u.select(:experience, 0..150)%></td>
+</tr>
+<tr>
+	<th><%= u.label(:proficiency) %></th>
+	<td><%= u.select(:proficiency, ['Beginner', 'Intermmediate', 'Advanced', 'Professional']) %></td>
+</tr>	

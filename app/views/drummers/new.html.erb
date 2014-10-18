@@ -7,22 +7,12 @@
 <%= form_for(:drummer, :url => {:action => 'create'}) do |u| %>
 
 	<table summary="User form fields">
-		<tr>
-			<th><%= u.label(:background_vocals) %></th>
-			<td><%= u.check_box(:background_vocals)%></td>
-		</tr>
+
 		<tr>
 			<th><%= u.label(:double_kick, "Double Kick") %></th>
 			<td><%= u.check_box(:double_kick)%></td>
 		</tr>
-		<tr>
-			<th><%= u.label(:experience, "Years played") %></th>
-			<td><%= u.select(:experience, 0..150)%></td>
-		</tr>
-		<tr>
-			<th><%= u.label(:proficiency) %></th>
-			<td><%= u.select(:proficiency, ['Beginner', 'Intermmediate', 'Advanced', 'Professional']) %></td>
-		</tr>	
+		<%= render(:partial => 'application/instrument_common_fields_form', :locals => {:u => u}) %>
 	</table>
 	<%= submit_tag("Confirm") %>
 
