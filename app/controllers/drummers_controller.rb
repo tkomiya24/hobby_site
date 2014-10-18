@@ -22,6 +22,24 @@ class DrummersController < ApplicationController
 
 	end
 
+	def edit
+		
+		@drummer = User.find(session[:user_id]).drummer
+
+	end
+
+	def update
+		
+		@drummer = User.find(session[:user_id]).drummer
+		if @drummer.update_attributes(get_drummer_params)
+			flash[:notice] = "Changes successful!"
+			redirect_to(:controller => 'users', :action => 'show')
+		else
+			render('edit')
+		end
+
+	end
+
 	private
 
 		def get_drummer_params

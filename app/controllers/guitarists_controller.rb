@@ -23,6 +23,24 @@ class GuitaristsController < ApplicationController
 
 	end
 
+	def edit
+		
+		@guitarist = User.find(session[:user_id]).guitarist
+
+	end
+
+	def update
+		
+		@guitarist = User.find(session[:user_id]).guitarist
+		if @guitarist.update_attributes(guitarist_params)
+			flash[:notice] = "Changes successful!"
+			redirect_to(:controller => 'users', :action => 'show')
+		else
+			render('edit')
+		end
+
+	end	
+
 	private
 
 		def guitarist_params

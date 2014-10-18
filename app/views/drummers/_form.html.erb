@@ -1,0 +1,8 @@
+<table summary="drummer form fields">
+
+	<tr>
+		<th><%= u.label(:double_kick, "Double Kick") %></th>
+		<td><%= u.check_box(:double_kick)%></td>
+	</tr>
+	<%= render(:partial => 'application/instrument_common_fields_form', :locals => {:u => u}) %>
+</table>
