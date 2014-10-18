@@ -21,6 +21,24 @@ class BassistsController < ApplicationController
 
 	end
 
+	def edit
+		
+		@bassist = User.find(session[:user_id]).bassist
+
+	end
+
+	def update
+		
+		@bassist = User.find(session[:user_id]).bassist
+		if @bassist.update_attributes(bassist_params)
+			flash[:notice] = "Changes successful!"
+			redirect_to(:controller => 'users', :action => 'show')
+		else
+			render('edit')
+		end
+
+	end
+
 	private
 
 		def bassist_params
