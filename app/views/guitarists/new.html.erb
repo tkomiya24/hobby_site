@@ -1,0 +1,29 @@
+<h1>Register </h1>
+<p>Please enter your information</p>
+
+<% @title = "Creating new guitarist" %>
+<%= error_messages_for(@guitarist) %>
+<%= link_to("Cancel", :controller => 'users', :action => 'show') %>
+<%= form_for(:guitarist, :url => {:action => 'create'}) do |u| %>
+
+	<table summary="User form fields">
+		<tr>
+			<th><%= u.label(:background_vocals) %></th>
+			<td><%= u.check_box(:background_vocals)%></td>
+		</tr>
+		<tr>
+			<th><%= u.label(:rhythm_or_lead, "Double Kick") %></th>
+			<td><%= u.select(:rhythm_or_lead, ['Rhythm', 'Lead', 'Both'])%></td>
+		</tr>
+		<tr>
+			<th><%= u.label(:experience, "Years played") %></th>
+			<td><%= u.select(:experience, 0..150)%></td>
+		</tr>
+		<tr>
+			<th><%= u.label(:proficiency) %></th>
+			<td><%= u.select(:proficiency, ['Beginner', 'Intermmediate', 'Advanced', 'Professional']) %></td>
+		</tr>
+	</table>
+	<%= submit_tag("Confirm") %>
+
+<% end %>
