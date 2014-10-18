@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		<title><%= @title if !@title.blank? %></title>
+	</head>	
+	<body>
+		<header>
+			Welcome user # <%= session[:user_id] %>
+			<%= link_to("Logout", {:controller => 'users', :action => 'logout'}) %>
+		</header>
+
+		<% if !flash[:notice].blank? %>
+			<div id="flash-message">
+				<%= flash[:notice] %>
+			</div>
+		<% end %>
+
+		<div id="content">
+			<%= yield %>
+		</div>
+		
+		<footer></footer>
+	</body>	
+</html>

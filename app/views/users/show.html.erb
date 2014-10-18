@@ -1,0 +1,100 @@
+<% @title = "Info for user " + @user.username %>
+
+<table>
+	<tr>
+		<th>Username</th>
+		<td><%= @user.username %></td>
+	</tr>
+	<tr>
+		<th>First Name</th>
+		<td><%= @user.first_name %></td>
+	</tr>
+	<tr>
+		<th>Last Name</th>
+		<td><%= @user.last_name %></td>
+	</tr>
+	<tr>
+		<th>City</th>
+		<td><%= @user.city %></td>
+	</tr>
+	<tr>
+		<th>E-mail</th>
+		<td><%= @user.email %></td>
+	</tr>
+</table>
+
+<hr/>
+
+<% if @user.drummer %>
+
+	<h3>Drummer</h3>
+	<table>
+		<tr>
+			<th>Background Vocals</th>
+			<td><%= @user.drummer.background_vocals %></td>
+		</tr>
+		<tr>
+			<th>Double Kick</th>
+			<td><%= @user.drummer.double_kick %></td>
+		</tr>
+		<tr>
+			<th>Experience</th>
+			<td><%= @user.drummer.experience %></td>
+		</tr>
+		<tr>
+			<th>Rating</th>
+			<td><%= @user.drummer.rating %></td>
+		</tr>
+		<tr>
+			<th>Proficiency</th>
+			<td><%= @user.drummer.proficiency %></td>
+		</tr>
+
+	</table>
+
+<% end %>
+
+<hr/>
+
+<% if @user.guitarist %>
+
+	<h3>Guitarist</h3>
+	<table>
+		<tr>
+			<th>Background Vocals</th>
+			<td><%= @user.guitarist.background_vocals %></td>
+		</tr>
+		<tr>
+			<th>Rhythm, Lead or Both</th>
+			<td><%= @user.guitarist.rhythm_or_lead %></td>
+		</tr>
+		<tr>
+			<th>Experience</th>
+			<td><%= @user.guitarist.experience %></td>
+		</tr>
+		<tr>
+			<th>Rating</th>
+			<td><%= @user.guitairst.rating %></td>
+		</tr>
+		<tr>
+			<th>Proficiency</th>
+			<td><%= @user.guitarist.proficiency %></td>
+		</tr>
+
+	</table>
+
+<% end %>
+
+<!--
+	Drummer schema
+
+    t.integer  "user_id"
+    t.boolean  "background_vocals", default: false
+    t.boolean  "double_kick",       default: false, null: false
+    t.integer  "experience",        default: 0,     null: false
+    t.integer  "rating",            default: 0
+    t.string   "proficiency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+
+-->
