@@ -23,9 +23,10 @@
 	</tr>
 </table>
 
-<hr/>
 
 <% if @user.drummer %>
+
+	<hr/>
 
 	<h3>Drummer</h3>
 	<table>
@@ -54,9 +55,10 @@
 
 <% end %>
 
-<hr/>
 
 <% if @user.guitarist %>
+
+	<hr/>
 
 	<h3>Guitarist</h3>
 	<table>
@@ -74,7 +76,7 @@
 		</tr>
 		<tr>
 			<th>Rating</th>
-			<td><%= @user.guitairst.rating %></td>
+			<td><%= @user.guitarist.rating %></td>
 		</tr>
 		<tr>
 			<th>Proficiency</th>

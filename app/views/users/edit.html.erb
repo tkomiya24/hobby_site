@@ -1,0 +1,11 @@
+<div>
+	<%= form_for(:user, :url => {:action => 'update'}) do |user| %>
+
+		<%= render(:partial => 'form', :locals => {:u => user}) %>
+
+		<div>
+			<%= submit_tag("Update User") %>
+		</div>
+
+	<% end %>
+<div>

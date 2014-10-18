@@ -1,0 +1,36 @@
+<%= error_messages_for(@user) %>
+
+<table summary="User form fields">
+	<tr>
+		<th><%= u.label(:username) %></th>
+		<td><%= u.text_field(:username)%></td>
+	</tr>
+	<tr>
+		<th><%= u.label(:password, "Password") %></th>
+		<td><%= u.password_field(:password)%></td>
+	</tr>
+	<tr>
+		<th><%= u.label(:password_confirmation, "Repeat Password") %></th>
+		<td><%= u.password_field(:password_confirmation)%></td>
+	</tr>
+	<tr>
+		<th><%= u.label(:first_name, "First Name") %></th>
+		<td><%= u.text_field(:first_name)%></td>
+	</tr>
+	<tr>
+		<th><%= u.label(:last_name) %></th>
+		<td><%= u.text_field(:last_name)%></td>
+	</tr>
+	<tr>
+		<th><%= u.label(:city) %></th>
+		<td><%= u.text_field(:city) %></td>
+	</tr>
+	<tr>
+		<th><%= u.label(:email, "E-mail") %></th>
+		<td><%= u.text_field(:email)%></td>
+	</tr>
+	<tr>
+		<th><%= u.label(:email_confirmation, "Repeat E-mail") %></th>
+		<td><%= u.text_field(:email_confirmation)%></td>
+	</tr>
+</table>
