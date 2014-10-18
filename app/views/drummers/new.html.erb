@@ -6,28 +6,7 @@
 <%= link_to("Cancel", :controller => 'users', :action => 'show') %>
 <%= form_for(:drummer, :url => {:action => 'create'}) do |u| %>
 
-	<table summary="User form fields">
-
-		<tr>
-			<th><%= u.label(:double_kick, "Double Kick") %></th>
-			<td><%= u.check_box(:double_kick)%></td>
-		</tr>
-		<%= render(:partial => 'application/instrument_common_fields_form', :locals => {:u => u}) %>
-	</table>
+	<%= render(:partial => 'form', :locals => {:u => u}) %>
 	<%= submit_tag("Confirm") %>
 
 <% end %>
-
-<!--
-	Drummer schema
-
-    t.integer  "user_id"
-    t.boolean  "background_vocals", default: false
-    t.boolean  "double_kick",       default: false, null: false
-    t.integer  "experience",        default: 0,     null: false
-    t.integer  "rating",            default: 0
-    t.string   "proficiency"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-
--->
