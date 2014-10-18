@@ -39,6 +39,17 @@ class BassistsController < ApplicationController
 
 	end
 
+	def delete
+		
+	end
+
+	def destroy
+		bassist = User.find(session[:user_id]).bassist
+		bassist.destroy
+		flash[:notice] = "Deletion successful"
+		back_to_home
+	end
+
 	private
 
 		def bassist_params

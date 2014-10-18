@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
 	      end
 
     end
+
+    def back_to_home
+		redirect_to(:controller => 'users', :action => 'show')
+	end
 end

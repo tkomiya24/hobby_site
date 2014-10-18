@@ -40,6 +40,17 @@ class DrummersController < ApplicationController
 
 	end
 
+	def delete
+		
+	end
+
+	def destroy
+		drummer = User.find(session[:user_id]).drummer
+		drummer.destroy
+		flash[:notice] = "Deletion successful"
+		back_to_home
+	end
+
 	private
 
 		def get_drummer_params
