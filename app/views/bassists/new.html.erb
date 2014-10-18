@@ -3,7 +3,7 @@
 
 <% @title = "Creating new bassist" %>
 <%= error_messages_for(@bassist) %>
-
+<%= link_to("Cancel", :controller => 'users', :action => 'show') %>
 <%= form_for(:bassist, :url => {:action => 'create'}) do |u| %>
 
 	<table summary="User form fields">
