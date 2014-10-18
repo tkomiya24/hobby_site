@@ -1,3 +1,5 @@
+
+
 <div>
 	<%= form_for(:user, :url => {:action => 'update'}) do |user| %>
 
@@ -6,6 +8,6 @@
 		<div>
 			<%= submit_tag("Update User") %>
 		</div>
-
+		<%= link_to("Cancel edit", :action => 'show') %>
 	<% end %>
 <div>

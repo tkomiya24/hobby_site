@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017230109) do
+ActiveRecord::Schema.define(version: 20141018202653) do
+
+  create_table "bassists", force: true do |t|
+    t.integer  "user_id"
+    t.boolean  "background_vocals", default: false, null: false
+    t.boolean  "five_string",       default: false, null: false
+    t.boolean  "six_string",        default: false, null: false
+    t.integer  "experience",        default: 0,     null: false
+    t.integer  "rating",            default: 0
+    t.string   "proficiency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "drummers", force: true do |t|
     t.integer  "user_id"
