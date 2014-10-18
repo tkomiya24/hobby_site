@@ -12,5 +12,6 @@ class User < ActiveRecord::Base
 	#associations
 	has_one :drummer
 	has_one :guitarist
+	has_one :bassist
 
 end
