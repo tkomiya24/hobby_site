@@ -1,0 +1,13 @@
+<% if !@user.guitarist %>
+	<%= link_to("Guitar", :controller => 'guitarists', :action => 'new') %>
+<% end %>
+
+<% if !@user.drummer %>
+	<%= link_to("Drums", :controller => 'drummers', :action => 'new') %>
+<% end %>
+
+<% if !@user.bassist %>
+	<%= link_to("Bass", :controller => 'bassists', :action => 'new') %>
+<% end %>
+
+<%= link_to("Cancel", :action => 'show') %>

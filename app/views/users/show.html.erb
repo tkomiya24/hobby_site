@@ -1,5 +1,6 @@
 <% @title = "Info for user " + @user.username %>
 
+
 <table>
 	<tr>
 		<th>Username</th>
@@ -24,6 +25,8 @@
 </table>
 <%= link_to("Edit", :action => 'edit') %>
 <%= link_to("Delete", :action => 'delete') %>
+<br/><%= link_to("Add an instrument!", :action => 'add_instrument') %>
+
 <% if @user.drummer %>
 
 	<hr/>

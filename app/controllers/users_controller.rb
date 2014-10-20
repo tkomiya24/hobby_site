@@ -53,6 +53,11 @@ class UsersController < ApplicationController
     redirect_to(:action => 'login')
   end
 
+  #adding hobbies
+  def add_instrument
+    
+  end
+
   #authentication
   def login
 
