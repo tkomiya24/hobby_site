@@ -1,6 +1,6 @@
 class DrummersBackgroundVocalsColumnNotNullable < ActiveRecord::Migration
 
-  def change
+  def up
 
   	change_column("drummers", "background_vocals", :boolean, :default => false, :null => false)
   end

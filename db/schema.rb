@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018202653) do
+ActiveRecord::Schema.define(version: 20141020230348) do
 
   create_table "bassists", force: true do |t|
-    t.integer  "user_id"
     t.boolean  "background_vocals", default: false, null: false
     t.boolean  "five_string",       default: false, null: false
     t.boolean  "six_string",        default: false, null: false
@@ -26,7 +25,6 @@ ActiveRecord::Schema.define(version: 20141018202653) do
   end
 
   create_table "drummers", force: true do |t|
-    t.integer  "user_id"
     t.boolean  "background_vocals", default: false, null: false
     t.boolean  "double_kick",       default: false, null: false
     t.integer  "experience",        default: 0,     null: false
@@ -36,10 +34,7 @@ ActiveRecord::Schema.define(version: 20141018202653) do
     t.datetime "updated_at"
   end
 
-  add_index "drummers", ["user_id"], name: "index_drummers_on_user_id", using: :btree
-
   create_table "guitarists", force: true do |t|
-    t.integer  "user_id"
     t.boolean  "background_vocals", default: false, null: false
     t.string   "rhythm_or_lead",                    null: false
     t.integer  "experience",        default: 0,     null: false
@@ -48,8 +43,6 @@ ActiveRecord::Schema.define(version: 20141018202653) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "guitarists", ["user_id"], name: "index_guitarists_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",        null: false
@@ -60,6 +53,9 @@ ActiveRecord::Schema.define(version: 20141018202653) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.integer  "drummer_id"
+    t.integer  "guitarist_id"
+    t.integer  "bassist_id"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", using: :btree
