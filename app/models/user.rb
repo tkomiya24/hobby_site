@@ -19,7 +19,21 @@ class User < ActiveRecord::Base
 	belongs_to :guitarist
 	belongs_to :bassist
 
-	def get_matches	
-
+	def get_matches(limit)
+		return User.where(["CITY = ? AND (drummer_id IS NOT NULL OR guitarist_id IS NOT NULL OR bassist_id IS NOT NULL)", self.city]).
+		where.not(:id => self.id)
 	end
+
+	def get_drummers(limit)
+		return User.where(:city => self.city).where.not(:id => self.id, :drummer_id => nil).limit(limit)
+	end
+
+	def get_guitarists(limit)
+		return User.where(:city => self.city).where.not(:id => self.id, :guitarist_id => nil).limit(limit)
+	end
+
+	def get_bassists(limit)
+		return User.where(:city => self.city).where.not(:id => self.id, :bassist_id => nil).limit(limit)
+	end
+
 end
