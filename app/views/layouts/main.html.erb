@@ -5,22 +5,37 @@
 		<%= stylesheet_link_tag    'application', media: 'all' %>
   		<%= javascript_include_tag 'application' %>
 	</head>	
-	<body>
-		<header>
-			Welcome user # <%= session[:user_id] %>
-			<%= link_to("Logout", {:controller => 'users', :action => 'logout'}) %>
-		</header>
+	<body style="margin-top: 100px">
 
-		<% if !flash[:notice].blank? %>
-			<div id="flash-message">
-				<%= flash[:notice] %>
+		<nav class = "navbar navbar-default navbar-fixed-top">
+			
+			<div class="navbar-header">
+      			<p class="navbar-brand">Hobby Site</p>
+   			</div>
+
+			<div class = "container-fluid">
+				
+				<% if session[:user_id] %>
+					Welcome user # <%= session[:user_id] %>
+					<%= link_to("Logout", {:controller => 'users', :action => 'logout'}, :class =>'navbar-right') %>
+				<% end %>
 			</div>
-		<% end %>
 
-		<div id="content">
+		</nav>
+
+		<div class ="container">
+			<% if !flash[:notice].blank? %>
+				<div id="flash-message" class = "container">
+					<%= flash[:notice] %>
+				</div>
+			<% end %>
+		</div>
+		
+		<div id="content" class = "container">
 			<%= yield %>
 		</div>
 		
 		<footer></footer>
+
 	</body>	
 </html>
