@@ -1,129 +1,130 @@
-<% @title = "Info for user " + @user.username %>
+	<% @title = "Info for user " + @user.username %>
 
-
-<table>
-	<tr>
-		<th>Username</th>
-		<td><%= @user.username %></td>
-	</tr>
-	<tr>
-		<th>First Name</th>
-		<td><%= @user.first_name %></td>
-	</tr>
-	<tr>
-		<th>Last Name</th>
-		<td><%= @user.last_name %></td>
-	</tr>
-	<tr>
-		<th>City</th>
-		<td><%= @user.city %></td>
-	</tr>
-	<tr>
-		<th>E-mail</th>
-		<td><%= @user.email %></td>
-	</tr>
-</table>
-<%= link_to("Edit", :action => 'edit') %>
-<%= link_to("Delete", :action => 'delete') %>
-<br/><%= link_to("Add an instrument!", :action => 'add_instrument') %>
-
-<% if @user.drummer %>
-
-	<hr/>
-
-	<h3>Drummer</h3>
+<dib class ='container'>
 	<table>
 		<tr>
-			<th>Background Vocals</th>
-			<td><%= @user.drummer.background_vocals %></td>
+			<th>Username</th>
+			<td><%= @user.username %></td>
 		</tr>
 		<tr>
-			<th>Double Kick</th>
-			<td><%= @user.drummer.double_kick %></td>
+			<th>First Name</th>
+			<td><%= @user.first_name %></td>
 		</tr>
 		<tr>
-			<th>Experience</th>
-			<td><%= @user.drummer.experience %></td>
+			<th>Last Name</th>
+			<td><%= @user.last_name %></td>
 		</tr>
 		<tr>
-			<th>Rating</th>
-			<td><%= @user.drummer.rating %></td>
+			<th>City</th>
+			<td><%= @user.city %></td>
 		</tr>
 		<tr>
-			<th>Proficiency</th>
-			<td><%= @user.drummer.proficiency %></td>
+			<th>E-mail</th>
+			<td><%= @user.email %></td>
 		</tr>
-
 	</table>
-	<%= link_to("Edit", :controller => 'drummers', :action => 'edit') %>
-	<%= link_to("Delete", :controller => 'drummers', :action => 'destroy') %>
-<% end %>
+	<%= link_to("Edit", :action => 'edit') %>
+	<%= link_to("Delete", :action => 'delete') %>
+	<br/><%= link_to("Add an instrument!", :action => 'add_instrument') %>
+
+	<% if @user.drummer %>
+
+		<hr/>
+
+		<h3>Drummer</h3>
+		<table>
+			<tr>
+				<th>Background Vocals</th>
+				<td><%= @user.drummer.background_vocals %></td>
+			</tr>
+			<tr>
+				<th>Double Kick</th>
+				<td><%= @user.drummer.double_kick %></td>
+			</tr>
+			<tr>
+				<th>Experience</th>
+				<td><%= @user.drummer.experience %></td>
+			</tr>
+			<tr>
+				<th>Rating</th>
+				<td><%= @user.drummer.rating %></td>
+			</tr>
+			<tr>
+				<th>Proficiency</th>
+				<td><%= @user.drummer.proficiency %></td>
+			</tr>
+
+		</table>
+		<%= link_to("Edit", :controller => 'drummers', :action => 'edit') %>
+		<%= link_to("Delete", :controller => 'drummers', :action => 'destroy') %>
+	<% end %>
 
 
-<% if @user.guitarist %>
+	<% if @user.guitarist %>
 
-	<hr/>
+		<hr/>
 
-	<h3>Guitarist</h3>
-	<table>
-		<tr>
-			<th>Background Vocals</th>
-			<td><%= @user.guitarist.background_vocals %></td>
-		</tr>
-		<tr>
-			<th>Rhythm, Lead or Both</th>
-			<td><%= @user.guitarist.rhythm_or_lead %></td>
-		</tr>
-		<tr>
-			<th>Experience</th>
-			<td><%= @user.guitarist.experience %></td>
-		</tr>
-		<tr>
-			<th>Rating</th>
-			<td><%= @user.guitarist.rating %></td>
-		</tr>
-		<tr>
-			<th>Proficiency</th>
-			<td><%= @user.guitarist.proficiency %></td>
-		</tr>
+		<h3>Guitarist</h3>
+		<table>
+			<tr>
+				<th>Background Vocals</th>
+				<td><%= @user.guitarist.background_vocals %></td>
+			</tr>
+			<tr>
+				<th>Rhythm, Lead or Both</th>
+				<td><%= @user.guitarist.rhythm_or_lead %></td>
+			</tr>
+			<tr>
+				<th>Experience</th>
+				<td><%= @user.guitarist.experience %></td>
+			</tr>
+			<tr>
+				<th>Rating</th>
+				<td><%= @user.guitarist.rating %></td>
+			</tr>
+			<tr>
+				<th>Proficiency</th>
+				<td><%= @user.guitarist.proficiency %></td>
+			</tr>
 
-	</table>
-	<%= link_to("Edit", :controller => 'guitarists', :action => 'edit') %>
-	<%= link_to("Delete", :controller => 'guitarists', :action => 'destroy') %>
-<% end %>
+		</table>
+		<%= link_to("Edit", :controller => 'guitarists', :action => 'edit') %>
+		<%= link_to("Delete", :controller => 'guitarists', :action => 'destroy') %>
+	<% end %>
 
-<% if @user.bassist %>
+	<% if @user.bassist %>
 
-	<hr/>
+		<hr/>
 
-	<h3>Bassist</h3>
-	<table>
-		<tr>
-			<th>Background Vocals</th>
-			<td><%= @user.bassist.background_vocals %></td>
-		</tr>
-		<tr>
-			<th>Plays five string?</th>
-			<td><%= @user.bassist.five_string %></td>
-		</tr>
-		<tr>
-			<th>Plays six string?</th>
-			<td><%= @user.bassist.six_string %></td>
-		</tr>
-		<tr>
-			<th>Experience</th>
-			<td><%= @user.bassist.experience %></td>
-		</tr>
-		<tr>
-			<th>Rating</th>
-			<td><%= @user.bassist.rating %></td>
-		</tr>
-		<tr>
-			<th>Proficiency</th>
-			<td><%= @user.bassist.proficiency %></td>
-		</tr>
+		<h3>Bassist</h3>
+		<table>
+			<tr>
+				<th>Background Vocals</th>
+				<td><%= @user.bassist.background_vocals %></td>
+			</tr>
+			<tr>
+				<th>Plays five string?</th>
+				<td><%= @user.bassist.five_string %></td>
+			</tr>
+			<tr>
+				<th>Plays six string?</th>
+				<td><%= @user.bassist.six_string %></td>
+			</tr>
+			<tr>
+				<th>Experience</th>
+				<td><%= @user.bassist.experience %></td>
+			</tr>
+			<tr>
+				<th>Rating</th>
+				<td><%= @user.bassist.rating %></td>
+			</tr>
+			<tr>
+				<th>Proficiency</th>
+				<td><%= @user.bassist.proficiency %></td>
+			</tr>
 
-	</table>
-	<%= link_to("Edit", :controller => 'bassists', :action => 'edit') %>
-	<%= link_to("Delete", :controller => 'bassists', :action => 'destroy') %>
-<% end %>
+		</table>
+		<%= link_to("Edit", :controller => 'bassists', :action => 'edit') %>
+		<%= link_to("Delete", :controller => 'bassists', :action => 'destroy') %>
+	<% end %>
+</div>
