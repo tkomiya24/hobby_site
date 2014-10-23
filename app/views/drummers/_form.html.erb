@@ -1,8 +1,9 @@
-<table summary="Drummer form fields">
+<div class='form-group'>
+	<div class = "checkbox">
+		<%= u.label(:double_kick, :class => 'control-label') do %>
+			<%= u.check_box(:double_kick)%>Double Kick
+		<% end %> 
+	</div>
+</div>
 
-	<tr>
-		<th><%= u.label(:double_kick, "Double Kick") %></th>
-		<td><%= u.check_box(:double_kick)%></td>
-	</tr>
-	<%= render(:partial => 'application/instrument_common_fields_form', :locals => {:u => u}) %>
-</table>
+<%= render(:partial => 'application/instrument_common_fields_form', :locals => {:u => u}) %>
