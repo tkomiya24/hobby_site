@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   layout "main"
 
   before_action :check_login, :except => [:login, :new, :create, :attempt_login, :logout]
-  before_action :get_user, :except => [:new, :create, :login, :attempt_login, :logout]
+  before_action :get_user, :except => [:new, :create, :login, :attempt_login, :logout, :show]
 
   #CRUD actions
   def new
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def show
-      
+    @user = User.find(params[:id])      
   end
 
   def edit

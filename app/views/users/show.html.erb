@@ -1,6 +1,33 @@
-	<% @title = "Info for user " + @user.username %>
+<% @title = "Info for user " + @user.username %>
 
-<dib class ='container'>
+<div class="container-fluid">
+	<h1>User: <%= @user.username %></h1>
+<div>
+
+<!-- Div container for all the instruments -->
+<% if @user.guitarist || @user.drummer || @user.bassist %>
+	<div class='panel panel-primary'>
+		
+		<div class = 'panel-heading'>
+			<span class='panel-title'><i class='glyphicon glyphicon-music'></i>	Musician</span>
+		</div>
+
+		<div class = 'panel-body'>
+			<% if @user.drummer %>
+				Drummer 	-	<%= @user.drummer.rating %><br/>
+			<% end %> 
+			<% if @user.guitarist %>
+				Guitarist 	-	<%= @user.guitarist.rating %><br/>
+			<% end %> 
+			<% if @user.bassist %>
+				Bassist 	-	<%= @user.bassist.rating %><br/>
+			<% end %> 
+		</div>
+
+	</div>
+<% end %>	
+
+<div class ='container'>
 	<table>
 		<tr>
 			<th>Username</th>
@@ -23,10 +50,11 @@
 			<td><%= @user.email %></td>
 		</tr>
 	</table>
+	<!--
 	<%= link_to("Edit", :action => 'edit') %>
 	<%= link_to("Delete", :action => 'delete') %>
 	<br/><%= link_to("Add an instrument!", :action => 'add_instrument') %>
-
+	-->
 	<% if @user.drummer %>
 
 		<hr/>
@@ -55,8 +83,10 @@
 			</tr>
 
 		</table>
+		<!--
 		<%= link_to("Edit", :controller => 'drummers', :action => 'edit') %>
 		<%= link_to("Delete", :controller => 'drummers', :action => 'destroy') %>
+		-->
 	<% end %>
 
 
@@ -88,8 +118,10 @@
 			</tr>
 
 		</table>
+		<!--
 		<%= link_to("Edit", :controller => 'guitarists', :action => 'edit') %>
 		<%= link_to("Delete", :controller => 'guitarists', :action => 'destroy') %>
+		-->
 	<% end %>
 
 	<% if @user.bassist %>
@@ -124,7 +156,9 @@
 			</tr>
 
 		</table>
+		<!--
 		<%= link_to("Edit", :controller => 'bassists', :action => 'edit') %>
 		<%= link_to("Delete", :controller => 'bassists', :action => 'destroy') %>
+		-->
 	<% end %>
 </div>
