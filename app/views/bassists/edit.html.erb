@@ -2,7 +2,12 @@
 
 	<%= render(:partial => 'form', :locals => {:u => u}) %>
 
-	<%= submit_tag("Confirm") %>
+	<%= button_tag(:type => 'submit', :class => 'btn btn-primary') do %>
+			<i class="glyphicon glyphicon-floppy-save"></i>  Submit
+	<% end %> 
+
+	<%= link_to({:controller => 'users', :action => 'show'}, {:class => 'btn btn-danger'}) do %>
+		<i class="glyphicon glyphicon-remove"></i>  Cancel
+	<% end %> 
 	
 <% end %>
-<%= link_to("Back", :controller => 'users', :action => 'show') %>

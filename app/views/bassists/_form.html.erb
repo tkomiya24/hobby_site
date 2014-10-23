@@ -1,11 +1,17 @@
-<table summary="Bassist form fields">
-	<tr>
-		<th><%= u.label(:five_string, "Do you play five string?") %></th>
-		<td><%= u.check_box(:five_string)%></td>
-	</tr>
-	<tr>
-		<th><%= u.label(:six_string, "Do you play six string?") %></th>
-		<td><%= u.check_box(:six_string)%></td>
-	</tr>
-	<%= render(:partial => 'application/instrument_common_fields_form', :locals => {:u => u}) %>
-</table>
+<div class='form-group'>
+	<div class ='checkbox'>
+		<%= u.label(:five_string) do%>
+			<%= u.check_box(:five_string)%> Do you play five string?
+		<% end %>
+	</div>
+</div>
+
+<div class='form-group'>
+	<div class ='checkbox'>
+		<%= u.label(:six_string) do%>
+			<%= u.check_box(:six_string)%> Do you play six string?
+		<% end %>
+	</div>
+</div>
+
+<%= render(:partial => 'application/instrument_common_fields_form', :locals => {:u => u}) %>
