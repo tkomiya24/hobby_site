@@ -6,6 +6,6 @@ class HomeController < ApplicationController
 	before_action :get_user
 
 	def index
-			
+		@matches = @user.get_matches(10)
 	end
 end
