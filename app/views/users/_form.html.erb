@@ -15,23 +15,23 @@
 </div>
 
 <div class="form-group">
-	<%= u.label(:password_confirmation, :title => "Repeat Password", :class => 'control-label col-md-2') %>
+	<%= u.label(:password_confirmation, "Repeat Password", :class => 'control-label col-md-2') %>
 	<div class = "col-md-10">
 		<%= u.password_field(:password_confirmation, :class => 'form-control') %>
 	</div>
 </div>
 
 <div class="form-group">
-	<%= u.label(:first_name, :title => "First Name", :class => 'control-label col-md-2') %>
+	<%= u.label(:first_name, "First Name", :class => 'control-label col-md-2') %>
 	<div class = "col-md-10">
 		<%= u.text_field(:first_name, {:class => 'form-control'}) %>
 	</div>
 </div>
 
 <div class="form-group">
-	<%= u.label(:last_name, :title => "Last Name", :class => 'control-label col-md-2') %>
+	<%= u.label(:last_name, "Last Name", :class => 'control-label col-md-2') %>
 	<div class = "col-md-10">
-		<%= u.text_field(:first_name, {:class => 'form-control'}) %>
+		<%= u.text_field(:last_name, {:class => 'form-control'}) %>
 	</div>
 </div>
 
@@ -50,7 +50,7 @@
 </div>
 
 <div class="form-group">
-	<%= u.label(:email_confirmation, :class => 'control-label col-md-2', :title => "Repeat E-mail") %>
+	<%= u.label(:email_confirmation, "Repeat E-mail", :class => 'control-label col-md-2') %>
 	<div class = "col-md-10">
 		<%= u.text_field(:email_confirmation, {:class => 'form-control'}) %>
 	</div>
