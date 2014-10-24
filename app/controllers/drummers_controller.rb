@@ -15,7 +15,7 @@ class DrummersController < ApplicationController
 		@drummer.user = @user
 
 		if @drummer.save
-			redirect_to(:controller => 'users', :action => 'show')
+			redirect_to(:controller => 'users', :action => 'show', :id => session[:user_id])
 		else
 			render('new')
 		end
