@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   	if @user.save
       flash[:notice] = "User created successfully!!!"
       session[:user_id] = @user.id
-      redirect_to(:action => 'show')
+      redirect_to(root_path)
   	else
   		render('new')
   	end
@@ -75,7 +75,7 @@ class UsersController < ApplicationController
     end
     if authorized_user
       session[:user_id] = user.id
-      redirect_to(:action => 'show')
+      redirect_to(root_path)
     else
       flash[:notice] = "Invalid username or password"
       redirect_to(:action => 'login')

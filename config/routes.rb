@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   #get 'register/new'
 
   #get 'register/create'
-  root "users#show"
+  root "home#index"
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.
