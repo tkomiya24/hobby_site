@@ -36,4 +36,24 @@ class User < ActiveRecord::Base
 		return User.where(:city => self.city).where.not(:id => self.id, :bassist_id => nil).limit(limit)
 	end
 
+	def musician?
+		return self.drummer != nil || self.guitarist != nil || self.bassist != nil
+	end
+
+	def nullify_deleted
+
+		unless self.drummer != nil
+			self.drummer_id = nil
+		end
+
+		unless self.bassist != nil
+			self.bassist_id = nil
+		end
+
+		unless self.guitarist != nil
+			self.guitarist_id = nil
+		end
+
+		self.save
+	end
 end
