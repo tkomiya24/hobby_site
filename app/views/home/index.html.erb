@@ -20,6 +20,22 @@
 						</span>
 					</div>
 
+					<div class ='panel-body'>
+						<% if @matches[i].drummer %>
+							<p>Drummer   -   Rating: <%= @matches[i].drummer.rating %></p>
+						<% end %>
+						<% if @matches[i].bassist %>
+							<p>Guitarist   -   Rating: <%= @matches[i].bassist.rating %></p>
+						<% end %>
+						<% if @matches[i].guitarist %>
+							<p>Bassist   -   Rating: <%= @matches[i].guitarist.rating %></p>
+						<% end %>
+
+						<%= link_to({:controller => 'users', :action => 'show', :id => @matches[i].id}, :class => 'btn btn-info') do%>
+							<i class='glyphicon glyphicon-share-alt'></i> View Profile
+						<% end %>
+					</div>
+
 				</div>
 				<% end %>
 			</div>
