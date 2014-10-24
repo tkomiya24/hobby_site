@@ -1,0 +1,18 @@
+<h1>Register </h1>
+<p>Please enter your information</p>
+
+<% @title = "Creating new singer" %>
+<%= error_messages_for(@singer) %>
+
+<%= form_for(:singer, :url => {:action => 'create'}) do |u| %>
+
+	<%= render(:partial => 'form', :locals => {:u => u}) %>
+	<%= button_tag(:type => 'submit', :class => 'btn btn-primary') do %>
+			<i class="glyphicon glyphicon-floppy-save"></i>  Submit
+	<% end %> 
+
+	<%= link_to({:controller => 'users', :action => 'show'}, {:class => 'btn btn-danger'}) do %>
+		<i class="glyphicon glyphicon-remove"></i>  Cancel
+	<% end %> 
+
+<% end %>

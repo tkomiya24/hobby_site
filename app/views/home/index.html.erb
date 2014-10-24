@@ -31,7 +31,9 @@
 								<% if @matches[i].guitarist %>
 									<p>Bassist   -   Rating: <%= @matches[i].guitarist.rating %></p>
 								<% end %>
-
+								<% if @matches[i].singer %>
+									<p>Singer   -   Rating: <%= @matches[i].singer.rating %></p>
+								<% end %>
 								<%= link_to({:controller => 'users', :action => 'show', :id => @matches[i].id}, :class => 'btn btn-info') do%>
 									<i class='glyphicon glyphicon-share-alt'></i> View Profile
 								<% end %>
@@ -51,16 +53,18 @@
 		<p>Your profile is looking very empty... Tell us more about yourself!!! Are you a...</p>
 		<div class='row'>
 			
-				<%= link_to({:controller => 'drummers', :action => 'new'},:class => 'btn btn-info col-xs-4') do %>
+				<%= link_to({:controller => 'drummers', :action => 'new'},:class => 'btn btn-info col-xs-3') do %>
 					<h3>Drummer?</h3>
 				<% end %>
-				<%= link_to({:controller => 'guitarists', :action => 'new'},:class => 'btn btn-success col-xs-4') do %>
+				<%= link_to({:controller => 'guitarists', :action => 'new'},:class => 'btn btn-success col-xs-3') do %>
 					<h3>Guitarist?</h3>
 				<% end %>
-				<%= link_to({:controller => 'bassists', :action => 'new'},:class => 'btn btn-danger col-xs-4') do %>
+				<%= link_to({:controller => 'bassists', :action => 'new'},:class => 'btn btn-danger col-xs-3') do %>
 					<h3>Bassist?</h3>
 				<% end %>
-	
+				<%= link_to({:controller => 'singers', :action => 'new'},:class => 'btn btn-primary col-xs-3') do %>
+					<h3>Singer?</h3>
+				<% end %>
 		</div>
 	</div>	
 <% end %>

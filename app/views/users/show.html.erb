@@ -4,8 +4,16 @@
 	<h1>User: <%= @user.username %></h1>
 <div>
 
+<% if @user.id == session[:user_id] %>
+	<div>
+		<%= link_to("Add an instrument", {:action => 'add_instrument'}, {:class => 'btn btn-success'}) %>
+		<%= link_to("Find matches", '#', {:class => 'btn btn-success'}) %>
+		<%= link_to("Edit profile", {:action => 'edit'}, {:class => 'btn btn-success'}) %>
+	</div>
+<% end %>
+
 <!-- Div container for all the instruments -->
-<% if @user.guitarist || @user.drummer || @user.bassist %>
+<% if @user.musician? %>
 	<div class='panel panel-primary'>
 		
 		<div class = 'panel-heading'>
@@ -13,6 +21,9 @@
 		</div>
 
 		<div class = 'panel-body'>
+			<% if @user.singer %>
+				Singer 	-	<%= @user.singer.rating %><br/>
+			<% end %> 
 			<% if @user.drummer %>
 				Drummer 	-	<%= @user.drummer.rating %><br/>
 			<% end %> 
@@ -161,4 +172,39 @@
 		<%= link_to("Delete", :controller => 'bassists', :action => 'destroy') %>
 		-->
 	<% end %>
+
+	<% if @user.singer %>
+
+		<hr/>
+
+		<h3>Singer</h3>
+		<table>
+			<tr>
+				<th>Background Vocals</th>
+				<td><%= @user.singer.background_vocals %></td>
+			</tr>
+			<tr>
+				<th>Range</th>
+				<td><%= @user.singer.range %></td>
+			</tr>
+			<tr>
+				<th>Experience</th>
+				<td><%= @user.singer.experience %></td>
+			</tr>
+			<tr>
+				<th>Rating</th>
+				<td><%= @user.singer.rating %></td>
+			</tr>
+			<tr>
+				<th>Proficiency</th>
+				<td><%= @user.singer.proficiency %></td>
+			</tr>
+
+		</table>
+		<!--
+		<%= link_to("Edit", :controller => 'singers', :action => 'edit') %>
+		<%= link_to("Delete", :controller => 'singers', :action => 'destroy') %>
+		-->
+	<% end %>
+
 </div>
