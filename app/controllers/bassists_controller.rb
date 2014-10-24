@@ -14,7 +14,7 @@ class BassistsController < ApplicationController
 
 		if @bassist.save
 			flash[:notice] = "Changes successful!"
-			redirect_to(:controller => 'users', :action => 'show', :id => session[:user_id])
+			redirect_to(:controller => 'users', :action => 'show')
 		else
 			render('new')
 		end
