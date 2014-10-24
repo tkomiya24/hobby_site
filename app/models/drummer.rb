@@ -2,7 +2,7 @@ class Drummer < ActiveRecord::Base
 
 	#associations
 	#belongs_to :user
-	has_one :user
+	has_one :user, :dependent => :nullify
 
 	#validations
 	#validates :user_id, :presence => true
