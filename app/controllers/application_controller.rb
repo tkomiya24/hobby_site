@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-      def check_login
+  def check_login
 
 	      unless session[:user_id]
 	        redirect_to(:controller => 'users', :action => 'login')
@@ -19,4 +19,10 @@ class ApplicationController < ActionController::Base
     def back_to_home
 		redirect_to(:controller => 'users', :action => 'show')
 	end
+
+    def get_user
+
+      @user = User.find(session[:user_id])
+
+    end
 end
