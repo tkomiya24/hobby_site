@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 	end
 
 	def musician?
-		return self.drummer != nil || self.guitarist != nil || self.bassist != nil
+		return self.drummer != nil || self.guitarist != nil || self.bassist != nil || self.singer != nil
 	end
 
 	def nullify_deleted
