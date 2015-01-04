@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
 	belongs_to :guitarist
 	belongs_to :bassist
 	belongs_to :singer
+	has_many :received_reviews, :class_name => "Review", :foreign_key => "reviewee_id"
+	has_many :written_reviews, :class_name => "Review", :foreign_key => "reviewer_id"
 
 	def get_matches(limit)
 		return User.where(["CITY = ? AND (drummer_id IS NOT NULL OR guitarist_id IS NOT NULL OR bassist_id IS NOT NULL)", self.city]).
