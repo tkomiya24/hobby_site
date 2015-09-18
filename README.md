@@ -56,6 +56,8 @@ Next, run the database setup script. This will create the database, make the tab
 `sh database_setup.sh`
 
 ##4. Running  
+Make sure MySQL has been started  
+`mysql.server start`  
 From the project directory, run the command  
 `rails s`  
 Open up a browser and head to [http://localhost:3000/] (http://localhost:3000/)
