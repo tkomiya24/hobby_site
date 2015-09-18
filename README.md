@@ -56,6 +56,6 @@ Next, run the database setup script. This will create the database, make the tab
 `sh database_setup.sh`
 
 ##4. Running  
-From the project directory, run the command
+From the project directory, run the command  
 `rails s`  
 Open up a browser and head to [http://localhost:3000/] (http://localhost:3000/)
