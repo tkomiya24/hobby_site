@@ -47,25 +47,22 @@ if [[ $? -ne 0 ]] ; then
 fi
 
 outputComment "Installing Ruby 2.2.0-rc1..."
-yes N | rbenv install 2.2.0-rc1
+yes N | rbenv install 2.1.3
 
 outputComment "Rehash the new version of Ruby"
 rbenv rehash
 
 outputComment "Setting Ruby 2.2.0-rc1 to local"
-rbenv local 2.2.0-rc1
+rbenv local 2.1.3
 
 outputComment "Updating to the latest version of Gem manager"
 gem update --system
 
 outputComment "Installing bundler, used to manage gems of multiple applications"
-gem install bundler --no-ri --no-doc --version 1.10.3
+gem install bundler --no-ri --no-doc --version 1.10.6
 
 outputComment "Rehash rbenv"
 rbenv rehash
-
-outputComment "Installing rails 4.2.0"
-gem install rails --no-ri --no-doc --version 4.2.0
 
 outputComment "Rehash again"
 rbenv rehash
