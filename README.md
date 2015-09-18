@@ -1,4 +1,4 @@
-#Hobby_Site  
+#Hobby Site  
 
 ##1. What is it?  
 This is a WebApp that helps users find other people with the same hobbies,
@@ -13,10 +13,10 @@ activities that are much funner done in groups than individually.
 
 ##3. Setting up your dev environment
 
-**TL:DR**  
+**TL;DR**  
 1. in the terminal  
- `sh environment_setup.sh`
-2. Setup the root user for MySQL (if not done already)
+ `sh environment_setup.sh`  
+2. Setup the root user for MySQL (if not done already)  
 3. in the terminal  
 `sh database_setup.sh`
 
@@ -58,4 +58,4 @@ Next, run the database setup script. This will create the database, make the tab
 ##4. Running  
 From the project directory, run the command
 `rails s`  
-Open up a browser and head to (http://localhost:3000/) [http://localhost:3000/]
+Open up a browser and head to [http://localhost:3000/] (http://localhost:3000/)
