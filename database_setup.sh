@@ -26,8 +26,7 @@ IDENTIFIED BY 'password';
 exit"
 
 outputComment "Dropping and recreating the database"
-rake db:migrate VERSION=0
-rake db:migrate
+rake db:schema:load
 
 outputComment "Seeding default data..."
 rake db:seed
