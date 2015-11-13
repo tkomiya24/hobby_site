@@ -1,11 +1,10 @@
 #!/bin/bash
-function outputComment {
+function newSectionComment {
   if [[ "$1" ]]
     then
       echo '\n'
       outputPoundLine
       echo $1
-      outputPoundLine
   fi
 }
 
@@ -13,7 +12,12 @@ function outputPoundLine {
 	echo "####################################"
 }
 
-outputComment "Checking for and installing/updating Homebrew"
+function finishedSectionComment {
+  echo "Finished installing $1"
+  outputPoundLine
+}
+
+newSectionComment "Checking for and installing/updating Homebrew"
 which -s brew
 if [[ $? != 0 ]] ; then
   echo "Homebrew not found. Will install it."
@@ -22,8 +26,9 @@ else
   echo "Homebrew found. Will update it."
   brew update
 fi
+finishedSectionComment "Homebrew"
 
-outputComment "Checking for existing rbenv installation"
+newSectionComment "Checking for existing rbenv installation"
 eval "$(rbenv init -)"
 which -s rbenv
 if [[ $? -ne 0 ]] ; then
@@ -35,8 +40,9 @@ else
   echo "rbenv found. Will upgrade it."
   brew upgrade rbenv
 fi
+finishedSectionComment "rbenv"
 
-outputComment "Installing ruby-build, used to help out rbenv so that you can create new versions of Ruby"
+newSectionComment "Installing ruby-build, used to help out rbenv so that you can create new versions of Ruby"
 which -s ruby-build
 if [[ $? -ne 0 ]]; then
   echo "ruby-build found. Will install it."
@@ -45,24 +51,28 @@ else
   echo "ruby-build found. Will upgrade it."
   brew upgrade ruby-build
 fi
+finishedSectionComment "ruby-build"
 
-outputComment "Installing mysql"
+newSectionComment "Installing mysql"
 which -s mysql
 if [[ $? -ne 0 ]] ; then
   brew install mysql
 fi
+finishedSectionComment "MySQL"
 
-outputComment "Installing local Ruby version"
+newSectionComment "Installing local Ruby version"
 yes N | rbenv install
+finishedSectionComment "Ruby"
 
-outputComment "Rehashing the new version of Ruby"
 rbenv rehash
 
-outputComment "Updating to the latest version of Gem manager"
+newSectionComment "Updating to the latest version of Gem manager"
 gem update --system
+finishedSectionComment "Gem"
 
-outputComment "Installing bundler, used to manage gems of multiple applications"
+newSectionComment "Installing bundler, used to manage gems of multiple applications"
 gem install bundler --no-ri --no-doc
+finishedSectionComment "bundler"
 
 rbenv rehash
 
