@@ -1,11 +1,10 @@
 #!/bin/bash
-function outputComment {
+function newSectionComment {
   if [[ "$1" ]]
     then
+      echo '\n'
       outputPoundLine
       echo $1
-      outputPoundLine
-      echo '\n'
   fi
 }
 
@@ -13,61 +12,68 @@ function outputPoundLine {
 	echo "####################################"
 }
 
-function installNpmGlobalPackage {
-  npm list -g $1 -g &> /dev/null
-  if [[ $? -ne 0 ]] ; then
-    npm install -g $1
-  fi
+function finishedSectionComment {
+  echo "Finished installing $1"
+  outputPoundLine
 }
 
-outputComment "Checking for and installing/updating Homebrew"
+newSectionComment "Checking for and installing/updating Homebrew"
 which -s brew
 if [[ $? != 0 ]] ; then
+  echo "Homebrew not found. Will install it."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
+  echo "Homebrew found. Will update it."
   brew update
 fi
+finishedSectionComment "Homebrew"
 
-outputComment "Installing rbenv"
+newSectionComment "Checking for existing rbenv installation"
+eval "$(rbenv init -)"
 which -s rbenv
-if [[ $? -ne 0 ]]
-  then
+if [[ $? -ne 0 ]] ; then
+  echo "rbenv not found. Will install it"
   brew install rbenv
   echo 'eval "$(rbenv init -)"' >>~/.bash_profile;
+  eval "$(rbenv init -)"
+else
+  echo "rbenv found. Will upgrade it."
+  brew upgrade rbenv
 fi
-eval "$(rbenv init -)"
+finishedSectionComment "rbenv"
 
-outputComment "Installing ruby-build, used to help out rbenv so that you can create new versions of Ruby"
-brew install ruby-build
+newSectionComment "Installing ruby-build, used to help out rbenv so that you can create new versions of Ruby"
+which -s ruby-build
+if [[ $? -ne 0 ]]; then
+  echo "ruby-build found. Will install it."
+  brew install ruby-build
+else
+  echo "ruby-build found. Will upgrade it."
+  brew upgrade ruby-build
+fi
+finishedSectionComment "ruby-build"
 
-outputComment "Installing mysql"
+newSectionComment "Installing mysql"
 which -s mysql
 if [[ $? -ne 0 ]] ; then
   brew install mysql
 fi
+finishedSectionComment "MySQL"
 
-outputComment "Installing Ruby 2.2.0-rc1..."
-yes N | rbenv install 2.1.3
+newSectionComment "Installing local Ruby version"
+yes N | rbenv install
+finishedSectionComment "Ruby"
 
-outputComment "Rehash the new version of Ruby"
 rbenv rehash
 
-outputComment "Setting Ruby 2.2.0-rc1 to local"
-rbenv local 2.1.3
-
-outputComment "Updating to the latest version of Gem manager"
+newSectionComment "Updating to the latest version of Gem manager"
 gem update --system
+finishedSectionComment "Gem"
 
-outputComment "Installing bundler, used to manage gems of multiple applications"
-gem install bundler --no-ri --no-doc --version 1.10.6
+newSectionComment "Installing bundler, used to manage gems of multiple applications"
+gem install bundler --no-ri --no-doc
+finishedSectionComment "bundler"
 
-outputComment "Rehash rbenv"
 rbenv rehash
-
-outputComment "Rehash again"
-rbenv rehash
-
-outputComment "Installing mysql Ruby Gem..."
-gem install mysql2 --no-ri --no-doc  --version 0.3.18
 
 bundle install
