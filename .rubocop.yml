@@ -1,0 +1,7 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - .overcommit_gems.rb
+
+Metrics/LineLength:
+  Max: 100
