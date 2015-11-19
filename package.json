@@ -1,0 +1,30 @@
+{
+  "name": "hobby_site",
+  "version": "0.0.1",
+  "description": "This is a WebApp that helps users find other people with the same hobbies, which are usually group activities. Ex. League of Legends, playing instruments,... The goal is for other able to be able to form teams, bands, etc. for activities that are much funner done in groups than individually.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "pre-commit": "^1.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rubocop": "bundle exec rubocop"
+  },
+  "precommit": [
+    "rubocop"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkomiya24/hobby_site.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tkomiya24/hobby_site/issues"
+  },
+  "homepage": "https://github.com/tkomiya24/hobby_site#readme"
+}
