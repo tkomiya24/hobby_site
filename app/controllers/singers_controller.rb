@@ -8,7 +8,7 @@ class SingersController < ApplicationController
 
   def create
     @singer = Singer.new(singer_params)
-    get_user.singer = @singer
+    fetch_user.singer = @singer
 
     if @singer.save
       flash[:notice] = 'Changes successful'
@@ -19,11 +19,11 @@ class SingersController < ApplicationController
   end
 
   def edit
-    @singer = get_user.singer
+    @singer = fetch_user.singer
   end
 
   def update
-    @singer = get_user.singer
+    @singer = fetch_user.singer
 
     if @singer.update_attributes(singer_params)
       flash[:notice] = 'Changes successful'

@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     redirect_to(controller: 'users', action: 'show')
   end
 
-  def get_user
+  def fetch_user
     @user = User.find(session[:user_id])
   end
 

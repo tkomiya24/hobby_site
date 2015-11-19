@@ -1,7 +1,7 @@
 class DrummersController < ApplicationController
   layout 'main'
 
-  before_action :get_user
+  before_action :fetch_user
   before_action :check_login
 
   def new
@@ -49,7 +49,7 @@ class DrummersController < ApplicationController
     params.require(:drummer).permit(:background_vocals, :double_kick, :experience, :proficiency)
   end
 
-  def get_user
+  def fetch_user
     @user = User.find(session[:user_id]) if session[:user_id]
   end
 end
