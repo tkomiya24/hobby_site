@@ -3,7 +3,7 @@ AllCops:
   Exclude:
     - .overcommit_gems.rb
     - db/schema.rb
-
+    - bin/**/*
 Metrics/LineLength:
   Max: 100
 
