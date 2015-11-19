@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   layout 'main'
 
   before_action :check_login, except: [:login, :new, :create, :attempt_login, :logout]
+  before_action :fetch_user, except: [:login, :new, :create, :attempt_login, :logout]
 
   # CRUD actions
   def new
