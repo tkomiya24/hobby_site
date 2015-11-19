@@ -11,6 +11,8 @@ activities that are much funner done in groups than individually.
 * Bootstrap for front end styling  
 * MySQL as the database  
 
+* For precommits we are using NodeJS and the pre-commit package.
+
 ##3. Setting up your dev environment
 
 **TL;DR**  
@@ -21,6 +23,10 @@ activities that are much funner done in groups than individually.
 `sh database_setup.sh`
 
 ###3.1 Prerequisites
+
+1. NodeJS*
+
+  \*Required only for pre-commit hooks, not for the app
 
 ####3.1.2 Mac OSX
 
@@ -43,7 +49,7 @@ Or if you have your SSH key set up (Recommended, it'll save time in the end!)
 Run the script 'environment_setup.sh' from the terminal.
 **Note**: You will have to hit return to agree to [Homebrew] (http://brew.sh)
 changing the permissions of some usr/loc folders, if Homebrew is not
-already installed
+already installed  
 `sh environment_setup.sh`
 
 Next, secure your local instance of MySQL if you haven't already by setting a root user password. Type in the following commands into terminal and follow the prompts.  

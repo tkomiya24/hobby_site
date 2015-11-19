@@ -77,3 +77,7 @@ finishedSectionComment "bundler"
 rbenv rehash
 
 bundle install
+
+newSectionComment "Installing pre-commit via npm"
+npm install
+finishedSectionComment "pre-commit"
