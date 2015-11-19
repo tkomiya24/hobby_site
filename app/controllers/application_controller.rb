@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       return true
     else
-      redirect_to(controller 'users', action: 'login')
+      redirect_to(controller: 'users', action: 'login')
       return false
     end
   end
@@ -20,5 +20,10 @@ class ApplicationController < ActionController::Base
 
   def get_user
     @user = User.find(session[:user_id])
+  end
+
+  def redirect_to_user
+    flash[:notice] = 'Changes successful!'
+    redirect_to(controller: 'users', action: 'show')
   end
 end
