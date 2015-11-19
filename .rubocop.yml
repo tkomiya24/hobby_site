@@ -2,6 +2,7 @@ AllCops:
   RunRailsCops: true
   Exclude:
     - .overcommit_gems.rb
+    - db/schema.rb
 
 Metrics/LineLength:
   Max: 100
