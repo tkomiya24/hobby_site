@@ -1,5 +1,4 @@
 class SingersController < ApplicationController
-
   layout 'main'
   before_action :check_login
 
@@ -12,12 +11,11 @@ class SingersController < ApplicationController
     get_user.singer = @singer
 
     if @singer.save
-      flash[:notice] = "Changes successful"
-      redirect_to(:controller => 'users', :action => 'show')
+      flash[:notice] = 'Changes successful'
+      redirect_to(controller: 'users', action: 'show')
     else
       render('new')
     end
-
   end
 
   def edit
@@ -28,18 +26,16 @@ class SingersController < ApplicationController
     @singer = get_user.singer
 
     if @singer.update_attributes(singer_params)
-      flash[:notice] = "Changes successful"
-      redirect_to(:controller => 'users', :action => 'show')
+      flash[:notice] = 'Changes successful'
+      redirect_to(controller: 'users', action: 'show')
     else
       render('edit')
     end
-
   end
 
   private
 
-    def singer_params
-      return params.require(:singer).permit(:background_vocals, :range, :experience, :proficiency)
-    end
-
+  def singer_params
+    params.require(:singer).permit(:background_vocals, :range, :experience, :proficiency)
+  end
 end
