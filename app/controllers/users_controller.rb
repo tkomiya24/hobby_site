@@ -7,29 +7,29 @@ class UsersController < ApplicationController
 
   #CRUD actions
   def new
-  	@user = User.new
+    @user = User.new
   end
 
   def create
-  	
-  	@user = User.new(user_params)
 
-  	if @user.save
+    @user = User.new(user_params)
+
+    if @user.save
       flash[:notice] = "User created successfully!!!"
       session[:user_id] = @user.id
       redirect_to(root_path)
-  	else
-  		render('new')
-  	end
+    else
+      render('new')
+    end
 
   end
 
   def show
     if params[:id]
-      @user = User.find(params[:id]) 
-    else 
+      @user = User.find(params[:id])
+    else
       @user = User.find(session[:user_id])
-    end    
+    end
   end
 
   def edit
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def delete
-    
+
   end
 
   def destroy
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 
   #adding hobbies
   def add_instrument
-    
+
   end
 
   #authentication
@@ -95,9 +95,9 @@ class UsersController < ApplicationController
   #private methods
   private
 
-  	def user_params
-  		params.require(:user).permit(:first_name, :last_name, :username, :password, :city, :email, :password_confirmation, :email_confirmation)
-  	end
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :username, :password, :city, :email, :password_confirmation, :email_confirmation)
+    end
 
 
 
