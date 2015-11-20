@@ -54,34 +54,7 @@
     <br/><%= link_to("Add an instrument!", :action => 'add_instrument') %>
     -->
     <% if @user.drummer %>
-      <hr/>
-      <h3>Drummer</h3>
-      <table>
-        <tr>
-          <th>Background Vocals</th>
-          <td><%= @user.drummer.background_vocals %></td>
-        </tr>
-        <tr>
-          <th>Double Kick</th>
-          <td><%= @user.drummer.double_kick %></td>
-        </tr>
-        <tr>
-          <th>Experience</th>
-          <td><%= @user.drummer.experience %></td>
-        </tr>
-        <tr>
-          <th>Rating</th>
-          <td><%= @user.drummer.rating %></td>
-        </tr>
-        <tr>
-          <th>Proficiency</th>
-          <td><%= @user.drummer.proficiency %></td>
-        </tr>
-      </table>
-      <!--
-      <%= link_to("Edit", :controller => 'drummers', :action => 'edit') %>
-      <%= link_to("Delete", :controller => 'drummers', :action => 'destroy') %>
-      -->
+      <%= render(partial: 'drummers/show', locals: { drummer: @user.drummer }) %>
     <% end %>
     <% if @user.guitarist %>
       <hr/>
