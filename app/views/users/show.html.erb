@@ -3,62 +3,49 @@
   <div class="container-fluid">
     <h1><%= @user.username %></h1>
   <div>
-  <% if @user.musician? %>
-    <div class='panel panel-primary'>
-      <div class = 'panel-heading'>
-        <span class='panel-title'><i class='glyphicon glyphicon-music'></i>  Musician</span>
-      </div>
-      <div class = 'panel-body'>
-        <% if @user.singer %>
-          Singer   -  <%= @user.singer.rating %><br/>
-        <% end %>
-        <% if @user.drummer %>
-          Drummer   -  <%= @user.drummer.rating %><br/>
-        <% end %>
-        <% if @user.guitarist %>
-          Guitarist   -  <%= @user.guitarist.rating %><br/>
-        <% end %>
-        <% if @user.bassist %>
-          Bassist   -  <%= @user.bassist.rating %><br/>
-        <% end %>
-      </div>
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href='#profile' data-toggle="tab">Profile</a></li>
+    <li role="presentation"><a href='#musician' data-toggle="tab">Musician</a></li>
+  </ul>
+  <div class ="tab-content">
+    <div id="profile" class="tab-pane fade in active">
+      <table>
+        <tr>
+          <th>Username</th>
+          <td><%= @user.username %></td>
+        </tr>
+        <tr>
+          <th>First Name</th>
+          <td><%= @user.first_name %></td>
+        </tr>
+        <tr>
+          <th>Last Name</th>
+          <td><%= @user.last_name %></td>
+        </tr>
+        <tr>
+          <th>City</th>
+          <td><%= @user.city %></td>
+        </tr>
+        <tr>
+          <th>E-mail</th>
+          <td><%= @user.email %></td>
+        </tr>
+      </table>
     </div>
-  <% end %>
-  <div class ='container'>
-    <table>
-      <tr>
-        <th>Username</th>
-        <td><%= @user.username %></td>
-      </tr>
-      <tr>
-        <th>First Name</th>
-        <td><%= @user.first_name %></td>
-      </tr>
-      <tr>
-        <th>Last Name</th>
-        <td><%= @user.last_name %></td>
-      </tr>
-      <tr>
-        <th>City</th>
-        <td><%= @user.city %></td>
-      </tr>
-      <tr>
-        <th>E-mail</th>
-        <td><%= @user.email %></td>
-      </tr>
-    </table>
-    <br/><%= link_to("Add an instrument!", :action => 'add_instrument') %>
-    <% if @user.drummer %>
-      <%= render(partial: 'drummers/show', locals: { drummer: @user.drummer }) %>
-    <% end %>
-    <% if @user.guitarist %>
-      <%= render(partial: 'guitarists/show', locals: { guitarist: @user.guitarist }) %>
-    <% end %>
-    <% if @user.bassist %>
-      <%= render(partial: 'bassists/show', locals: { bassist: @user.singer }) %>
-    <% end %>
-    <% if @user.singer %>
-      <%= render(partial: 'singers/show', locals: { singer: @user.singer }) %>
-    <% end %>
+    <div id="musician" class="tab-pane fade">
+      <%= link_to("Add an instrument!", :action => 'add_instrument') %>
+      <% if @user.drummer %>
+        <%= render(partial: 'drummers/show', locals: { drummer: @user.drummer }) %>
+      <% end %>
+      <% if @user.guitarist %>
+        <%= render(partial: 'guitarists/show', locals: { guitarist: @user.guitarist }) %>
+      <% end %>
+      <% if @user.bassist %>
+        <%= render(partial: 'bassists/show', locals: { bassist: @user.singer }) %>
+      <% end %>
+      <% if @user.singer %>
+        <%= render(partial: 'singers/show', locals: { singer: @user.singer }) %>
+      <% end %>
+    </div>
   </div>
 </div>
