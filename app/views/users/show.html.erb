@@ -3,7 +3,6 @@
   <div class="container-fluid">
     <h1><%= @user.username %></h1>
   <div>
-  <!-- Div container for all the instruments -->
   <% if @user.musician? %>
     <div class='panel panel-primary'>
       <div class = 'panel-heading'>
@@ -48,11 +47,7 @@
         <td><%= @user.email %></td>
       </tr>
     </table>
-    <!--
-    <%= link_to("Edit", :action => 'edit') %>
-    <%= link_to("Delete", :action => 'delete') %>
     <br/><%= link_to("Add an instrument!", :action => 'add_instrument') %>
-    -->
     <% if @user.drummer %>
       <%= render(partial: 'drummers/show', locals: { drummer: @user.drummer }) %>
     <% end %>
