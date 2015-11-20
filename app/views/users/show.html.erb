@@ -57,35 +57,7 @@
       <%= render(partial: 'drummers/show', locals: { drummer: @user.drummer }) %>
     <% end %>
     <% if @user.guitarist %>
-      <hr/>
-      <h3>Guitarist</h3>
-      <table>
-        <tr>
-          <th>Background Vocals</th>
-          <td><%= @user.guitarist.background_vocals %></td>
-        </tr>
-        <tr>
-          <th>Rhythm, Lead or Both</th>
-          <td><%= @user.guitarist.rhythm_or_lead %></td>
-        </tr>
-        <tr>
-          <th>Experience</th>
-          <td><%= @user.guitarist.experience %></td>
-        </tr>
-        <tr>
-          <th>Rating</th>
-          <td><%= @user.guitarist.rating %></td>
-        </tr>
-        <tr>
-          <th>Proficiency</th>
-          <td><%= @user.guitarist.proficiency %></td>
-        </tr>
-
-      </table>
-      <!--
-      <%= link_to("Edit", :controller => 'guitarists', :action => 'edit') %>
-      <%= link_to("Delete", :controller => 'guitarists', :action => 'destroy') %>
-      -->
+      <%= render(partial: 'guitarist/show', locals: { guitarist: @user.guitarist }) %>
     <% end %>
 
     <% if @user.bassist %>
