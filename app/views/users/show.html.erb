@@ -9,28 +9,30 @@
   </ul>
   <div class ="tab-content">
     <div id="profile" class="tab-pane fade in active">
-      <table>
-        <tr>
-          <th>Username</th>
-          <td><%= @user.username %></td>
-        </tr>
-        <tr>
-          <th>First Name</th>
-          <td><%= @user.first_name %></td>
-        </tr>
-        <tr>
-          <th>Last Name</th>
-          <td><%= @user.last_name %></td>
-        </tr>
-        <tr>
-          <th>City</th>
-          <td><%= @user.city %></td>
-        </tr>
-        <tr>
-          <th>E-mail</th>
-          <td><%= @user.email %></td>
-        </tr>
-      </table>
+      <div class="profile">
+        <table>
+          <tr>
+            <th>Username</th>
+            <td><%= @user.username %></td>
+          </tr>
+          <tr>
+            <th>First Name</th>
+            <td><%= @user.first_name %></td>
+          </tr>
+          <tr>
+            <th>Last Name</th>
+            <td><%= @user.last_name %></td>
+          </tr>
+          <tr>
+            <th>City</th>
+            <td><%= @user.city %></td>
+          </tr>
+          <tr>
+            <th>E-mail</th>
+            <td><%= @user.email %></td>
+          </tr>
+        </table>
+      </div>
     </div>
     <div id="musician" class="tab-pane fade">
       <%= link_to("Add an instrument!", :action => 'add_instrument') %>
