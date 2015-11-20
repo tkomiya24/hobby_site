@@ -1,15 +1,16 @@
 .profile {
   text-align: center;
   table {
+    font-size: 1.2em;
     width: 75%;
     border-spacing: 2px;
     margin: auto;
     th {
-      margin: 2px;
+      padding: 5px;
       text-align: right;
     }
     td {
-      margin: 2px;
+      padding: 5px;
       text-align: left;
     }
   }
