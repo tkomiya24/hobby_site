@@ -12,10 +12,13 @@
  *
  */
 
+$lightGrey: #ddd;
+$borderColour: $lightGrey;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "users";
+
 
 .form-div{
 
