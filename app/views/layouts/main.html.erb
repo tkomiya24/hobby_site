@@ -25,12 +25,12 @@
         <div class="collapse navbar-collapse" id="actions">
           <ul class = "nav navbar-nav navbar-right">
             <% if session[:user_id] %>
-            <li>
-            <%= link_to('Edit Profile', {:controller => 'users', :action => 'edit'}) %>
-            </li>
-            <li>
-            <%= link_to('Logout', {:controller => 'users', :action => 'logout'}) %>
-            </li>
+              <li>
+                <%= link_to('Edit Profile', {controller: 'users', action: 'edit'}) %>
+              </li>
+              <li>
+                <%= link_to('Logout', {controller: 'users', action: 'logout'}) %>
+              </li>
             <% end %>
           </ul>
         </div>
