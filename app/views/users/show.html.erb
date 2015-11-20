@@ -57,7 +57,7 @@
       <%= render(partial: 'drummers/show', locals: { drummer: @user.drummer }) %>
     <% end %>
     <% if @user.guitarist %>
-      <%= render(partial: 'guitarist/show', locals: { guitarist: @user.guitarist }) %>
+      <%= render(partial: 'guitarists/show', locals: { guitarist: @user.guitarist }) %>
     <% end %>
 
     <% if @user.bassist %>
@@ -95,34 +95,7 @@
       -->
     <% end %>
     <% if @user.singer %>
-      <hr/>
-      <h3>Singer</h3>
-      <table>
-        <tr>
-          <th>Background Vocals</th>
-          <td><%= @user.singer.background_vocals %></td>
-        </tr>
-        <tr>
-          <th>Range</th>
-          <td><%= @user.singer.range %></td>
-        </tr>
-        <tr>
-          <th>Experience</th>
-          <td><%= @user.singer.experience %></td>
-        </tr>
-        <tr>
-          <th>Rating</th>
-          <td><%= @user.singer.rating %></td>
-        </tr>
-        <tr>
-          <th>Proficiency</th>
-          <td><%= @user.singer.proficiency %></td>
-        </tr>
-      </table>
-      <!--
-      <%= link_to("Edit", :controller => 'singers', :action => 'edit') %>
-      <%= link_to("Delete", :controller => 'singers', :action => 'destroy') %>
-      -->
+      <%= render(partial: 'singers/show', locals: { singer: @user.singer }) %>
     <% end %>
   </div>
 </div>
