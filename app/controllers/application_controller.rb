@@ -6,23 +6,24 @@ class ApplicationController < ActionController::Base
   private
 
   def check_login
-
-	      unless session[:user_id]
-	        redirect_to(:controller => 'users', :action => 'login')
-	        return false
-	      else
-	        return true
-	      end
-
+    if session[:user_id]
+      return true
+    else
+      redirect_to(controller: 'users', action: 'login')
+      return false
     end
+  end
 
-    def back_to_home
-		redirect_to(:controller => 'users', :action => 'show')
-	end
+  def back_to_home
+    redirect_to(controller: 'users', action: 'show')
+  end
 
-    def get_user
+  def fetch_user
+    @user = User.find(session[:user_id])
+  end
 
-      @user = User.find(session[:user_id])
-
-    end
+  def redirect_to_user
+    flash[:notice] = 'Changes successful!'
+    redirect_to(controller: 'users', action: 'show')
+  end
 end

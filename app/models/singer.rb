@@ -1,10 +1,8 @@
 class Singer < ActiveRecord::Base
+  has_one :user, dependent: :nullify
 
-	#relations
-	has_one :user, :dependent => :nullify
-
-	#validations 
-	validates :proficiency, :inclusion => {:in => [nil, 'Beginner', 'Intermmediate', 'Advanced', 'Professional']}
-	validates :range, :inclusion => {:in => ['Bass', 'Baritone', 'Tenor', 'Alto','Soprano']}
-
+  # validations
+  validates :proficiency,
+            inclusion: { in: [nil, 'Beginner', 'Intermmediate', 'Advanced', 'Professional'] }
+  validates :range, inclusion: { in: %w(Bass Baritone Tenor Alto Soprano) }
 end

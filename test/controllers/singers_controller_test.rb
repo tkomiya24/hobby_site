@@ -1,14 +1,13 @@
 require 'test_helper'
 
 class SingersControllerTest < ActionController::TestCase
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit
     assert_response :success
   end
-
 end
