@@ -9,7 +9,7 @@ class DrummersController < ApplicationController
   end
 
   def create
-    @drummer = Drummer.new(get_drummer_params)
+    @drummer = Drummer.new(read_params)
     @drummer.user = @user
 
     if @drummer.save
@@ -25,7 +25,7 @@ class DrummersController < ApplicationController
 
   def update
     @drummer = User.find(session[:user_id]).drummer
-    if @drummer.update_attributes(get_drummer_params)
+    if @drummer.update_attributes(read_params)
       flash[:notice] = 'Changes successful!'
       redirect_to(controller: 'users', action: 'show')
     else
@@ -45,7 +45,7 @@ class DrummersController < ApplicationController
 
   private
 
-  def get_drummer_params
+  def read_params
     params.require(:drummer).permit(:background_vocals, :double_kick, :experience, :proficiency)
   end
 
