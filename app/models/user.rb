@@ -39,10 +39,12 @@ class User < ActiveRecord::Base
     !drummer.nil? || !guitarist.nil? || !bassist.nil? || !singer.nil?
   end
 
+  # rubocop:disable Lint/UselessAssignment
   def nullify_deleted
     drummer_id = nil if drummer.nil?
     bassist_id = nil if bassist.nil?
     guitarist_id = nil if guitarist.nil?
     save
   end
+  # rubocop:enable Lint/UselessAssignment
 end
