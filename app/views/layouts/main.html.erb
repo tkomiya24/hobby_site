@@ -37,11 +37,11 @@
       </div>
     </nav>
     <div class ="container">
-    <% if !flash[:notice].blank? %>
-    <div id="flash-message" class = "container">
-    <%= flash[:notice] %>
-    </div>
-    <% end %>
+      <% if !flash[:notice].blank? %>
+        <div id="flash-message" class = "container">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
     </div>
     <div id="content" class = "container">
     <%= yield %>
