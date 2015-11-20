@@ -15,3 +15,9 @@
     }
   }
 }
+
+.tab-pane {
+  border-left: 1px solid $borderColour;
+  border-right: 1px solid $borderColour;
+  padding: 10px;
+}
