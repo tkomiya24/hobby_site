@@ -1,210 +1,64 @@
-<% @title = "Info for user " + @user.username %>
-
-<div class="container-fluid">
-	<h1>User: <%= @user.username %></h1>
-<div>
-
-<% if @user.id == session[:user_id] %>
-	<div>
-		<%= link_to("Add an instrument", {:action => 'add_instrument'}, {:class => 'btn btn-success'}) %>
-		<%= link_to("Find matches", '#', {:class => 'btn btn-success'}) %>
-		<%= link_to("Edit profile", {:action => 'edit'}, {:class => 'btn btn-success'}) %>
-	</div>
-<% end %>
-
-<!-- Div container for all the instruments -->
-<% if @user.musician? %>
-	<div class='panel panel-primary'>
-		
-		<div class = 'panel-heading'>
-			<span class='panel-title'><i class='glyphicon glyphicon-music'></i>	Musician</span>
-		</div>
-
-		<div class = 'panel-body'>
-			<% if @user.singer %>
-				Singer 	-	<%= @user.singer.rating %><br/>
-			<% end %> 
-			<% if @user.drummer %>
-				Drummer 	-	<%= @user.drummer.rating %><br/>
-			<% end %> 
-			<% if @user.guitarist %>
-				Guitarist 	-	<%= @user.guitarist.rating %><br/>
-			<% end %> 
-			<% if @user.bassist %>
-				Bassist 	-	<%= @user.bassist.rating %><br/>
-			<% end %> 
-		</div>
-
-	</div>
-<% end %>	
-
-<div class ='container'>
-	<table>
-		<tr>
-			<th>Username</th>
-			<td><%= @user.username %></td>
-		</tr>
-		<tr>
-			<th>First Name</th>
-			<td><%= @user.first_name %></td>
-		</tr>
-		<tr>
-			<th>Last Name</th>
-			<td><%= @user.last_name %></td>
-		</tr>
-		<tr>
-			<th>City</th>
-			<td><%= @user.city %></td>
-		</tr>
-		<tr>
-			<th>E-mail</th>
-			<td><%= @user.email %></td>
-		</tr>
-	</table>
-	<!--
-	<%= link_to("Edit", :action => 'edit') %>
-	<%= link_to("Delete", :action => 'delete') %>
-	<br/><%= link_to("Add an instrument!", :action => 'add_instrument') %>
-	-->
-	<% if @user.drummer %>
-
-		<hr/>
-
-		<h3>Drummer</h3>
-		<table>
-			<tr>
-				<th>Background Vocals</th>
-				<td><%= @user.drummer.background_vocals %></td>
-			</tr>
-			<tr>
-				<th>Double Kick</th>
-				<td><%= @user.drummer.double_kick %></td>
-			</tr>
-			<tr>
-				<th>Experience</th>
-				<td><%= @user.drummer.experience %></td>
-			</tr>
-			<tr>
-				<th>Rating</th>
-				<td><%= @user.drummer.rating %></td>
-			</tr>
-			<tr>
-				<th>Proficiency</th>
-				<td><%= @user.drummer.proficiency %></td>
-			</tr>
-
-		</table>
-		<!--
-		<%= link_to("Edit", :controller => 'drummers', :action => 'edit') %>
-		<%= link_to("Delete", :controller => 'drummers', :action => 'destroy') %>
-		-->
-	<% end %>
-
-
-	<% if @user.guitarist %>
-
-		<hr/>
-
-		<h3>Guitarist</h3>
-		<table>
-			<tr>
-				<th>Background Vocals</th>
-				<td><%= @user.guitarist.background_vocals %></td>
-			</tr>
-			<tr>
-				<th>Rhythm, Lead or Both</th>
-				<td><%= @user.guitarist.rhythm_or_lead %></td>
-			</tr>
-			<tr>
-				<th>Experience</th>
-				<td><%= @user.guitarist.experience %></td>
-			</tr>
-			<tr>
-				<th>Rating</th>
-				<td><%= @user.guitarist.rating %></td>
-			</tr>
-			<tr>
-				<th>Proficiency</th>
-				<td><%= @user.guitarist.proficiency %></td>
-			</tr>
-
-		</table>
-		<!--
-		<%= link_to("Edit", :controller => 'guitarists', :action => 'edit') %>
-		<%= link_to("Delete", :controller => 'guitarists', :action => 'destroy') %>
-		-->
-	<% end %>
-
-	<% if @user.bassist %>
-
-		<hr/>
-
-		<h3>Bassist</h3>
-		<table>
-			<tr>
-				<th>Background Vocals</th>
-				<td><%= @user.bassist.background_vocals %></td>
-			</tr>
-			<tr>
-				<th>Plays five string?</th>
-				<td><%= @user.bassist.five_string %></td>
-			</tr>
-			<tr>
-				<th>Plays six string?</th>
-				<td><%= @user.bassist.six_string %></td>
-			</tr>
-			<tr>
-				<th>Experience</th>
-				<td><%= @user.bassist.experience %></td>
-			</tr>
-			<tr>
-				<th>Rating</th>
-				<td><%= @user.bassist.rating %></td>
-			</tr>
-			<tr>
-				<th>Proficiency</th>
-				<td><%= @user.bassist.proficiency %></td>
-			</tr>
-
-		</table>
-		<!--
-		<%= link_to("Edit", :controller => 'bassists', :action => 'edit') %>
-		<%= link_to("Delete", :controller => 'bassists', :action => 'destroy') %>
-		-->
-	<% end %>
-
-	<% if @user.singer %>
-
-		<hr/>
-
-		<h3>Singer</h3>
-		<table>
-			<tr>
-				<th>Background Vocals</th>
-				<td><%= @user.singer.background_vocals %></td>
-			</tr>
-			<tr>
-				<th>Range</th>
-				<td><%= @user.singer.range %></td>
-			</tr>
-			<tr>
-				<th>Experience</th>
-				<td><%= @user.singer.experience %></td>
-			</tr>
-			<tr>
-				<th>Rating</th>
-				<td><%= @user.singer.rating %></td>
-			</tr>
-			<tr>
-				<th>Proficiency</th>
-				<td><%= @user.singer.proficiency %></td>
-			</tr>
-
-		</table>
-		<!--
-		<%= link_to("Edit", :controller => 'singers', :action => 'edit') %>
-		<%= link_to("Delete", :controller => 'singers', :action => 'destroy') %>
-		-->
-	<% end %>
-
+<div class="container">
+  <% @title = "Info for user " + @user.username %>
+  <div class="container-fluid">
+    <h1><%= @user.username %></h1>
+  <div>
+  <% if @user.musician? %>
+    <div class='panel panel-primary'>
+      <div class = 'panel-heading'>
+        <span class='panel-title'><i class='glyphicon glyphicon-music'></i>  Musician</span>
+      </div>
+      <div class = 'panel-body'>
+        <% if @user.singer %>
+          Singer   -  <%= @user.singer.rating %><br/>
+        <% end %>
+        <% if @user.drummer %>
+          Drummer   -  <%= @user.drummer.rating %><br/>
+        <% end %>
+        <% if @user.guitarist %>
+          Guitarist   -  <%= @user.guitarist.rating %><br/>
+        <% end %>
+        <% if @user.bassist %>
+          Bassist   -  <%= @user.bassist.rating %><br/>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div class ='container'>
+    <table>
+      <tr>
+        <th>Username</th>
+        <td><%= @user.username %></td>
+      </tr>
+      <tr>
+        <th>First Name</th>
+        <td><%= @user.first_name %></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td><%= @user.last_name %></td>
+      </tr>
+      <tr>
+        <th>City</th>
+        <td><%= @user.city %></td>
+      </tr>
+      <tr>
+        <th>E-mail</th>
+        <td><%= @user.email %></td>
+      </tr>
+    </table>
+    <br/><%= link_to("Add an instrument!", :action => 'add_instrument') %>
+    <% if @user.drummer %>
+      <%= render(partial: 'drummers/show', locals: { drummer: @user.drummer }) %>
+    <% end %>
+    <% if @user.guitarist %>
+      <%= render(partial: 'guitarists/show', locals: { guitarist: @user.guitarist }) %>
+    <% end %>
+    <% if @user.bassist %>
+      <%= render(partial: 'bassists/show', locals: { bassist: @user.singer }) %>
+    <% end %>
+    <% if @user.singer %>
+      <%= render(partial: 'singers/show', locals: { singer: @user.singer }) %>
+    <% end %>
+  </div>
 </div>
