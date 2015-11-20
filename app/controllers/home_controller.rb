@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-
   layout 'main'
 
   before_action :check_login
