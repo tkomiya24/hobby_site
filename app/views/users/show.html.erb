@@ -1,9 +1,7 @@
 <% @title = "Info for user " + @user.username %>
-
 <div class="container-fluid">
   <h1>User: <%= @user.username %></h1>
 <div>
-
 <% if @user.id == session[:user_id] %>
   <div>
     <%= link_to("Add an instrument", {:action => 'add_instrument'}, {:class => 'btn btn-success'}) %>
@@ -11,15 +9,12 @@
     <%= link_to("Edit profile", {:action => 'edit'}, {:class => 'btn btn-success'}) %>
   </div>
 <% end %>
-
 <!-- Div container for all the instruments -->
 <% if @user.musician? %>
   <div class='panel panel-primary'>
-
     <div class = 'panel-heading'>
       <span class='panel-title'><i class='glyphicon glyphicon-music'></i>  Musician</span>
     </div>
-
     <div class = 'panel-body'>
       <% if @user.singer %>
         Singer   -  <%= @user.singer.rating %><br/>
@@ -34,10 +29,8 @@
         Bassist   -  <%= @user.bassist.rating %><br/>
       <% end %>
     </div>
-
   </div>
 <% end %>
-
 <div class ='container'>
   <table>
     <tr>
@@ -67,9 +60,7 @@
   <br/><%= link_to("Add an instrument!", :action => 'add_instrument') %>
   -->
   <% if @user.drummer %>
-
     <hr/>
-
     <h3>Drummer</h3>
     <table>
       <tr>
@@ -92,19 +83,14 @@
         <th>Proficiency</th>
         <td><%= @user.drummer.proficiency %></td>
       </tr>
-
     </table>
     <!--
     <%= link_to("Edit", :controller => 'drummers', :action => 'edit') %>
     <%= link_to("Delete", :controller => 'drummers', :action => 'destroy') %>
     -->
   <% end %>
-
-
   <% if @user.guitarist %>
-
     <hr/>
-
     <h3>Guitarist</h3>
     <table>
       <tr>
@@ -136,9 +122,7 @@
   <% end %>
 
   <% if @user.bassist %>
-
     <hr/>
-
     <h3>Bassist</h3>
     <table>
       <tr>
@@ -165,18 +149,14 @@
         <th>Proficiency</th>
         <td><%= @user.bassist.proficiency %></td>
       </tr>
-
     </table>
     <!--
     <%= link_to("Edit", :controller => 'bassists', :action => 'edit') %>
     <%= link_to("Delete", :controller => 'bassists', :action => 'destroy') %>
     -->
   <% end %>
-
   <% if @user.singer %>
-
     <hr/>
-
     <h3>Singer</h3>
     <table>
       <tr>
@@ -199,12 +179,10 @@
         <th>Proficiency</th>
         <td><%= @user.singer.proficiency %></td>
       </tr>
-
     </table>
     <!--
     <%= link_to("Edit", :controller => 'singers', :action => 'edit') %>
     <%= link_to("Delete", :controller => 'singers', :action => 'destroy') %>
     -->
   <% end %>
-
 </div>
