@@ -43,7 +43,7 @@
         <%= render(partial: 'guitarists/show', locals: { guitarist: @user.guitarist }) %>
       <% end %>
       <% if @user.bassist %>
-        <%= render(partial: 'bassists/show', locals: { bassist: @user.singer }) %>
+        <%= render(partial: 'bassists/show', locals: { bassist: @user.bassist }) %>
       <% end %>
       <% if @user.singer %>
         <%= render(partial: 'singers/show', locals: { singer: @user.singer }) %>

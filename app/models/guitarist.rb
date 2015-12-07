@@ -7,5 +7,5 @@ class Guitarist < ActiveRecord::Base
   # validates :user_id, :presence => true
   validates :proficiency,
             inclusion: { in: [nil, 'Beginner', 'Intermmediate', 'Advanced', 'Professional'] }
-  validates :rhythm_or_lead, inclusion: { in: %w('Rhythm', 'Lead', 'Both') }
+  validates :rhythm_or_lead, inclusion: { in: %w(Rhythm Lead Both) }
 end
