@@ -1,0 +1,23 @@
+.profile {
+  text-align: center;
+  table {
+    font-size: 1.2em;
+    width: 75%;
+    border-spacing: 2px;
+    margin: auto;
+    th {
+      padding: 5px;
+      text-align: right;
+    }
+    td {
+      padding: 5px;
+      text-align: left;
+    }
+  }
+}
+
+.tab-pane {
+  border-left: 1px solid $borderColour;
+  border-right: 1px solid $borderColour;
+  padding: 10px;
+}
