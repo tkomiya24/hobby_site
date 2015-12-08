@@ -2,8 +2,8 @@
 	<div class = "checkbox">
 		<%= u.label(:double_kick, :class => 'control-label') do %>
 			<%= u.check_box(:double_kick)%>Double Kick
-		<% end %> 
+		<% end %>
 	</div>
 </div>
 
-<%= render(:partial => 'application/instrument_common_fields_form', :locals => {:u => u}) %>
+<%= render(partial: 'musical_hobbies/_form', locals: {u: u.musical_hobby}) %>
