@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   has_many :received_reviews, class_name: 'Review', foreign_key: 'reviewee_id'
   has_many :written_reviews, class_name: 'Review', foreign_key: 'reviewee_id'
 
+  has_many :musical_hobbies
+
   def get_matches(limit)
     User.where(['CITY = ? AND '\
                 '(drummer_id IS NOT NULL OR '\
