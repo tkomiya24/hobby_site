@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: EMAIL_REGEX, confirmation: true
 
   # associations
-  belongs_to :drummer
   belongs_to :guitarist
   belongs_to :bassist
   belongs_to :singer
