@@ -19,8 +19,7 @@ class User < ActiveRecord::Base
 
   def get_matches(limit)
     User.where(['CITY = ? AND '\
-                '(drummer_id IS NOT NULL OR '\
-                'guitarist_id IS NOT NULL OR '\
+                '(guitarist_id IS NOT NULL OR '\
                 'bassist_id IS NOT NULL)', city]).where.not(id: id).limit(limit)
   end
 
