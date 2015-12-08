@@ -45,11 +45,17 @@ ActiveRecord::Schema.define(version: 20151208175751) do
   end
 
   create_table "musical_hobbies", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "user_id",    limit: 4
+    t.boolean  "background_vocals",             default: false
+    t.integer  "experience",        limit: 4,   default: 0
+    t.string   "proficiency",       limit: 255
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.integer  "user_id",           limit: 4,                   null: false
+    t.integer  "instrument_id",     limit: 4,                   null: false
+    t.string   "instrument_type",   limit: 255,                 null: false
   end
 
+  add_index "musical_hobbies", ["instrument_type", "instrument_id"], name: "index_musical_hobbies_on_instrument_type_and_instrument_id", using: :btree
   add_index "musical_hobbies", ["user_id"], name: "index_musical_hobbies_on_user_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|

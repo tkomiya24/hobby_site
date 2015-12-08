@@ -5,7 +5,8 @@ class CreateMusicalHobbies < ActiveRecord::Migration
       t.integer 'experience', default: 0
       t.string 'proficiency'
       t.timestamps null: false
-      t.references :user, index: true
+      t.references :user, index: true, null: false
+      t.references :instrument, polymorphic: true, index: true, null: false
     end
   end
 
