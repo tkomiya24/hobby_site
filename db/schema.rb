@@ -11,71 +11,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104213545) do
+ActiveRecord::Schema.define(version: 20151208175751) do
 
-  create_table "bassists", force: true do |t|
-    t.boolean  "background_vocals", default: false, null: false
-    t.boolean  "five_string",       default: false, null: false
-    t.boolean  "six_string",        default: false, null: false
-    t.integer  "experience",        default: 0,     null: false
-    t.integer  "rating",            default: 0
-    t.string   "proficiency"
+  create_table "bassists", force: :cascade do |t|
+    t.boolean  "background_vocals",             default: false, null: false
+    t.boolean  "five_string",                   default: false, null: false
+    t.boolean  "six_string",                    default: false, null: false
+    t.integer  "experience",        limit: 4,   default: 0,     null: false
+    t.integer  "rating",            limit: 4,   default: 0
+    t.string   "proficiency",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "drummers", force: true do |t|
-    t.boolean  "background_vocals", default: false, null: false
-    t.boolean  "double_kick",       default: false, null: false
-    t.integer  "experience",        default: 0,     null: false
-    t.integer  "rating",            default: 0
-    t.string   "proficiency"
+  create_table "drummers", force: :cascade do |t|
+    t.boolean  "background_vocals",             default: false, null: false
+    t.boolean  "double_kick",                   default: false, null: false
+    t.integer  "experience",        limit: 4,   default: 0,     null: false
+    t.integer  "rating",            limit: 4,   default: 0
+    t.string   "proficiency",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "guitarists", force: true do |t|
-    t.boolean  "background_vocals", default: false, null: false
-    t.string   "rhythm_or_lead",                    null: false
-    t.integer  "experience",        default: 0,     null: false
-    t.integer  "rating",            default: 0
-    t.string   "proficiency"
+  create_table "guitarists", force: :cascade do |t|
+    t.boolean  "background_vocals",             default: false, null: false
+    t.string   "rhythm_or_lead",    limit: 255,                 null: false
+    t.integer  "experience",        limit: 4,   default: 0,     null: false
+    t.integer  "rating",            limit: 4,   default: 0
+    t.string   "proficiency",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "reviews", force: true do |t|
-    t.integer  "reviewer_id", null: false
-    t.integer  "reviewee_id", null: false
-    t.integer  "rating",      null: false
-    t.text     "review"
+  create_table "musical_hobbies", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "user_id",    limit: 4
+  end
+
+  add_index "musical_hobbies", ["user_id"], name: "index_musical_hobbies_on_user_id", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "reviewer_id", limit: 4,     null: false
+    t.integer  "reviewee_id", limit: 4,     null: false
+    t.integer  "rating",      limit: 4,     null: false
+    t.text     "review",      limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "singers", force: true do |t|
-    t.boolean  "background_vocals", default: false, null: false
-    t.string   "range"
-    t.integer  "experience",        default: 0,     null: false
-    t.integer  "rating",            default: 0
-    t.string   "proficiency"
+  create_table "singers", force: :cascade do |t|
+    t.boolean  "background_vocals",             default: false, null: false
+    t.string   "range",             limit: 255
+    t.integer  "experience",        limit: 4,   default: 0,     null: false
+    t.integer  "rating",            limit: 4,   default: 0
+    t.string   "proficiency",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "username",        null: false
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "city"
+  create_table "users", force: :cascade do |t|
+    t.string   "username",        limit: 255, null: false
+    t.string   "first_name",      limit: 255
+    t.string   "last_name",       limit: 255
+    t.string   "email",           limit: 255
+    t.string   "city",            limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
-    t.integer  "drummer_id"
-    t.integer  "guitarist_id"
-    t.integer  "bassist_id"
-    t.integer  "singer_id"
+    t.string   "password_digest", limit: 255
+    t.integer  "drummer_id",      limit: 4
+    t.integer  "guitarist_id",    limit: 4
+    t.integer  "bassist_id",      limit: 4
+    t.integer  "singer_id",       limit: 4
   end
 
   add_index "users", ["username"], name: "index_users_on_username", using: :btree
