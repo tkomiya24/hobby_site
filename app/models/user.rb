@@ -30,6 +30,12 @@ class User < ActiveRecord::Base
     false
   end
 
+  def drummer
+    musical_hobbies.each do |hobby|
+      return hobby if hobby.instrument_type == 'Drummer'
+    end
+  end
+
   def get_drummers(limit)
     User.where(city: city).where.not(id: id, drummer_id: nil).limit(limit)
   end
