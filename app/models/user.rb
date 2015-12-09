@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   # associations
   belongs_to :guitarist
   belongs_to :bassist
-  belongs_to :singer
   has_many :received_reviews, class_name: 'Review', foreign_key: 'reviewee_id'
   has_many :written_reviews, class_name: 'Review', foreign_key: 'reviewee_id'
 
@@ -49,7 +48,7 @@ class User < ActiveRecord::Base
   end
 
   def musician?
-    !guitarist.nil? || !bassist.nil? || !singer.nil?
+    !guitarist.nil? || !bassist.nil?
   end
 
   # rubocop:disable Lint/UselessAssignment
