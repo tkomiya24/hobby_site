@@ -36,10 +36,8 @@
     </div>
     <div id="musician" class="tab-pane fade">
       <%= link_to("Add an instrument!", :action => 'add_instrument') %>
-      <% if false %>
-        <% if @user.drummer %>
-          <%= render(partial: 'drummers/show', locals: { drummer: @user.drummer }) %>
-        <% end %>
+      <% if @user.drummer? %>
+        <%= render(partial: 'drummers/show', locals: { drummer: @user.drummer }) %>
       <% end %>
       <% if @user.guitarist %>
         <%= render(partial: 'guitarists/show', locals: { guitarist: @user.guitarist }) %>
