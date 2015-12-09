@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Background Vocals</th>
-    <td><%= drummer.background_vocals %></td>
+    <td><%= drummer.musical_hobby.background_vocals %></td>
   </tr>
   <tr>
     <th>Double Kick</th>
@@ -11,18 +11,10 @@
   </tr>
   <tr>
     <th>Experience</th>
-    <td><%= drummer.experience %></td>
-  </tr>
-  <tr>
-    <th>Rating</th>
-    <td><%= drummer.rating %></td>
+    <td><%= drummer.musical_hobby.experience %></td>
   </tr>
   <tr>
     <th>Proficiency</th>
-    <td><%= drummer.proficiency %></td>
+    <td><%= drummer.musical_hobby.proficiency %></td>
   </tr>
 </table>
-<!--
-<%= link_to("Edit", :controller => 'drummers', :action => 'edit') %>
-<%= link_to("Delete", :controller => 'drummers', :action => 'destroy') %>
--->

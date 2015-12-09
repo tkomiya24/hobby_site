@@ -22,9 +22,9 @@
 							</div>
 
 							<div class ='panel-body'>
-								<!--<% if @matches[i].drummer %>
-									<p>Drummer   -   Rating: <%= @matches[i].drummer.rating %></p>
-								<% end %>-->
+								<% if @matches[i].drummer %>
+									<p>Drummer</p>
+								<% end %>
 								<% if @matches[i].bassist %>
 									<p>Bassist   -   Rating: <%= @matches[i].bassist.rating %></p>
 								<% end %>
@@ -53,9 +53,9 @@
 		<p>Your profile is looking very empty... Tell us more about yourself!!! Are you a...</p>
 		<div class='row'>
 
-				<!--<%= link_to({:controller => 'drummers', :action => 'new'},:class => 'btn btn-info col-xs-3') do %>
+				<%= link_to({controller: 'drummers', action: 'new'}, class: 'btn btn-info col-xs-3') do %>
 					<h3>Drummer?</h3>
-				<% end %>-->
+				<% end %>
 				<%= link_to({:controller => 'guitarists', :action => 'new'},:class => 'btn btn-success col-xs-3') do %>
 					<h3>Guitarist?</h3>
 				<% end %>

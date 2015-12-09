@@ -1,10 +1,7 @@
-<%= form_for(:drummer, :url => {:action => 'update'}, :class => 'form-horizontal') do |u| %>
-
-	<%= render(:partial => 'form', :locals => {:u => u}) %>
-
-	<%= button_tag(:type => 'submit', :class => 'btn btn-primary') do %>
-			<i class="glyphicon glyphicon-floppy-save"></i>  Submit
-	<% end %> 
-
+<%= form_for(:drummer, url: {action: 'update'}, class: 'form-horizontal') do |u| %>
+  <%= render(class: 'form', locals: {u: u}) %>
+  <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+      <i class="glyphicon glyphicon-floppy-save"></i>  Submit
+  <% end %>
 <% end %>
-<%= link_to("Back", :controller => 'users', :action => 'show') %>
+<%= link_to("Back", controller: 'users', action: 'show') %>
