@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   # associations
   belongs_to :guitarist
   belongs_to :bassist
-  belongs_to :singer
   has_many :received_reviews, class_name: 'Review', foreign_key: 'reviewee_id'
   has_many :written_reviews, class_name: 'Review', foreign_key: 'reviewee_id'
 
@@ -23,16 +22,32 @@ class User < ActiveRecord::Base
                 'bassist_id IS NOT NULL)', city]).where.not(id: id).limit(limit)
   end
 
+  def singer?
+    plays_instrument?('Singer')
+  end
+
   def drummer?
+    plays_instrument?('Drummer')
+  end
+
+  def plays_instrument?(instrument)
     musical_hobbies.each do |hobby|
-      return true if hobby.instrument_type == 'Drummer'
+      return true if hobby.instrument_type == instrument
     end
     false
   end
 
   def drummer
+    instrument('Drummer')
+  end
+
+  def singer
+    instrument('Singer')
+  end
+
+  def instrument(instrument)
     musical_hobbies.each do |hobby|
-      return hobby.instrument if hobby.instrument_type == 'Drummer'
+      return hobby.instrument if hobby.instrument_type == instrument
     end
   end
 
@@ -49,7 +64,7 @@ class User < ActiveRecord::Base
   end
 
   def musician?
-    !guitarist.nil? || !bassist.nil? || !singer.nil?
+    !guitarist.nil? || !bassist.nil?
   end
 
   # rubocop:disable Lint/UselessAssignment
