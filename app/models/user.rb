@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 
   def drummer
     musical_hobbies.each do |hobby|
-      return hobby if hobby.instrument_type == 'Drummer'
+      return hobby.instrument if hobby.instrument_type == 'Drummer'
     end
   end
 
