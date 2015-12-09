@@ -5,7 +5,7 @@
 <% if !@user.guitarist %>
 	<%= link_to("Guitar", :controller => 'guitarists', :action => 'new') %>
 <% end %>
-<% if !@user.bassist %>
+<% unless @user.drummer? %>
 	<%= link_to('Drummer', controller: 'drummers', action: 'new') %>
 <% end %>
 <% if !@user.bassist %>
