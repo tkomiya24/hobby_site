@@ -8,7 +8,7 @@ class SingersController < ApplicationController
 
   def create
     @singer = Singer.new(singer_params)
-    fetch_user.singer = @singer
+    @singer.user = fetch_user
 
     if @singer.save
       flash[:notice] = 'Changes successful'
