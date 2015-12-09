@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
                 'bassist_id IS NOT NULL)', city]).where.not(id: id).limit(limit)
   end
 
+  def singer?
+    plays_instrument?('Singer')
+  end
+
   def drummer?
     plays_instrument?('Drummer')
   end
@@ -34,8 +38,12 @@ class User < ActiveRecord::Base
   end
 
   def drummer
+    instrument('Drummer')
+  end
+
+  def instrument(instrument)
     musical_hobbies.each do |hobby|
-      return hobby.instrument if hobby.instrument_type == 'Drummer'
+      return hobby.instrument if hobby.instrument_type == instrument
     end
   end
 
