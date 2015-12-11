@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
 
   # associations
   belongs_to :guitarist
-  belongs_to :bassist
   has_many :received_reviews, class_name: 'Review', foreign_key: 'reviewee_id'
   has_many :written_reviews, class_name: 'Review', foreign_key: 'reviewee_id'
 
