@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :written_reviews, class_name: 'Review'
   has_many :musical_hobbies
 
-  def get_matches(*)
+  def find_matches(*)
     []
   end
 
