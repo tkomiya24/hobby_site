@@ -21,6 +21,7 @@ class DrummersController < ApplicationController
 
   def edit
     @drummer = User.find(session[:user_id]).drummer
+    @musical_hobby_attributes = @drummer.musical_hobby
   end
 
   def update

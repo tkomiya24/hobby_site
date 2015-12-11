@@ -19,6 +19,7 @@ class BassistsController < ApplicationController
 
   def edit
     @bassist = fetch_user.bassist
+    @msuical_hobby_attributes = bassist.musical_hobby
   end
 
   def update
