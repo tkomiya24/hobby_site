@@ -10,7 +10,6 @@ class DrummersController < ApplicationController
 
   def create
     @drummer = Drummer.new(read_params)
-    @drummer.musical_hobby.instrument = @drummer
     @drummer.user = fetch_user
 
     if @drummer.save

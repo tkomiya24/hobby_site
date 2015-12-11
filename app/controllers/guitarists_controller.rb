@@ -8,7 +8,6 @@ class GuitaristsController < ApplicationController
 
   def create
     @guitarist = Guitarist.new(guitarist_params)
-    @guitarist.musical_hobby.instrument = @guitarist
     @guitarist.user = fetch_user
     if @guitarist.save
       redirect_to_user

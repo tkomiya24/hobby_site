@@ -8,7 +8,6 @@ class SingersController < ApplicationController
 
   def create
     @singer = Singer.new(singer_params)
-    @singer.musical_hobby.instrument = @singer
     @singer.user = fetch_user
 
     if @singer.save

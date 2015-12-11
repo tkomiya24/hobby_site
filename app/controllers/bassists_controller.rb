@@ -8,7 +8,6 @@ class BassistsController < ApplicationController
 
   def create
     @bassist = Bassist.new(bassist_params)
-    @bassist.musical_hobby.instrument = @bassist
     @bassist.user = fetch_user
     if @bassist.save
       flash[:notice] = 'Changes successful!'
