@@ -8,6 +8,7 @@ class SingersController < ApplicationController
 
   def create
     @singer = Singer.new(singer_params)
+    @singer.musical_hobby.instrument = @singer
     @singer.user = fetch_user
 
     if @singer.save
@@ -46,6 +47,7 @@ class SingersController < ApplicationController
   private
 
   def singer_params
-    params.require(:singer).permit(:background_vocals, :range, :experience, :proficiency)
+    params.require(:singer).permit(:range, musical_hobby_attributes:
+    [:background_vocals, :experience, :proficiency])
   end
 end
