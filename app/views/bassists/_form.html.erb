@@ -1,17 +1,15 @@
 <div class='form-group'>
-	<div class ='checkbox'>
-		<%= u.label(:five_string) do%>
-			<%= u.check_box(:five_string)%> Do you play five string?
-		<% end %>
-	</div>
+  <div class ='checkbox'>
+    <%= u.label(:five_string) do%>
+      <%= u.check_box(:five_string)%> Do you play five string?
+    <% end %>
+  </div>
 </div>
-
 <div class='form-group'>
-	<div class ='checkbox'>
-		<%= u.label(:six_string) do%>
-			<%= u.check_box(:six_string)%> Do you play six string?
-		<% end %>
-	</div>
+  <div class ='checkbox'>
+    <%= u.label(:six_string) do%>
+      <%= u.check_box(:six_string)%> Do you play six string?
+    <% end %>
+  </div>
 </div>
-
-<%= render(:partial => 'application/instrument_common_fields_form', :locals => {:u => u}) %>
+<%= render(partial: 'musical_hobbies/form', locals: {u: u}) %>

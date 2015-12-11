@@ -11,17 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209013259) do
+ActiveRecord::Schema.define(version: 20151211004234) do
 
   create_table "bassists", force: :cascade do |t|
-    t.boolean  "background_vocals",             default: false, null: false
-    t.boolean  "five_string",                   default: false, null: false
-    t.boolean  "six_string",                    default: false, null: false
-    t.integer  "experience",        limit: 4,   default: 0,     null: false
-    t.integer  "rating",            limit: 4,   default: 0
-    t.string   "proficiency",       limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean "five_string", default: false, null: false
+    t.boolean "six_string",  default: false, null: false
   end
 
   create_table "drummers", force: :cascade do |t|
@@ -75,7 +69,6 @@ ActiveRecord::Schema.define(version: 20151209013259) do
     t.datetime "updated_at"
     t.string   "password_digest", limit: 255
     t.integer  "guitarist_id",    limit: 4
-    t.integer  "bassist_id",      limit: 4
   end
 
   add_index "users", ["username"], name: "index_users_on_username", using: :btree

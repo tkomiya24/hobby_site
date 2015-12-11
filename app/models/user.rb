@@ -10,16 +10,13 @@ class User < ActiveRecord::Base
 
   # associations
   belongs_to :guitarist
-  belongs_to :bassist
   has_many :received_reviews, class_name: 'Review', foreign_key: 'reviewee_id'
   has_many :written_reviews, class_name: 'Review', foreign_key: 'reviewee_id'
 
   has_many :musical_hobbies
 
-  def get_matches(limit)
-    User.where(['CITY = ? AND '\
-                '(guitarist_id IS NOT NULL OR '\
-                'bassist_id IS NOT NULL)', city]).where.not(id: id).limit(limit)
+  def get_matches(*)
+    []
   end
 
   def singer?
@@ -28,6 +25,10 @@ class User < ActiveRecord::Base
 
   def drummer?
     plays_instrument?('Drummer')
+  end
+
+  def bassist?
+    plays_instrument?('Bassist')
   end
 
   def plays_instrument?(instrument)
@@ -43,6 +44,10 @@ class User < ActiveRecord::Base
 
   def singer
     instrument('Singer')
+  end
+
+  def bassist
+    instrument('Bassist')
   end
 
   def instrument(instrument)

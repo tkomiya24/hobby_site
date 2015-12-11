@@ -8,7 +8,7 @@ class BassistsController < ApplicationController
 
   def create
     @bassist = Bassist.new(bassist_params)
-    User.find(session[:user_id]).bassist = @bassist
+    @bassist.user = fetch_user
     if @bassist.save
       flash[:notice] = 'Changes successful!'
       redirect_to(controller: 'users', action: 'show')
@@ -18,11 +18,11 @@ class BassistsController < ApplicationController
   end
 
   def edit
-    @bassist = User.find(session[:user_id]).bassist
+    @bassist = fetch_user.bassist
   end
 
   def update
-    @bassist = User.find(session[:user_id]).bassist
+    @bassist = fetch_user.bassist
     if @bassist.update_attributes(bassist_params)
       flash[:notice] = 'Changes successful!'
       redirect_to(controller: 'users', action: 'show')
