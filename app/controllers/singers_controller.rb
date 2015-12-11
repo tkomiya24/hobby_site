@@ -33,6 +33,16 @@ class SingersController < ApplicationController
     end
   end
 
+  def delete
+  end
+
+  def destroy
+    guitarist = fetch_user.singer
+    guitarist.destroy
+    flash[:notice] = 'Deletion successful'
+    back_to_home
+  end
+
   private
 
   def singer_params
