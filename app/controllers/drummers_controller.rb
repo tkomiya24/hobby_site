@@ -10,7 +10,8 @@ class DrummersController < ApplicationController
 
   def create
     @drummer = Drummer.new(read_params)
-    @drummer.user = @user
+    @drummer.musical_hobby.instrument = @drummer
+    @drummer.user = fetch_user
 
     if @drummer.save
       redirect_to(controller: 'users', action: 'show')
@@ -46,7 +47,8 @@ class DrummersController < ApplicationController
   private
 
   def read_params
-    params.require(:drummer).permit(:background_vocals, :double_kick, :experience, :proficiency)
+    params.require(:drummer).permit(:double_kick, musical_hobby_attributes:
+    [:background_vocals, :experience, :proficiency])
   end
 
   def fetch_user
