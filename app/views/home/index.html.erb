@@ -32,7 +32,7 @@
 									<p>Guitarist   -   Rating: <%= @matches[i].guitarist.rating %></p>
 								<% end %>
 								<% if @matches[i].singer %>
-									<p>Singer   -   Rating: <%= @matches[i].singer.rating %></p>
+									<p>Singer</p>
 								<% end %>
 								<%= link_to({:controller => 'users', :action => 'show', :id => @matches[i].id}, :class => 'btn btn-info') do%>
 									<i class='glyphicon glyphicon-share-alt'></i> View Profile
