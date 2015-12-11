@@ -1,6 +1,6 @@
 
-<div class = 'form-group'>	
+<div class = 'form-group'>
 	<%= u.label(:rhythm_or_lead, "Do you play rhythm or lead?", :class => 'control-label') %>
 	<%= u.select(:rhythm_or_lead, ['Rhythm', 'Lead', 'Both'], :class => 'form-control')%>
 </div>
-<%= render(:partial => 'application/instrument_common_fields_form', :locals => {:u => u}) %>
+<%= render(partial: 'musical_hobby/form', locals: {u: u}) %>
