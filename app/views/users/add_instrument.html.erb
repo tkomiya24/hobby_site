@@ -1,15 +1,15 @@
 <% if !@user.singer %>
-	<%= link_to("Singer", :controller => 'singers', :action => 'new') %>
+  <%= link_to("Singer", :controller => 'singers', :action => 'new') %>
 <% end %>
 
 <% if !@user.guitarist %>
-	<%= link_to("Guitar", :controller => 'guitarists', :action => 'new') %>
+  <%= link_to("Guitar", :controller => 'guitarists', :action => 'new') %>
 <% end %>
 <% unless @user.drummer? %>
-	<%= link_to('Drummer', controller: 'drummers', action: 'new') %>
+  <%= link_to('Drummer', controller: 'drummers', action: 'new') %>
 <% end %>
 <% unless @user.bassist? %>
-	<%= link_to('Bass', controller: 'bassists', action: 'new') %>
+  <%= link_to('Bass', controller: 'bassists', action: 'new') %>
 <% end %>
 
 <%= link_to("Cancel", :action => 'show') %>
