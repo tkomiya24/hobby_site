@@ -15,10 +15,8 @@ class User < ActiveRecord::Base
 
   has_many :musical_hobbies
 
-  def get_matches(limit)
-    User.where(['CITY = ? AND '\
-                '(guitarist_id IS NOT NULL OR '\
-                'bassist_id IS NOT NULL)', city]).where.not(id: id).limit(limit)
+  def get_matches(*)
+    []
   end
 
   def singer?
