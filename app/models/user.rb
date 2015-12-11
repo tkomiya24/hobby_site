@@ -74,15 +74,6 @@ class User < ActiveRecord::Base
   end
 
   def musician?
-    !guitarist.nil? || !bassist.nil?
+    musical_hobbies.size > 1
   end
-
-  # rubocop:disable Lint/UselessAssignment
-  def nullify_deleted
-    drummer_id = nil if drummer.nil?
-    bassist_id = nil if bassist.nil?
-    guitarist_id = nil if guitarist.nil?
-    save
-  end
-  # rubocop:enable Lint/UselessAssignment
 end
