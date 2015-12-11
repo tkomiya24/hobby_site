@@ -3,7 +3,7 @@
 <% end %>
 
 <% unless @user.guitarist? %>
-  <%= link_to("Guitar", :controller => 'guitarists', :action => 'new') %>
+  <%= link_to('Guitar', controller: 'guitarists', action: 'new') %>
 <% end %>
 <% unless @user.drummer? %>
   <%= link_to('Drummer', controller: 'drummers', action: 'new') %>
