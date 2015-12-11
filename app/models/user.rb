@@ -7,9 +7,7 @@ class User < ActiveRecord::Base
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.0-]+\.[a-z]{2,4}\Z/i
   validates :username, uniqueness: true, presence: true
   validates :email, presence: true, format: EMAIL_REGEX, confirmation: true
-  has_many :received_reviews, class_name: 'Review', foreign_key: 'reviewee_id'
-  has_many :written_reviews, class_name: 'Review', foreign_key: 'reviewee_id'
-
+  has_many :written_reviews, class_name: 'Review'
   has_many :musical_hobbies
 
   def get_matches(*)

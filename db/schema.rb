@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151211015345) do
+ActiveRecord::Schema.define(version: 20151211145256) do
 
   create_table "bassists", force: :cascade do |t|
     t.boolean "five_string", default: false, null: false
@@ -41,13 +41,17 @@ ActiveRecord::Schema.define(version: 20151211015345) do
   add_index "musical_hobbies", ["user_id"], name: "index_musical_hobbies_on_user_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "reviewer_id", limit: 4,     null: false
-    t.integer  "reviewee_id", limit: 4,     null: false
-    t.integer  "rating",      limit: 4,     null: false
-    t.text     "review",      limit: 65535
+    t.integer  "rating",          limit: 4,     null: false
+    t.text     "review",          limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id",         limit: 4,     null: false
+    t.integer  "reviewable_id",   limit: 4,     null: false
+    t.string   "reviewable_type", limit: 255,   null: false
   end
+
+  add_index "reviews", ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "singers", force: :cascade do |t|
     t.string "range", limit: 255
