@@ -1,4 +1,4 @@
-<% if !@user.singer %>
+<% unless @user.singer? %>
   <%= link_to("Singer", :controller => 'singers', :action => 'new') %>
 <% end %>
 
