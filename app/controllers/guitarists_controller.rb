@@ -18,6 +18,7 @@ class GuitaristsController < ApplicationController
 
   def edit
     @guitarist = User.find(session[:user_id]).guitarist
+    @musical_hobby_attributes = @guitarist.musical_hobby
   end
 
   def update
@@ -43,6 +44,7 @@ class GuitaristsController < ApplicationController
 
   def guitarist_params
     params.require(:guitarist)
-      .permit(:background_vocals, :rhythm_or_lead, :experience, :proficiency)
+      .permit(:rhythm_or_lead,
+              musical_hobby_attributes: [:background_vocals, :experience, :proficiency])
   end
 end

@@ -20,6 +20,7 @@ class SingersController < ApplicationController
 
   def edit
     @singer = fetch_user.singer
+    @musical_hobby_attributes = @singer.musical_hobby
   end
 
   def update
@@ -46,6 +47,7 @@ class SingersController < ApplicationController
   private
 
   def singer_params
-    params.require(:singer).permit(:background_vocals, :range, :experience, :proficiency)
+    params.require(:singer).permit(:range, musical_hobby_attributes:
+    [:background_vocals, :experience, :proficiency])
   end
 end

@@ -19,6 +19,7 @@ class BassistsController < ApplicationController
 
   def edit
     @bassist = fetch_user.bassist
+    @msuical_hobby_attributes = bassist.musical_hobby
   end
 
   def update
@@ -45,6 +46,7 @@ class BassistsController < ApplicationController
 
   def bassist_params
     params.require(:bassist)
-      .permit(:background_vocals, :six_string, :five_string, :experience, :proficiency)
+      .permit(:six_string, :five_string,
+              musical_hobby_attributes: [:background_vocals, :experience, :proficiency])
   end
 end
