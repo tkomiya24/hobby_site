@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     []
   end
 
+  def guitarist?
+    plays_instrument('Guitarist')
+  end
+
   def singer?
     plays_instrument?('Singer')
   end
