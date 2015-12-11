@@ -8,6 +8,7 @@ class BassistsController < ApplicationController
 
   def create
     @bassist = Bassist.new(bassist_params)
+    @bassist.musical_hobby.instrument = @bassist
     @bassist.user = fetch_user
     if @bassist.save
       flash[:notice] = 'Changes successful!'
@@ -45,6 +46,7 @@ class BassistsController < ApplicationController
 
   def bassist_params
     params.require(:bassist)
-      .permit(:background_vocals, :six_string, :five_string, :experience, :proficiency)
+      .permit(:six_string, :five_string,
+              musical_hobby_attributes: [:background_vocals, :experience, :proficiency])
   end
 end
