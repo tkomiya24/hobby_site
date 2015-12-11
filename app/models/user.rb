@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
     instrument('Bassist')
   end
 
+  def guitarist
+    instrument('Guitarist')
+  end
+
   def instrument(instrument)
     musical_hobbies.each do |hobby|
       return hobby.instrument if hobby.instrument_type == instrument
