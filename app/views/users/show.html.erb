@@ -39,7 +39,7 @@
       <% if @user.drummer? %>
         <%= render(partial: 'drummers/show', locals: { drummer: @user.drummer }) %>
       <% end %>
-      <% if @user.guitarist %>
+      <% if @user.guitarist? %>
         <%= render(partial: 'guitarists/show', locals: { guitarist: @user.guitarist }) %>
       <% end %>
       <% if @user.bassist? %>
