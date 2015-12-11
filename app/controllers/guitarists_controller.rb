@@ -8,7 +8,7 @@ class GuitaristsController < ApplicationController
 
   def create
     @guitarist = Guitarist.new(guitarist_params)
-    User.find(session[:user_id]).guitarist = @guitarist
+    @guitarist.user = fetch_user
     if @guitarist.save
       redirect_to_user
     else
