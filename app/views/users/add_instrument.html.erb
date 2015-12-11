@@ -8,7 +8,7 @@
 <% unless @user.drummer? %>
 	<%= link_to('Drummer', controller: 'drummers', action: 'new') %>
 <% end %>
-<% if !@user.bassist %>
+<% unless @user.bassist? %>
 	<%= link_to("Bass", :controller => 'bassists', :action => 'new') %>
 <% end %>
 
