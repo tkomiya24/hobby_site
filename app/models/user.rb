@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
   end
 
   def musician?
-    !guitarist.nil? || !bassist.nil?
+    musical_hobbies.size > 1
   end
 
   # rubocop:disable Lint/UselessAssignment
