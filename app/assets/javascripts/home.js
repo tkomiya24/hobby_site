@@ -15,6 +15,13 @@ $(document).ready(function() {
       source: users,
       display: function(user) {
         return user.first_name + ' ' + user.last_name;
+      },
+      templates: {
+        suggestion: function(user) {
+          return ['<a class="suggestion-links" href="/users/show/' + user.id + '">',
+                  user.first_name + ' ' + user.last_name,
+                  '</a>'].join('\n');
+        }
       }
     });
 });
