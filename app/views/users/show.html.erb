@@ -35,18 +35,20 @@
       </div>
     </div>
     <div id="musician" class="tab-pane fade">
-      <%= link_to("Add an instrument!", :action => 'add_instrument') %>
+      <% if @user.id == session[:user_id] %>
+        <%= link_to("Add an instrument!", action: 'add_instrument') %>
+      <% end %>
       <% if @user.drummer? %>
-        <%= render(partial: 'drummers/show', locals: { drummer: @user.drummer }) %>
+        <%= render(partial: 'drummers/show', locals: { user: @user }) %>
       <% end %>
       <% if @user.guitarist? %>
-        <%= render(partial: 'guitarists/show', locals: { guitarist: @user.guitarist }) %>
+        <%= render(partial: 'guitarists/show', locals: { user: @user }) %>
       <% end %>
       <% if @user.bassist? %>
-        <%= render(partial: 'bassists/show', locals: { bassist: @user.bassist }) %>
+        <%= render(partial: 'bassists/show', locals: { user: @user }) %>
       <% end %>
       <% if @user.singer? %>
-        <%= render(partial: 'singers/show', locals: { singer: @user.singer }) %>
+        <%= render(partial: 'singers/show', locals: { user: @user }) %>
       <% end %>
     </div>
   </div>

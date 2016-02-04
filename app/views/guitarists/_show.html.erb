@@ -1,22 +1,24 @@
 <hr/>
 <h3>Guitarist</h3>
-<%= link_to 'Edit', controller: :guitarists, action: :edit %>
-<%= link_to 'Delete', controller: :guitarists, action: :destroy, method: :delete %>
+<% if @user.id == session[:user_id] %>
+  <%= link_to 'Edit', controller: :guitarists, action: :edit %>
+  <%= link_to 'Delete', controller: :guitarists, action: :destroy, method: :delete %>
+<% end %>
 <table>
   <tr>
     <th>Background Vocals</th>
-    <td><%= guitarist.musical_hobby.background_vocals %></td>
+    <td><%= user.guitarist.musical_hobby.background_vocals %></td>
   </tr>
   <tr>
     <th>Rhythm, Lead or Both</th>
-    <td><%= guitarist.rhythm_or_lead %></td>
+    <td><%= user.guitarist.rhythm_or_lead %></td>
   </tr>
   <tr>
     <th>Experience</th>
-    <td><%= guitarist.musical_hobby.experience %></td>
+    <td><%= user.guitarist.musical_hobby.experience %></td>
   </tr>
   <tr>
     <th>Proficiency</th>
-    <td><%= guitarist.musical_hobby.proficiency %></td>
+    <td><%= user.guitarist.musical_hobby.proficiency %></td>
   </tr>
 </table>
