@@ -40,3 +40,13 @@ span.twitter-typeahead {
   width: 20%;
   min-width: 190px;
 }
+
+.suggestion-links {
+  width: 100%;
+  text-decoration: none;
+  display: block;
+}
+
+a.suggestion-links:hover {
+  text-decoration: none;
+}
