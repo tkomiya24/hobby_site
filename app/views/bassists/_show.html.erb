@@ -26,7 +26,6 @@
     <td><%= musician.proficiency %></td>
   </tr>
 </table>
-<!--
-<%= link_to("Edit", :controller => 'bassists', :action => 'edit') %>
-<%= link_to("Delete", :controller => 'bassists', :action => 'destroy') %>
--->
+<% unless @user.id == session[:user_id] %>
+  <%= link_to 'Write a review', controller: :reviews, action: :new %>
+<% end %>
