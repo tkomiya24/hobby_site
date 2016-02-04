@@ -76,6 +76,14 @@ class UsersController < ApplicationController
     redirect_to(action: 'login')
   end
 
+  def search
+    users = User.where('name LIKE %:query%', query: params[:query])
+    respond_to do |format|
+      format.json do
+        render json: users
+      end
+    end
+  end
   # private methods
 
   private
