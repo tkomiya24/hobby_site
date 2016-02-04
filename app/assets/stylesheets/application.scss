@@ -18,6 +18,7 @@ $borderColour: $lightGrey;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "users";
+@import "_typeahead";
 
 .form-div{
   margin:auto;

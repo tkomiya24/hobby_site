@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   has_many :written_reviews, class_name: 'Review'
   has_many :musical_hobbies
 
-  def get_matches(*)
-    []
+  def find_matches
+    User.where(city: city).where.not(id: id).limit(100)
   end
 
   def guitarist?
