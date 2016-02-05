@@ -43,6 +43,10 @@ class SingersController < ApplicationController
     back_to_home
   end
 
+  def review
+    review_with Singer.find(params[:reviewable_id])
+  end
+
   private
 
   def singer_params
