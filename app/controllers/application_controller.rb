@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
   def review_with(reviewable)
     @review = Review.new
     @review.reviewable = reviewable
+    @review.user = @user
     render 'reviews/new'
   end
 end
