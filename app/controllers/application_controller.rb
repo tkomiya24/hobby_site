@@ -26,4 +26,10 @@ class ApplicationController < ActionController::Base
     flash[:notice] = 'Changes successful!'
     redirect_to(controller: 'users', action: 'show')
   end
+
+  def review_with(reviewable)
+    @review = Review.new
+    @review.reviewable = reviewable
+    render 'reviews/new'
+  end
 end
