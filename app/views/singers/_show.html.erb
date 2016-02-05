@@ -23,5 +23,5 @@
   </tr>
 </table>
 <% unless @user.id == session[:user_id] %>
-  <%= link_to 'Write a review', controller: :reviews, action: :new %>
+  <%= link_to 'Write a review', controller: :singers, action: :review, params: {reviewable_id: user.singer.id}  %>
 <% end %>
