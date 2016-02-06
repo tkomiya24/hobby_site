@@ -1,6 +1,6 @@
 class Musician < ActiveRecord::Base
   belongs_to :user
-  belongs_to :instrument, polymorphic: true
+  actable
   validates :proficiency,
             inclusion: { in: [nil, 'Beginner', 'Intermmediate', 'Advanced', 'Professional'] }
   has_one :review, as: :reviewable, dependent: :delete
