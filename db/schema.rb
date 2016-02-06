@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206192100) do
+ActiveRecord::Schema.define(version: 20160206194216) do
 
   create_table "bassists", force: :cascade do |t|
     t.boolean "five_string", default: false, null: false
@@ -32,13 +32,11 @@ ActiveRecord::Schema.define(version: 20160206192100) do
     t.string   "proficiency",       limit: 255
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
-    t.integer  "user_id",           limit: 4,                   null: false
-    t.integer  "instrument_id",     limit: 4,                   null: false
-    t.string   "instrument_type",   limit: 255,                 null: false
+    t.integer  "actable_id",        limit: 4
+    t.string   "actable_type",      limit: 255
   end
 
-  add_index "musicians", ["instrument_type", "instrument_id"], name: "index_musicians_on_instrument_type_and_instrument_id", using: :btree
-  add_index "musicians", ["user_id"], name: "index_musicians_on_user_id", using: :btree
+  add_index "musicians", ["actable_type", "actable_id"], name: "index_musicians_on_actable_type_and_actable_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating",          limit: 4,     null: false
