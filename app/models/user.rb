@@ -8,8 +8,5 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true, presence: true
   validates :email, presence: true, format: EMAIL_REGEX, confirmation: true
   has_many :written_reviews, class_name: 'Review'
-  has_one :bassist, dependent: :destroy
-  has_one :guitarist, dependent: :destroy
-  has_one :drummer, dependent: :destroy
-  has_one :singer, dependent: :destroy
+  has_many :musicians, dependent: :destroy
 end

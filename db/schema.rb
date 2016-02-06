@@ -32,11 +32,13 @@ ActiveRecord::Schema.define(version: 20160206194216) do
     t.string   "proficiency",       limit: 255
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
+    t.integer  "user_id",           limit: 4,                   null: false
     t.integer  "actable_id",        limit: 4
     t.string   "actable_type",      limit: 255
   end
 
   add_index "musicians", ["actable_type", "actable_id"], name: "index_musicians_on_actable_type_and_actable_id", using: :btree
+  add_index "musicians", ["user_id"], name: "index_musicians_on_user_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating",          limit: 4,     null: false
