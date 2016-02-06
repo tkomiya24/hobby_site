@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resource :user do
     member do
-      post 'logout'
+      get 'logout'
+      get 'login'
+      post 'attempt_login'
     end
     resources :musical_hobbies
     resources :drummers
