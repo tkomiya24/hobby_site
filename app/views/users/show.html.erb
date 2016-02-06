@@ -38,16 +38,16 @@
       <% if @user.id == session[:user_id] %>
         <%= link_to("Add an instrument!", action: 'add_instrument') %>
       <% end %>
-      <% if @user.drummer? %>
+      <% if @user.drummer %>
         <%= render(partial: 'drummers/show', locals: { user: @user }) %>
       <% end %>
-      <% if @user.guitarist? %>
+      <% if @user.guitarist %>
         <%= render(partial: 'guitarists/show', locals: { user: @user }) %>
       <% end %>
-      <% if @user.bassist? %>
+      <% if @user.bassist %>
         <%= render(partial: 'bassists/show', locals: { user: @user }) %>
       <% end %>
-      <% if @user.singer? %>
+      <% if @user.singer %>
         <%= render(partial: 'singers/show', locals: { user: @user }) %>
       <% end %>
     </div>
