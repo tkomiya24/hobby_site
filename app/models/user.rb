@@ -9,4 +9,26 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: EMAIL_REGEX, confirmation: true
   has_many :written_reviews, class_name: 'Review'
   has_many :musicians, dependent: :destroy
+
+  def singer?
+    instrument?('singer')
+  end
+
+  def guitarist?
+    instrument?('guitarist')
+  end
+
+  def bassist?
+    instrument?('bassist')
+  end
+
+  def drummer?
+    instrument?('drummer')
+  end
+
+  private
+
+  def instrument?(instrument)
+    musicians.any? { |musician| musician.actable_type.downcase == instrument }
+  end
 end
