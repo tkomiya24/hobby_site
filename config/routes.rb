@@ -7,6 +7,10 @@ Rails.application.routes.draw do
       post 'logout'
     end
     resources :musical_hobbies
+    resources :drummers
+    resources :bassists
+    resources :singers
+    resources :guitarists
   end
 
   resources :users, only: [:show, :index]
