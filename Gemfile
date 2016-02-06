@@ -8,6 +8,7 @@ gem 'spring', group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'sass-rails', '~> 5.0.3'
 gem 'sprockets-rails', '~> 2.3.3'
+gem 'active_record-acts_as', '~> 1.0'
 
 # BOOTSTRAP!!
 gem 'bootstrap-sass', '~> 3.3.5'
