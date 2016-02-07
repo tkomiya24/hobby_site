@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
     instrument('drummer')
   end
 
+  def bassist
+    instrument('bassist')
+  end
+
   private
 
   def instrument?(instrument)
