@@ -1,6 +1,10 @@
 class ReviewsController < ApplicationController
   layout 'main'
 
+  def index
+    @reviews = musician.reviews
+  end
+
   def show
     @review = Review.find(params[:id])
   end
