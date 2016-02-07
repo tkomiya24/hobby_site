@@ -40,6 +40,10 @@ class GuitaristsController < ApplicationController
     back_to_home
   end
 
+  def review
+    review_with Guitarist.find(params[:reviewable_id])
+  end
+
   private
 
   def guitarist_params

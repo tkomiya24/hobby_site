@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
     instrument('singer')
   end
 
+  def reviewed_musician?(musician)
+    musician.reviews.any? { |review| review.user.id == id }
+  end
+
   private
 
   def instrument?(instrument)

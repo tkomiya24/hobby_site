@@ -22,7 +22,5 @@
     <td><%= musician.proficiency %></td>
   </tr>
 </table>
-<!--
-<%= link_to("Edit", :controller => 'singers', :action => 'edit') %>
-<%= link_to("Delete", :controller => 'singers', :action => 'destroy') %>
--->
+<%= make_review_link_for @user, musician %>
+<%= make_show_reviews_link_for musician %>

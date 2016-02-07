@@ -42,6 +42,10 @@ class DrummersController < ApplicationController
     back_to_home
   end
 
+  def review
+    review_with Drummer.find(params[:reviewable_id])
+  end
+
   private
 
   def read_params

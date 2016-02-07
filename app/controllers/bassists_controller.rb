@@ -41,6 +41,10 @@ class BassistsController < ApplicationController
     back_to_home
   end
 
+  def review
+    review_with Bassist.find(params[:reviewable_id])
+  end
+
   private
 
   def bassist_params
