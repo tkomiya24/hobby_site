@@ -19,8 +19,7 @@ class SingersController < ApplicationController
   end
 
   def edit
-    @singer = fetch_user.singer
-    @musical_hobby_attributes = @singer.musical_hobby
+    fetch_user
   end
 
   def update
