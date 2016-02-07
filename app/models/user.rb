@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     instrument('guitarist').becomes(Guitarist)
   end
 
+  def drummer
+    instrument('drummer').becomes(Drummer)
+  end
+
   private
 
   def instrument?(instrument)
