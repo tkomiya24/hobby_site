@@ -1,7 +1,7 @@
 class DrummersController < ApplicationController
   layout 'main'
 
-  before_action :fetch_user
+  before_action :fetch_user, except: [:new, :delete]
   before_action :check_login
 
   def new
