@@ -26,9 +26,17 @@ class User < ActiveRecord::Base
     instrument?('drummer')
   end
 
+  def guitarist
+    instrument('guitarist').becomes(Guitarist)
+  end
+
   private
 
   def instrument?(instrument)
     musicians.any? { |musician| musician.actable_type.downcase == instrument }
+  end
+
+  def instrument(instrument)
+    musicians.find { |musician| musician.actable_type.downcase == instrument }
   end
 end
