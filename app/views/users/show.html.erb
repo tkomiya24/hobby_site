@@ -41,7 +41,7 @@
       <% @user.musicians.each do |musician| %>
         <% case musician.actable_type.downcase %>
           <% when 'drummer' %>
-            <%= render(partial: 'drummers/show') %>
+            <%= render(partial: 'drummers/show', locals: {musician: musician}) %>
           <% when 'guitarist' %>
             <%= render(partial: 'guitarists/show', locals: {musician: musician}) %>
           <% when 'bassist' %>
