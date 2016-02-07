@@ -1,6 +1,10 @@
 class ReviewsController < ApplicationController
   layout 'main'
 
+  def show
+    @review = Review.find(params[:id])
+  end
+
   def new
     @review = Review.new
     @musician = Musician.find(params[:musician_id]).specific
@@ -15,5 +19,11 @@ class ReviewsController < ApplicationController
     else
       render('new')
     end
+  end
+
+  private
+
+  def musician
+    Musician.find(params[:musician_id])
   end
 end
