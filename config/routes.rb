@@ -4,6 +4,5 @@ Rails.application.routes.draw do
   resources :musicians do
     resources :reviews
   end
-  resources :reviews
   match ':controller(/:action(/:id))', via: [:get, :post, :delete, :patch]
 end

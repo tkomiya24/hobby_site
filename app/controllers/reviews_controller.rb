@@ -3,6 +3,6 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @review.reviewable = Musician.find(params[:musician_id]).specific
+    @musician = Musician.find(params[:musician_id]).specific
   end
 end
