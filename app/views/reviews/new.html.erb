@@ -1,0 +1,29 @@
+<div class="container">
+  <h3>
+    Reviewing
+    <%= @musician.class.name.downcase %>
+    <%= @musician.user.first_name.capitalize %>
+    <%= @musician.user.last_name.capitalize %>
+  </h3>
+</div>
+<div class="container">
+  <%= form_for([@musician.acting_as, @review], method: 'POST', html: {role: 'form', class: 'form-horizontal'}) do |f| %>
+    <div class="form-group">
+      <%= f.label :rating, class: 'control-label' %>
+      <%= f.select :rating, options_for_select([
+          ['1', 1],
+          ['2', 2],
+          ['3', 3],
+          ['4', 4],
+          ['5', 5]
+        ]), {}, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :review, 'Write your review here', class: 'control-label' %>
+      <%= f.text_area :review,
+                      class: 'form-control',
+                      placeholder: "What do you think of #{@musician.user.first_name} as a #{@musician.class.name.downcase}?" %>
+    </div>
+    <%= f.submit 'Submit', class: 'btn btn-primary'%>
+  <% end %>
+</div>
