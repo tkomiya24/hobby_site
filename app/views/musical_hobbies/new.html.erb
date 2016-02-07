@@ -1,0 +1,13 @@
+<% unless @user.singer? %>
+  <%= link_to('Singer', new_user_singer_path) %>
+<% end %>
+<% unless @user.guitarist? %>
+  <%= link_to('Guitar', new_user_guitarist_path) %>
+<% end %>
+<% unless @user.drummer? %>
+  <%= link_to('Drummer', new_user_drummer_path) %>
+<% end %>
+<% unless @user.bassist? %>
+  <%= link_to('Bass', new_user_bassist_path) %>
+<% end %>
+<%= link_to('Cancel', user_path) %>

@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'users/search/:query' => 'users#search'
-  match ':controller(/:action(/:id))', via: [:get, :post, :delete, :patch]
+
+  resource :user do
+    member do
+      get 'logout'
+      get 'login'
+      post 'attempt_login'
+    end
+    resources :musical_hobbies
+    resources :drummers
+    resources :bassists
+    resources :singers
+    resources :guitarists
+  end
+
+  resources :users, only: [:show, :index]
 end

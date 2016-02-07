@@ -36,7 +36,7 @@
     </div>
     <div id="musician" class="tab-pane fade">
       <% if @user.id == session[:user_id] %>
-        <%= link_to("Add an instrument!", action: 'add_instrument') %>
+        <%= link_to("Add an instrument!", new_user_musical_hobby_path) %>
       <% end %>
       <% @user.musicians.each do |musician| %>
         <% case musician.actable_type.downcase %>
