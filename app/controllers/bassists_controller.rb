@@ -46,7 +46,6 @@ class BassistsController < ApplicationController
 
   def bassist_params
     params.require(:bassist)
-      .permit(:six_string, :five_string,
-              musical_hobby_attributes: [:background_vocals, :experience, :proficiency])
+      .permit(:six_string, :five_string, :background_vocals, :experience, :proficiency)
   end
 end
