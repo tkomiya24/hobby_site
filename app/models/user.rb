@@ -27,11 +27,11 @@ class User < ActiveRecord::Base
   end
 
   def guitarist
-    instrument('guitarist').becomes(Guitarist)
+    instrument('guitarist')
   end
 
   def drummer
-    instrument('drummer').becomes(Drummer)
+    instrument('drummer')
   end
 
   private
@@ -41,6 +41,6 @@ class User < ActiveRecord::Base
   end
 
   def instrument(instrument)
-    musicians.find { |musician| musician.actable_type.downcase == instrument }
+    musicians.find { |musician| musician.actable_type.downcase == instrument }.specific
   end
 end
