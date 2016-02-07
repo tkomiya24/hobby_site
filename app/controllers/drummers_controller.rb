@@ -47,8 +47,4 @@ class DrummersController < ApplicationController
   def read_params
     params.require(:drummer).permit(:double_kick, :background_vocals, :experience, :proficiency)
   end
-
-  def fetch_user
-    @user = User.find(session[:user_id]) if session[:user_id]
-  end
 end
