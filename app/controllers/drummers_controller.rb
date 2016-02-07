@@ -20,8 +20,6 @@ class DrummersController < ApplicationController
   end
 
   def edit
-    @drummer = User.find(session[:user_id]).drummer
-    @musical_hobby_attributes = @drummer.musical_hobby
   end
 
   def update
@@ -47,8 +45,7 @@ class DrummersController < ApplicationController
   private
 
   def read_params
-    params.require(:drummer).permit(:double_kick, musical_hobby_attributes:
-    [:background_vocals, :experience, :proficiency])
+    params.require(:drummer).permit(:double_kick, :background_vocals, :experience, :proficiency)
   end
 
   def fetch_user

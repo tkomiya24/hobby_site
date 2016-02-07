@@ -1,17 +1,15 @@
-<%= u.fields_for :musical_hobby_attributes, @musical_hobby_attributes do |musical_hobby_form| %>
-  <div class = "form-group">
-    <div class = "checkbox">
-      <%= musical_hobby_form.label(:background_vocals, class: 'control-label') do%>
-        <%= musical_hobby_form.check_box(:background_vocals)%>Background vocals
-      <% end %>
-    </div>
+<div class = "form-group">
+  <div class = "checkbox">
+    <%= u.label(:background_vocals, class: 'control-label') do %>
+      <%= u.check_box(:background_vocals)%>Background vocals
+    <% end %>
   </div>
-  <div class = "form-group">
-    <%= musical_hobby_form.label(:experience, "Years Played", class: 'control-label') %>
-    <%= musical_hobby_form.select(:experience, 0..150, {}, class: 'form-control')%>
-  </div>
-  <div class = "form-group">
-    <%= musical_hobby_form.label(:proficiency, class: 'control-label') %>
-    <%= musical_hobby_form.select(:proficiency, ['Beginner', 'Intermmediate', 'Advanced', 'Professional'], {}, class: 'form-control') %>
-  </div>
-<% end %>
+</div>
+<div class = "form-group">
+  <%= u.label(:experience, "Years Played", class: 'control-label') %>
+  <%= u.select(:experience, 0..150, {}, class: 'form-control')%>
+</div>
+<div class = "form-group">
+  <%= u.label(:proficiency, class: 'control-label') %>
+  <%= u.select(:proficiency, ['Beginner', 'Intermmediate', 'Advanced', 'Professional'], {}, class: 'form-control') %>
+</div>
