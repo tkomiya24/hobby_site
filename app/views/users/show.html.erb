@@ -47,7 +47,7 @@
           <% when 'bassist' %>
             <%= render(partial: 'bassists/show', locals: {musician: musician}) %>
           <% when 'singer' %>
-            <%= render(partial: 'singers/show') %>
+            <%= render(partial: 'singers/show', locals: {musician: musician}) %>
         <% end %>
       <% end %>
     </div>
