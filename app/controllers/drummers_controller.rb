@@ -10,7 +10,7 @@ class DrummersController < ApplicationController
 
   def create
     @drummer = Drummer.new(read_params)
-    @drummer.user = fetch_user
+    @drummer.user = @user
 
     if @drummer.save
       redirect_to(controller: 'users', action: 'show')
@@ -23,7 +23,7 @@ class DrummersController < ApplicationController
   end
 
   def update
-    @drummer = User.find(session[:user_id]).drummer
+    @drummer = @user.drummer
     if @drummer.update_attributes(read_params)
       flash[:notice] = 'Changes successful!'
       redirect_to(controller: 'users', action: 'show')
@@ -36,7 +36,7 @@ class DrummersController < ApplicationController
   end
 
   def destroy
-    drummer = User.find(session[:user_id]).drummer
+    drummer = @user.drummer
     drummer.destroy
     flash[:notice] = 'Deletion successful'
     back_to_home
