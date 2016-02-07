@@ -10,4 +10,8 @@ module ApplicationHelper
   def make_review_link_for(user, musician)
     link_to 'Write a review', new_musician_review_path(musician) unless authenticated_user?(user)
   end
+
+  def make_show_reviews_link_for(musician)
+    link_to 'See the reviews', musician_reviews_path(musician)
+  end
 end
