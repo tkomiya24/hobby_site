@@ -1,6 +1,6 @@
 <hr/>
 <h3>Bassist</h3>
-<% if @user.id == session[:user_id] %>
+<% if authenticated_user? @user %>
   <%= link_to 'Edit', controller: :bassists, action: :edit %>
   <%= link_to 'Delete', controller: :bassists, action: :destroy, method: :delete %>
 <% end %>
@@ -26,6 +26,4 @@
     <td><%= musician.proficiency %></td>
   </tr>
 </table>
-<% unless @user.id == session[:user_id] %>
-  <%= link_to 'Write a review', controller: :bassists, action: :review, params: {reviewable_id: user.bassist.id} %>
-<% end %>
+<%= make_review_link_for @user, musician %>
