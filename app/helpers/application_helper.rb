@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def authenticated_user?(user)
-    user.id == session[:id]
+    user.id == session[:user_id]
   end
 
   def make_review_link_for(user, musician)
