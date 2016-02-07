@@ -22,6 +22,4 @@
     <td><%= musician.proficiency %></td>
   </tr>
 </table>
-<% unless @user.id == session[:user_id] %>
-  <%= link_to 'Write a review', controller: :guitarists, action: :review, params: {reviewable_id: user.guitarist.id}  %>
-<% end %>
+<%= make_review_link_for @user, musician %>
