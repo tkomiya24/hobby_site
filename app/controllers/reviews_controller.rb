@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(params.require(:review).permit(:rating, :review))
     @review.user = fetch_user
-    @review.reviewable = Musician.find(params[:musician_id]).specific
+    @review.reviewable = Musician.find(params[:musician_id])
     if @review.save
       redirect_to musician_review_path(@review.reviewable, @review)
     else
