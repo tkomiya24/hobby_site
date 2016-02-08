@@ -18,3 +18,4 @@ gem 'autoprefixer-rails'
 group :development do
   gem 'rubocop', '~> 0.34.2'
 end
+ruby '2.2.3'
