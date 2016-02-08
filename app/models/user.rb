@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   # validations
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.0-]+\.[a-z]{2,4}\Z/i
   validates :username, uniqueness: true, presence: true
-  validates :email, presence: true, format: EMAIL_REGEX
+  validates :email, uniqueness: true, presence: true, format: EMAIL_REGEX
   has_many :written_reviews, class_name: 'Review'
   has_many :musicians, dependent: :destroy
 

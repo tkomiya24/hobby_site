@@ -25,6 +25,14 @@ TO 'hobby_site'@'localhost'
 IDENTIFIED BY 'password';
 exit"
 
+mysql -u root -p -e "
+DROP DATABASE IF EXISTS hobby_site_test;
+CREATE DATABASE hobby_site_test;
+GRANT ALL PRIVILEGES ON hobby_site_test.*
+TO 'hobby_site'@'localhost'
+IDENTIFIED BY 'password';
+exit"
+
 outputComment "Dropping and recreating the database"
 rake db:schema:load
 
