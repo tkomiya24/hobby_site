@@ -47,8 +47,3 @@ development:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: hobby_site_production
-  username: hobby_site
-  password: <%= ENV['HOBBY_SITE_DATABASE_PASSWORD'] %>
