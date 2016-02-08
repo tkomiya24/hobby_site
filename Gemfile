@@ -10,6 +10,7 @@ gem 'sass-rails', '~> 5.0.3'
 gem 'sprockets-rails', '~> 2.3.3'
 gem 'active_record-acts_as', '~> 1.0'
 gem 'rails_12factor', group: :production
+gem 'uglifier', '~> 2.7', group: :assets
 
 # BOOTSTRAP!!
 gem 'bootstrap-sass', '~> 3.3.5'
