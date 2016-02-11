@@ -1,18 +1,11 @@
-
-
-<div class = 'container'  style = "text-align: center">
-
-	<%= form_for(:user, :url => {:action => 'update'}, :class => 'form-horizontal') do |user| %>
-
-		<%= render(:partial => 'form', :locals => {:u => user}) %>
-
-		<%= button_tag(:type => 'submit', :class => 'btn btn-primary') do %>
-			<i class="glyphicon glyphicon-floppy-save"></i>  Submit
-		<% end %> 
-
-		<%= link_to({:action => 'show'}, {:class => 'btn btn-danger'}) do %>
-			<i class="glyphicon glyphicon-remove"></i>  Cancel Edit
-		<% end %> 
-	<% end %>
-	
+<div class="container">
+  <%= form_for(:user, url: {action: 'update'}, html: {class: 'user-form'}) do |user| %>
+    <%= render(partial: 'form', locals: {u: user}) %>
+    <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+      <i class="glyphicon glyphicon-floppy-save"></i>  Submit
+    <% end %>
+    <%= link_to({action: 'show'}, {class: 'btn btn-danger'}) do %>
+      <i class="glyphicon glyphicon-remove"></i>  Cancel Edit
+    <% end %>
+  <% end %>
 <div>
