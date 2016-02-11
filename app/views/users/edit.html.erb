@@ -1,5 +1,5 @@
 <div class = 'container'  style = "text-align: center">
-  <%= form_for(:user, :url => {:action => 'update'}, :class => 'form-horizontal') do |user| %>
+  <%= form_for(:user, :url => {:action => 'update'}, html: {:class => 'user-form'}) do |user| %>
     <%= render(:partial => 'form', :locals => {:u => user}) %>
     <%= button_tag(:type => 'submit', :class => 'btn btn-primary') do %>
       <i class="glyphicon glyphicon-floppy-save"></i>  Submit
