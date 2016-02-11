@@ -1,9 +1,13 @@
 <% if object && object.errors.size > 0 %>
-  <div id="error-explanation">
-    <ul>
-      <% object.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <strong>Error!</strong>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <% object.errors.full_messages.each do |msg| %> <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>
