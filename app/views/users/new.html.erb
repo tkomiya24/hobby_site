@@ -1,7 +1,7 @@
 <% @title = "Creating new user" %>
 <div class="container"> <h1>Register </h1>
   <p>Please enter your information</p>
-  <%= form_for(:user, url: {action: 'create'}) do |u| %>
+  <%= form_for(:user, url: {action: 'create'}, html: {class: 'user-form'}) do |u| %>
     <%= render(partial: 'form', locals: {u: u}) %>
     <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
       <i class = "glyphicon glyphicon-user"></i> Register!

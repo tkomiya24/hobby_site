@@ -21,3 +21,22 @@
   border-right: 1px solid $borderColour;
   padding: 10px;
 }
+
+.user-form {
+  input.form-control {
+    display: inline-block;
+  }
+  .form-control {
+    width: 70%;
+    margin-left: 1%;
+    margin-right: auto;
+  }
+  .control-label {
+    width: 20%;
+    margin-right: 1%;
+    margin-left: auto;
+  }
+  .field_with_errors {
+    display: inline;
+  }
+}
