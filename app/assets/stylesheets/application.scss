@@ -14,7 +14,8 @@
 
 $lightGrey: #ddd;
 $bluishGrey: #f5f8fa;
-$borderColour: $lightGrey;
+$borderGrey: #e1e8ed;
+$borderColour: $borderGrey;
 $backgroundColor: $bluishGrey;
 
 @import "bootstrap-sprockets";
