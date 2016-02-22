@@ -13,7 +13,9 @@
  */
 
 $lightGrey: #ddd;
+$bluishGrey: #f5f8fa;
 $borderColour: $lightGrey;
+$backgroundColor: $bluishGrey;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -21,6 +23,10 @@ $borderColour: $lightGrey;
 @import "_typeahead";
 @import "forms";
 @import "instruments";
+
+body {
+  background-color: $bluishGrey;
+}
 
 .form-div{
   margin:auto;
