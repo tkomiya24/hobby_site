@@ -16,7 +16,7 @@
 </table>
 <% if @user.id == session[:user_id] %>
   <%= make_edit_musician_link(musician) %>
-  <%= link_to 'Delete', controller: :guitarists, action: :destroy, method: :delete %>
+  <%= make_delete_musician_link(musician) %>
 <% end %>
 <%= make_review_link_for @user, musician %>
 <%= make_show_reviews_link_for musician %>
