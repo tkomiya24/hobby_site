@@ -1,0 +1,23 @@
+<hr/>
+<h3><%= musician.specific.class.name %></h3>
+<table>
+  <tr>
+    <th>Background Vocals</th>
+    <td><%= musician.background_vocals %></td>
+  </tr>
+  <tr>
+    <th>Experience</th>
+    <td><%= musician.experience %></td>
+  </tr>
+  <tr>
+    <th>Proficiency</th>
+    <td><%= musician.proficiency %></td>
+  </tr>
+  <%= render_specific_data(musician) %>
+</table>
+<% if @user.id == session[:user_id] %>
+  <%= make_edit_musician_link(musician) %>
+  <%= make_delete_musician_link(musician) %>
+<% end %>
+<%= make_review_link_for @user, musician %>
+<%= link_to('See the reviews', musician_reviews_path(musician)) %>

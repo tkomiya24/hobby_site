@@ -1,26 +1,4 @@
-<hr/>
-<h3>Guitarist</h3>
-<% if @user.id == session[:user_id] %>
-  <%= link_to 'Edit', controller: :guitarists, action: :edit %>
-  <%= link_to 'Delete', controller: :guitarists, action: :destroy, method: :delete %>
-<% end %>
-<table>
-  <tr>
-    <th>Background Vocals</th>
-    <td><%= musician.background_vocals %></td>
-  </tr>
-  <tr>
-    <th>Rhythm, Lead or Both</th>
-    <td><%= musician.specific.rhythm_or_lead %></td>
-  </tr>
-  <tr>
-    <th>Experience</th>
-    <td><%= musician.experience %></td>
-  </tr>
-  <tr>
-    <th>Proficiency</th>
-    <td><%= musician.proficiency %></td>
-  </tr>
-</table>
-<%= make_review_link_for @user, musician %>
-<%= make_show_reviews_link_for musician %>
+<tr>
+  <th>Rhythm, Lead or Both</th>
+  <td><%= specific.rhythm_or_lead %></td>
+</tr>
