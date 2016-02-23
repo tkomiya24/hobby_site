@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
     musician.reviews.any? { |review| review.user.id == id }
   end
 
+  def more_instrument_options?
+    !(bassist? && singer? && drummer? && guitarist?)
+  end
+
   private
 
   def instrument?(instrument)
