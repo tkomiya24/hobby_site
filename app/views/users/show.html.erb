@@ -2,13 +2,7 @@
   <% @title = "Info for user " + @user.username %>
   <div class="profile-header">
     <h1><%= @user.username %></h1>
-  </div>
-  <div class="profile">
-    <table>
-      <tr>
-        <th>Username</th>
-        <td><%= @user.username %></td>
-      </tr>
+    <table class="table">
       <tr>
         <th>First Name</th>
         <td><%= @user.first_name %></td>
