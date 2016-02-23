@@ -1,26 +1,4 @@
-<hr/>
-<h3>Singer</h3>
-<% if @user.id == session[:user_id] %>
-  <%= link_to 'Edit', controller: :singers, action: :edit %>
-  <%= link_to 'Delete', controller: :singers, action: :destroy, method: :delete %>
-<% end %>
-<table>
-  <tr>
-    <th>Background Vocals</th>
-    <td><%= musician.background_vocals %></td>
-  </tr>
-  <tr>
-    <th>Range</th>
-    <td><%= musician.specific.range %></td>
-  </tr>
-  <tr>
-    <th>Experience</th>
-    <td><%= musician.experience %></td>
-  </tr>
-  <tr>
-    <th>Proficiency</th>
-    <td><%= musician.proficiency %></td>
-  </tr>
-</table>
-<%= make_review_link_for @user, musician %>
-<%= make_show_reviews_link_for musician %>
+<tr>
+  <th>Range</th>
+  <td><%= singer.range %></td>
+</tr>
