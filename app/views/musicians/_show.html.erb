@@ -18,9 +18,9 @@
     </table>
   </div>
   <% if @user.id == session[:user_id] %>
-    <%= make_edit_musician_link(musician, {class: "btn btn-default", type: "button"}) %>
-    <%= make_delete_musician_link(musician, {class: "btn btn-default", type: "button"}) %>
+    <%= make_edit_musician_link(musician, { class: "btn btn-default", type: "button" }) %>
+    <%= make_delete_musician_link(musician, { class: "btn btn-default", type: "button" }) %>
   <% end %>
-  <%= make_review_link_for(@user, musician, {class: "btn btn-default", type: "button"}) %>
-  <%= link_to('See the reviews', musician_reviews_path(musician), {class: "btn btn-default", type: "button"}) %>
+  <%= make_review_link_for(@user, musician, { class: "btn btn-default", type: "button" }) %>
+  <%= link_to('See the reviews', musician_reviews_path(musician), { class: "btn btn-default", type: "button" }) %>
 </div>
