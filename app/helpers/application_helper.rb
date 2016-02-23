@@ -23,20 +23,24 @@ module ApplicationHelper
   end
 
   def make_edit_musician_link(musician, options = nil)
-    type = musician.specific.class.name
-    case type
-    when 'Drummer'
-      edit_link_helper(:drummers, options)
-    when 'Guitarist'
-      edit_link_helper(:guitarists, options)
-    when 'Bassist'
-      edit_link_helper(:bassists, options)
-    when 'Singer'
-      edit_link_helper(:singers, options)
-    end
+    edit_link_helper(symbol_from_musician(musician), options)
   end
 
   private
+
+  def symbol_from_musician(musician)
+    type = musician.specific.class.name
+    case type
+    when 'Drummer'
+      :drummers
+    when 'Guitarist'
+      :guitarists
+    when 'Bassist'
+      :bassists
+    when 'Singer'
+      :singers
+    end
+  end
 
   def edit_link_helper(instrument, html_options)
     link_to_helper('Edit', { controller: instrument, action: :edit }, html_options)
