@@ -25,7 +25,7 @@
     </table>
   </div>
   <div>
-    <% if @user.id == session[:user_id] %>
+    <% if @user.id == session[:user_id] && @user.more_instrument_options? %>
       <%= link_to("Add an instrument!", action: 'add_instrument') %>
     <% end %>
     <% @user.musicians.each do |musician| %>
