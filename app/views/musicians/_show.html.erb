@@ -14,4 +14,9 @@
     <td><%= musician.proficiency %></td>
   </tr>
 </table>
-<%= render(partial: 'musicians/links', locals: {musician: musician}) %>
+<% if @user.id == session[:user_id] %>
+  <%= make_edit_musician_link(musician) %>
+  <%= link_to 'Delete', controller: :guitarists, action: :destroy, method: :delete %>
+<% end %>
+<%= make_review_link_for @user, musician %>
+<%= make_show_reviews_link_for musician %>
