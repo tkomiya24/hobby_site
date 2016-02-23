@@ -13,10 +13,11 @@
     <th>Proficiency</th>
     <td><%= musician.proficiency %></td>
   </tr>
+  <%= render_specific_data(musician) %>
 </table>
 <% if @user.id == session[:user_id] %>
   <%= make_edit_musician_link(musician) %>
   <%= make_delete_musician_link(musician) %>
 <% end %>
 <%= make_review_link_for @user, musician %>
-<%=   link_to('See the reviews', musician_reviews_path(musician)) %>
+<%= link_to('See the reviews', musician_reviews_path(musician)) %>

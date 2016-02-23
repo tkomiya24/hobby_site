@@ -26,6 +26,11 @@ module ApplicationHelper
     delete_link_helper(symbol_from_musician(musician), options)
   end
 
+  def render_specific_data(musician)
+    render(partial: "#{symbol_from_musician(musician)}/show",
+           locals: { specific: musician.specific })
+  end
+
   private
 
   def symbol_from_musician(musician)
