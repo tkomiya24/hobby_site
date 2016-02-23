@@ -18,10 +18,6 @@ module ApplicationHelper
     end
   end
 
-  def make_show_reviews_link_for(musician)
-    link_to 'See the reviews', musician_reviews_path(musician)
-  end
-
   def make_edit_musician_link(musician, options = nil)
     edit_link_helper(symbol_from_musician(musician), options)
   end
