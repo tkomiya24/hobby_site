@@ -1,4 +1,4 @@
 <%= error_messages_for(@musician.specific) %>
-<%= form_for(@instrument, url: {controller: @instrument.to_s.pluralize, action: 'create'}) do |u| %>
+<%= form_for(@instrument, url: {controller: @instrument.to_s.pluralize, action: 'create'}, html: {role: 'form'}) do |u| %>
   <%= render(partial: 'form', locals: {u: u}) %>
 <% end %>
