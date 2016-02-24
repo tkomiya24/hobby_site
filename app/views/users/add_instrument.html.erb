@@ -1,7 +1,6 @@
 <% unless @user.singer? %>
   <%= link_to('Singer', controller: 'singers', action: 'new') %>
 <% end %>
-
 <% unless @user.guitarist? %>
   <%= link_to('Guitar', controller: 'guitarists', action: 'new') %>
 <% end %>
@@ -11,5 +10,4 @@
 <% unless @user.bassist? %>
   <%= link_to('Bass', controller: 'bassists', action: 'new') %>
 <% end %>
-
-<%= link_to("Cancel", :action => 'show') %>
+<%= link_to('Cancel', action: 'show') %>
