@@ -1,17 +1,17 @@
 <div class = "form-group">
-  <div class = "checkbox">
-    <%= u.label(:background_vocals, class: 'control-label') do %>
-      <%= u.check_box(:background_vocals)%>Background vocals
-    <% end %>
-  </div>
-</div>
-<div class = "form-group">
   <%= u.label(:experience, "Years Played", class: 'control-label') %>
   <%= u.select(:experience, 0..150, {}, class: 'form-control')%>
 </div>
 <div class = "form-group">
   <%= u.label(:proficiency, class: 'control-label') %>
   <%= u.select(:proficiency, ['Beginner', 'Intermmediate', 'Advanced', 'Professional'], {}, class: 'form-control') %>
+</div>
+<div class = "form-group">
+  <div class = "checkbox">
+    <%= u.label(:background_vocals, class: 'control-label') do %>
+      <%= u.check_box(:background_vocals)%>Background vocals
+    <% end %>
+  </div>
 </div>
 <%= render(partial: "#{@instrument.to_s.pluralize}/form", locals: {u: u}) %>
 <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
