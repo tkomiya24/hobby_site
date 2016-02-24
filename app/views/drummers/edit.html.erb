@@ -1,7 +1,0 @@
-<%= form_for(@user.drummer, url: {action: 'update'}) do |u| %>
-  <%= render(partial: 'form', locals: {u: u}) %>
-  <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
-    <i class="glyphicon glyphicon-floppy-save"></i>  Submit
-  <% end %>
-<% end %>
-<%= link_to("Back", controller: 'users', action: 'show') %>
