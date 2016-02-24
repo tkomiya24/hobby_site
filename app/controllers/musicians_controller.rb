@@ -8,6 +8,11 @@ class MusiciansController < ApplicationController
     @musician = musician_from_instrument(@instrument)
   end
 
+  def edit
+    @musician = Musician.find(params[:id]).specific
+    @instrument = @musician.specific.class.name.downcase
+  end
+
   private
 
   def musician_from_instrument(instrument)
