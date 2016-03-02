@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   layout 'main'
 
   def index
+    @musician = musician
     @reviews = musician.reviews
   end
 

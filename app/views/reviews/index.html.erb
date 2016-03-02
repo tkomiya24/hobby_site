@@ -1,7 +1,14 @@
-<% @reviews.each do |review| %>
-  <div class="container-fluid">
-    <p>
-      <%= review.review %>
-    </p>
+<% if @reviews.any? %>
+  <% @reviews.each do |review| %>
+    <div class="container-fluid">
+      <p>
+        <%= review.review %>
+      </p>
+    </div>
+  <% end %>
+<% else %>
+  <div>
+    <%= "#{@musician.user.username} has not been reviewed as a #{@musician.specific.class.name.downcase} yet." %>
+    Would you like to <%= link_to('write', new_musician_review_path(@musician)) %> one?
   </div>
 <% end %>
