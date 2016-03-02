@@ -1,1 +1,19 @@
-<h3>Hello there!</h3>
+<div class="container">
+  <section class="about">
+    <h2>About hobby_site</h2>
+    <p>
+      This is a website where musicians interact with other musicians.
+      Find others based on their instrument, skill level,
+      review scores, and form a band.
+      Review other musicians you know that are awesome.
+    </p>
+  </section>
+  <div class="get-started">
+    <h3>Get started</h3>
+    <%= link_to('Sign Up', new_user_path) %>
+    <p>
+      Already a member?
+    </p>
+    <%= link_to('Log in', login_user_path) %>
+  </div>
+</div>
