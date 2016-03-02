@@ -23,10 +23,6 @@ module ApplicationHelper
     edit_link_helper(symbol_from_musician(musician), options)
   end
 
-  def make_delete_musician_link(musician, options = nil)
-    delete_link_helper(symbol_from_musician(musician), options)
-  end
-
   def render_specific_data(musician)
     render(partial: "#{symbol_from_musician(musician)}/show",
            locals: { specific: musician.specific })
@@ -46,12 +42,6 @@ module ApplicationHelper
     when 'Singer'
       :singers
     end
-  end
-
-  def delete_link_helper(instrument, options)
-    options = {} unless options
-    options[:method] = :delete
-    link_to_helper('Delete', { controller: instrument, action: :destroy }, options)
   end
 
   def edit_link_helper(instrument, html_options)
