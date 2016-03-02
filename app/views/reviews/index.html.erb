@@ -1,3 +1,6 @@
+<div class="page-header">
+  <h1>Reviews for <%= "#{@musician.specific.class.name.downcase} #{@musician.user.username}" %></h1>
+</div>
 <% if @reviews.any? %>
   <% @reviews.each do |review| %>
     <div class="container-fluid">
