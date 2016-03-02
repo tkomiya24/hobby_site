@@ -18,7 +18,7 @@ $(document).ready(function() {
       },
       templates: {
         suggestion: function(user) {
-          return ['<a class="suggestion-links" href="/users/show/' + user.id + '">',
+          return ['<a class="suggestion-links" href="/users/' + user.id + '">',
                   user.first_name + ' ' + user.last_name,
                   '</a>'].join('\n');
         }
