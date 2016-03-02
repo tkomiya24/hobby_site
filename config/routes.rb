@@ -4,5 +4,17 @@ Rails.application.routes.draw do
   resources :musicians do
     resources :reviews
   end
-  match ':controller(/:action(/:id))', via: [:get, :post, :delete, :patch]
+  resource :user do
+    member do
+      get 'login'
+      post 'attempt_login'
+      post 'logout'
+      get 'add_instrument'
+    end
+  end
+  resources :users
+  resource :drummer
+  resource :singer
+  resource :bassist
+  resource :guitarist
 end
