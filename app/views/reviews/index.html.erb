@@ -12,8 +12,10 @@
 <% else %>
   <% if @musician.user.id != session[:user_id] %>
     <div>
-      <%= "#{@musician.user.username} has not been reviewed as a #{@musician.specific.class.name.downcase} yet." %>
-      Would you like to <%= link_to('write', new_musician_review_path(@musician)) %> one?
+      <p>
+        <%= "#{@musician.user.username} has not been reviewed as a #{@musician.specific.class.name.downcase} yet." %>
+        Would you like to <%= link_to('write', new_musician_review_path(@musician)) %> one?
+      </p>
     </div>
   <% else %>
     <div>
