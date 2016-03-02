@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def success_flash
+    flash[:notice] = 'Changes successful!'
+    flash[:class] = 'alert-success'
+  end
+
   def check_login
     if session[:user_id]
       return true
