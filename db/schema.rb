@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206194216) do
+ActiveRecord::Schema.define(version: 20160302213800) do
 
   create_table "bassists", force: :cascade do |t|
     t.boolean "five_string", default: false, null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160206194216) do
   end
 
   add_index "musicians", ["actable_type", "actable_id"], name: "index_musicians_on_actable_type_and_actable_id", using: :btree
+  add_index "musicians", ["user_id", "actable_type"], name: "index_musicians_on_user_id_and_actable_type", unique: true, using: :btree
   add_index "musicians", ["user_id"], name: "index_musicians_on_user_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|

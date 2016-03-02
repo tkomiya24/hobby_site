@@ -5,12 +5,18 @@ class MusiciansController < ApplicationController
 
   def new
     @instrument = params[:instrument]
-    @musician = musician_from_instrument(@instrument)
+    if fetch_user.instrument?(@instrument)
+      flash[:notice] = "You are already registered as a #{@instrument.downcase}!"
+      flash[:class] = 'alert-danger'
+      redirect_to(user_path)
+    else
+      @musician = musician_from_instrument(@instrument)
+    end
   end
 
   def create
-    @musician = musician_from_instrument(params[:instrument][:instrument],
-                                         instrument_params(params[:instrument][:instrument]))
+    @instrument = params[:instrument][:instrument]
+    @musician = musician_from_instrument(@instrument, instrument_params(@instrument))
     @musician.user = fetch_user
     if @musician.save
       success_flash
