@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def success_flash
-    flash[:notice] = 'Changes successful!'
+    flash[:notice] = 'Your profile has been updated successfully'
     flash[:class] = 'alert-success'
   end
 
