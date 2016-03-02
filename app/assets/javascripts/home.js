@@ -9,7 +9,7 @@ $(document).ready(function() {
       wildcard: '%QUERY'
     }
   });
-
+  var selectedItem;
   $('#search-bar').typeahead(null,
     {
       source: users,
@@ -21,6 +21,18 @@ $(document).ready(function() {
           return ['<a class="suggestion-links" href="/users/' + user.id + '">',
                   user.first_name + ' ' + user.last_name,
                   '</a>'].join('\n');
+        }
+      }
+    })
+    .on('typeahead:selected', function(event, item) {
+      selectedItem = item;
+      console.log(selectedItem);
+    })
+    .on('keydown', function(event) {
+      if (event.which === 13) {
+        event.preventDefault();
+        if (selectedItem) {
+          window.location.href = '/users/' + selectedItem.id;
         }
       }
     });
