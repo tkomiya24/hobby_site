@@ -1,4 +1,5 @@
-<%= error_messages_for(@musician.specific) %>
-<%= form_for(@instrument, url: {controller: @instrument.to_s.pluralize, action: 'create'}, html: {role: 'form'}) do |u| %>
+<%= error_messages_for(@musician) %>
+<%= form_for(@musician, as: :instrument, url: musicians_path, html: {role: 'form', method: :post}) do |u| %>
   <%= render(partial: 'form', locals: {u: u}) %>
+  <%= hidden_field(:instrument, :instrument, value: @instrument) %>
 <% end %>

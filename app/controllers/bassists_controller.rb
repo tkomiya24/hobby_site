@@ -44,11 +44,4 @@ class BassistsController < ApplicationController
   def review
     review_with Bassist.find(params[:reviewable_id])
   end
-
-  private
-
-  def bassist_params
-    params.require(:bassist)
-      .permit(:six_string, :five_string, :background_vocals, :experience, :proficiency)
-  end
 end
