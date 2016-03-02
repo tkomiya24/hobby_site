@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   has_many :musicians, dependent: :destroy
   has_many :reviewed_musician, class_name: 'Musician', through: :reviews
 
+  def instrument?(instrument)
+    musicians.any? { |musician| musician.actable_type.downcase == instrument }
+  end
+
   def singer?
     instrument?('singer')
   end
@@ -52,10 +56,6 @@ class User < ActiveRecord::Base
   end
 
   private
-
-  def instrument?(instrument)
-    musicians.any? { |musician| musician.actable_type.downcase == instrument }
-  end
 
   def instrument(instrument)
     musicians.find { |musician| musician.actable_type.downcase == instrument }.specific
