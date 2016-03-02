@@ -9,8 +9,8 @@ class MusiciansController < ApplicationController
   end
 
   def create
-    @musician = musician_from_instrument(params[:instrument][:instrument],
-                                         instrument_params(params[:instrument][:instrument]))
+    @instrument = params[:instrument][:instrument]
+    @musician = musician_from_instrument(@instrument, instrument_params(@instrument))
     @musician.user = fetch_user
     if @musician.save
       success_flash
