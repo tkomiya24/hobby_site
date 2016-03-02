@@ -10,6 +10,7 @@ class GuitaristsController < ApplicationController
     @guitarist = Guitarist.new(guitarist_params)
     @guitarist.user = fetch_user
     if @guitarist.save
+      success_flash
       redirect_to_user
     else
       render('new')
@@ -36,7 +37,7 @@ class GuitaristsController < ApplicationController
   def destroy
     guitarist = User.find(session[:user_id]).guitarist
     guitarist.destroy
-    flash[:notice] = 'Deletion successful'
+    success_flash
     back_to_home
   end
 

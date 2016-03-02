@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:notice] = 'Update Successful'
+      success_flash
       redirect_to(action: 'show')
     else
       render('edit')
