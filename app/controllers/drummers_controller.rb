@@ -11,8 +11,8 @@ class DrummersController < ApplicationController
   def create
     @drummer = Drummer.new(read_params)
     @drummer.user = @user
-
     if @drummer.save
+      success_flash
       redirect_to(controller: 'users', action: 'show')
     else
       render('new')
@@ -25,7 +25,7 @@ class DrummersController < ApplicationController
   def update
     @drummer = @user.drummer
     if @drummer.update_attributes(read_params)
-      flash[:notice] = 'Changes successful!'
+      success_flash
       redirect_to(controller: 'users', action: 'show')
     else
       render('edit')
@@ -38,7 +38,7 @@ class DrummersController < ApplicationController
   def destroy
     drummer = @user.drummer
     drummer.destroy
-    flash[:notice] = 'Deletion successful'
+    success_flash
     back_to_home
   end
 

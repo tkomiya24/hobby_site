@@ -15,7 +15,7 @@ class MusiciansController < ApplicationController
 
   def destroy
     Musician.destroy(params[:id])
-    flash[:notice] = 'Your profile has been updated successfully'
+    success_flash
     redirect_to(user_path)
   end
 

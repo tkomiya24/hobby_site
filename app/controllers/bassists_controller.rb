@@ -10,7 +10,7 @@ class BassistsController < ApplicationController
     @bassist = Bassist.new(bassist_params)
     @bassist.user = fetch_user
     if @bassist.save
-      flash[:notice] = 'Changes successful!'
+      success_flash
       redirect_to(controller: 'users', action: 'show')
     else
       render('new')
@@ -24,7 +24,7 @@ class BassistsController < ApplicationController
   def update
     @bassist = fetch_user.bassist
     if @bassist.update_attributes(bassist_params)
-      flash[:notice] = 'Changes successful!'
+      success_flash
       redirect_to(controller: 'users', action: 'show')
     else
       render('edit')
@@ -37,7 +37,7 @@ class BassistsController < ApplicationController
   def destroy
     bassist = User.find(session[:user_id]).bassist
     bassist.destroy
-    flash[:notice] = 'Deletion successful'
+    success_flash
     back_to_home
   end
 

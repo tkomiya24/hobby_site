@@ -11,7 +11,7 @@ class SingersController < ApplicationController
     @singer.user = fetch_user
 
     if @singer.save
-      flash[:notice] = 'Changes successful'
+      success_flash
       redirect_to(controller: 'users', action: 'show')
     else
       render('new')
@@ -24,9 +24,8 @@ class SingersController < ApplicationController
 
   def update
     @singer = fetch_user.singer
-
     if @singer.update_attributes(singer_params)
-      flash[:notice] = 'Changes successful'
+      success_flash
       redirect_to(controller: 'users', action: 'show')
     else
       render('edit')
@@ -39,7 +38,7 @@ class SingersController < ApplicationController
   def destroy
     guitarist = fetch_user.singer
     guitarist.destroy
-    flash[:notice] = 'Deletion successful'
+    success_flash
     back_to_home
   end
 
