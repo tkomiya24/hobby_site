@@ -13,6 +13,12 @@ class MusiciansController < ApplicationController
     @instrument = @musician.specific.class.name.downcase
   end
 
+  def destroy
+    Musician.destroy(params[:id])
+    flash[:notice] = 'Your profile has been updated successfully'
+    redirect_to(user_path)
+  end
+
   private
 
   def musician_from_instrument(instrument)
