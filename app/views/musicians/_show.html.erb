@@ -19,7 +19,7 @@
   </div>
   <% if @user.id == session[:user_id] %>
     <%= link_to('Edit', edit_musician_path(musician), { class: "btn btn-default", type: "button" }) %>
-    <%= make_delete_musician_link(musician, { class: "btn btn-default", type: "button" }) %>
+    <%= link_to('Delete', musician_path(musician), method: :delete, class: "btn btn-default", type: "button") %>
   <% end %>
   <%= make_review_link_for(@user, musician, { class: "btn btn-default", type: "button" }) %>
   <%= link_to('See the reviews', musician_reviews_path(musician), { class: "btn btn-default", type: "button" }) %>
