@@ -20,10 +20,12 @@ $backgroundColor: $bluishGrey;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "mixins";
 @import "users";
 @import "_typeahead";
 @import "forms";
 @import "instruments";
+@import "reviews";
 
 body {
   background-color: $bluishGrey;
