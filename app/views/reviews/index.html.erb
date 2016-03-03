@@ -2,13 +2,21 @@
   <h1>Reviews for <%= "#{@musician.specific.class.name.downcase} #{@musician.user.username}" %></h1>
 </div>
 <% if @reviews.any? %>
-  <% @reviews.each do |review| %>
-    <div class="container-fluid">
-      <p>
-        <%= review.review %>
-      </p>
-    </div>
-  <% end %>
+  <div class="reviews">
+    <% @reviews.each do |review| %>
+      <div class="review">
+        <h4>
+          Review by <%= review.user.username %>
+        </h4>
+        <h5>
+          <%= review.rating %>/5
+        </h5>
+        <p>
+          <%= review.review %>
+        </p>
+      </div>
+    <% end %>
+  </div>
 <% else %>
   <% if @musician.user.id != session[:user_id] %>
     <div>
