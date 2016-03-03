@@ -14,6 +14,11 @@
         <p>
           <%= review.review %>
         </p>
+        <p>
+          <small>
+            <%= link_to('See full review', musician_review_path(@musician, review)) %>
+          </small>
+        </p>
       </div>
     <% end %>
   </div>
