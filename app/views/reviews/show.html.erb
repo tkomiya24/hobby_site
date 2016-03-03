@@ -13,4 +13,5 @@
   <p>
     <%= @review.review %>
   </p>
+  <%= link_to('Back to user', { controller: 'users', action: 'show', id: @review.reviewable.user }) %>
 </div>
