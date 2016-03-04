@@ -17,6 +17,6 @@
 <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
     <i class="glyphicon glyphicon-floppy-save"></i>  Submit
 <% end %>
-<%= link_to({controller: 'users', action: 'show'}, {class: 'btn btn-danger'}) do %>
+<%= link_to(user_path, {class: 'btn btn-danger'}) do %>
   <i class="glyphicon glyphicon-remove"></i>  Cancel
 <% end %>
