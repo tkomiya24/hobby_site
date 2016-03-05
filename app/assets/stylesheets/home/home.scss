@@ -1,5 +1,6 @@
 $navbarHeight: 70px;
 $footerHeight: 50px;
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900,700,500,300);
 nav {
   box-sizing: border-box;
   display: block;
@@ -49,9 +50,11 @@ html, body {
 }
 
 body {
+  font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding-top: $navbarHeight;
   box-sizing: border-box;
   font-size: 1.2em;
+  font-weight: 300;
 }
 
 .fill-viewport {
