@@ -27,6 +27,7 @@ footer {
   height: $footerHeight;
   position: relative;
   overflow:hidden;
+  line-height: $footerHeight;
   ul, div, p {
     margin: 0;
     padding: 0;
