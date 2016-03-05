@@ -33,7 +33,10 @@ footer {
   padding-right: 20px;
   position: relative;
   overflow:hidden;
-  line-height: $footerHeight;
+  line-height: $footerHeight - 20px;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-bottom: 10px;
   ul, div, p {
     margin: 0;
     padding: 0;
