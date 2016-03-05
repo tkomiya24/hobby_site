@@ -5,11 +5,7 @@
 </div>
 <div class="navbar-right">
   <div class="navbar-links">
-    <%= link_to(login_user_path) do %>
-      <button>Sign in</button>
-    <% end %>
-    <%= link_to(new_user_path) do %>
-      <button>Register</button>
-    <% end %>
+    <%= link_to('Sign In', login_user_path, role: 'button') %>
+    <%= link_to('Register', new_user_path, role: 'button') %>
   </div>
 </div>
