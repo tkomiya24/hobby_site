@@ -43,6 +43,13 @@ footer {
   }
   li {
     display: inline-block;
+    border-right: 1px solid black;
+    box-sizing: border-box;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+  li:last-of-type {
+    border-right: none;
   }
   .footer-right {
     float: right;
