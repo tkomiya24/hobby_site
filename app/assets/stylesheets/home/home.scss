@@ -1,4 +1,5 @@
 $navbarHeight: 70px;
+$footerHeight: 50px;
 nav {
   box-sizing: border-box;
   display: block;
@@ -18,10 +19,41 @@ nav {
   }
 }
 
+footer {
+  margin-top: -$footerHeight;
+  height: $footerHeight;
+  position: relative;
+  overflow:hidden;
+  ul, div, p {
+    margin: 0;
+    padding: 0;
+  }
+  div {
+    display: inline-block;
+  }
+  li {
+    display: inline-block;
+  }
+  .footer-right {
+    float: right;
+  }
+}
+
 html, body {
   height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
   padding-top: $navbarHeight;
+  box-sizing: border-box;
+}
+
+.fill-viewport {
+  box-sizing: border-box;
+  height: auto;
+  min-height: 100%;
+  padding-bottom: $footerHeight;
 }
