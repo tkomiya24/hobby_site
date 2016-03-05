@@ -64,3 +64,19 @@ body {
   min-height: 100%;
   padding-bottom: $footerHeight;
 }
+
+.welcome {
+  padding-left: 48px;
+  padding-right: 48px;
+  .about {
+    padding-top: 50px;
+    margin-bottom: 50px;
+    h1 {
+      font-size: 3em;
+    }
+  }
+  .get-started {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
