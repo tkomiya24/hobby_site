@@ -7,6 +7,9 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <body>
+    <nav>
+      <%= render(partial: 'home/navbar') %>
+    </nav>
     <%= yield %>
     <footer></footer>
   </body>
