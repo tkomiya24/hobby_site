@@ -1,0 +1,27 @@
+$navbarHeight: 70px;
+nav {
+  box-sizing: border-box;
+  display: block;
+  position: fixed;
+  padding: 10px 20px;
+  top: 0;
+  width: 100%;
+  height: $navbarHeight;
+  div {
+    display: inline-block;
+  }
+  .navbar-right {
+    float: right;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  padding-top: $navbarHeight;
+}
