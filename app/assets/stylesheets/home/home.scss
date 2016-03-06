@@ -100,11 +100,12 @@ body {
     }
     li {
       display: inline-block;
+      vertical-align: top;
       box-sizing: border-box;
       margin: 0;
-      width: 33%;
-      padding-left: 5%;
-      padding-right: 5%;
+      width: 32%;
+      padding-left: 3%;
+      padding-right: 3%;
     }
   }
   .get-started {
