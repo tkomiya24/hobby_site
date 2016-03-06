@@ -110,7 +110,11 @@ body {
     }
   }
   .get-started {
+    text-align: center;
     padding-left: 24px;
     padding-right: 24px;
+    small {
+      font-size: 80%;
+    }
   }
 }
