@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  layout 'main'
+  layout 'welcome'
 
   before_action :fetch_user
 
