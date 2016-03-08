@@ -69,10 +69,6 @@ body {
   .about {
     padding-top: 10px;
     margin-bottom: 50px;
-    h1 {
-      margin-top: 10px;
-      font-size: 3.5em;
-    }
     ul {
       background-color: $background2;
       display: block;
@@ -102,5 +98,12 @@ body {
     small {
       font-size: 80%;
     }
+  }
+}
+
+.page-header {
+  h1 {
+    margin-top: 10px;
+    font-size: 3.5em;
   }
 }
