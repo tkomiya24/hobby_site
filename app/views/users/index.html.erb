@@ -12,5 +12,12 @@
         <td><%= user.city %></td>
       </tr>
     </table>
+    <ul>
+      <% user.musicians.each do |instrument| %>
+        <li>
+          <%= instrument.specific.class.name %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
