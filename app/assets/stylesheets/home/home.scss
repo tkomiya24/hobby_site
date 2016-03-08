@@ -1,4 +1,3 @@
-$navbarHeight: 70px;
 $footerHeight: 50px;
 $background1: #0D1B2A;
 $background2: #1b263b;
@@ -6,29 +5,6 @@ $background3: #415A77;
 $background4: #778DA9;
 $background5: #E0E1DD;
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900,700,500,300);
-nav {
-  box-sizing: border-box;
-  display: block;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: $navbarHeight;
-  line-height: $navbarHeight;
-  padding-left: 15px;
-  padding-right: 15px;
-  div {
-    display: inline-block;
-  }
-  .navbar-right {
-    float: right;
-  }
-  a {
-    text-decoration: none;
-    border: 1px solid black;
-    border-radius: 3px;
-    padding: 0.5em;
-  }
-}
 
 footer {
   font-size: 0.85em;
@@ -74,7 +50,6 @@ body {
   background-color: $background3;
   color: $background5;
   font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding-top: $navbarHeight;
   box-sizing: border-box;
   font-size: 1.2em;
   font-weight: 300;
