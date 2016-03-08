@@ -1,0 +1,138 @@
+$footerHeight: 50px;
+$background1: #0D1B2A;
+$background2: #1b263b;
+$background3: #415A77;
+$background4: #778DA9;
+$background5: #E0E1DD;
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900,700,500,300);
+
+footer {
+  text-align: center;
+  font-size: 0.85em;
+  margin-top: -$footerHeight;
+  height: $footerHeight;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  line-height: $footerHeight - 20px;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  ul, div, p {
+    margin: 0;
+    padding: 0;
+  }
+  div {
+    display: inline-block;
+  }
+  li {
+    display: inline-block;
+    border-right: 1px solid $background5;
+    box-sizing: border-box;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+  li:last-of-type {
+    border-right: none;
+  }
+  .footer-right {
+    float: right;
+  }
+}
+
+html, body {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: $background3;
+  color: $background5;
+  font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  font-size: 1.2em;
+  font-weight: 300;
+  a, a:visited, a:link {
+    color: invert($background3);
+  }
+}
+
+.fill-viewport {
+  box-sizing: border-box;
+  height: auto;
+  min-height: 100%;
+  padding-bottom: $footerHeight;
+}
+
+.welcome {
+  .about {
+    background-color: $background2;
+    padding: 40px;
+    ul {
+      display: block;
+      padding: 0;
+      list-style: none;
+    }
+    .explanation {
+      padding: 50px 5%;
+      font-size: 0.85em;
+    }
+  }
+  .get-started {
+    text-align: center;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 50px 0;
+    small {
+      font-size: 0.8em;
+    }
+    h3 {
+      margin: 10px;
+    }
+    a, p {
+      margin: 5px;
+    }
+  }
+}
+
+@media (min-width: 950px) {
+  .welcome {
+    .about {
+      li {
+        display: inline-block;
+        vertical-align: top;
+        box-sizing: border-box;
+        margin: 0;
+        width: 32%;
+        min-width: 165px;
+        padding-left: 3%;
+        padding-right: 3%;
+      }
+    }
+  }
+}
+
+@media (min-width: 581px) {
+  .page-header {
+    padding: 60px 50px;
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 5em;
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .page-header {
+    padding: 40px 30px;
+    text-align: center;
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 3em;
+    }
+  }
+}

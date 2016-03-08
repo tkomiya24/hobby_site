@@ -1,1 +1,47 @@
-<h3>Hello there!</h3>
+<div class="fill-viewport welcome">
+  <div class="page-header">
+    <h1>hobby_site</h1>
+  </div>
+  <section class="about">
+    <ul>
+      <li>
+        <h4>
+          Get yourself known
+        </h4>
+        <p>
+          Share which instruments you play and your skills with each of them. Other musicians are looking for you!
+        </p>
+      </li>
+      <li>
+        <h4>
+          Review other musicians
+        </h4>
+        <p>
+          Know some awesome musicians? They deserve recognition. Leave a review for them to let the world know.
+        </p>
+      </li>
+      <li>
+        <h4>
+          Find others
+        </h4>
+        <p>
+          Use this site to complete your all-star band so you can tour the world. Search by instrument, skill level, genre, and more.
+        </p>
+      </li>
+    </ul>
+    <p class="explanation">
+      This is a website where musicians interact with other musicians.
+      Find others based on their instrument, skill level,
+      review scores, and form a band.
+      Review other musicians you know that are awesome.
+    </p>
+  </section>
+  <div class="get-started">
+    <h3>Get started</h3>
+    <%= link_to('Sign Up', new_user_path) %>
+    <p>
+      <small>Already a member?</small>
+    </p>
+    <%= link_to('Log in', login_user_path) %>
+  </div>
+</div>

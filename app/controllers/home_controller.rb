@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
-  layout 'main'
+  layout 'welcome'
 
-  before_action :check_login
   before_action :fetch_user
 
   def index
