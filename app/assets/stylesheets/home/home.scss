@@ -63,23 +63,12 @@ body {
 }
 
 .welcome {
-  padding-left: 48px;
-  padding-right: 48px;
-  padding-top: 30px;
   .about {
-    padding-top: 10px;
-    margin-bottom: 50px;
+    background-color: $background2;
+    padding: 40px;
     ul {
-      background-color: $background2;
       display: block;
-      margin-left: -48px;
-      margin-right: -48px;
-      margin-bottom: 80px;
-      margin-top: 100px;
-      padding-left: 0;
-      padding-right: 0;
-      padding-top: 100px;
-      padding-bottom: 100px;
+      padding: 0;
     }
     li {
       display: inline-block;
@@ -89,6 +78,10 @@ body {
       width: 32%;
       padding-left: 3%;
       padding-right: 3%;
+    }
+    .explanation {
+      padding: 50px 5%;
+      font-size: 85%;
     }
   }
   .get-started {
@@ -102,6 +95,7 @@ body {
 }
 
 .page-header {
+  padding: 60px 50px;
   h1 {
     margin: 0;
     padding: 0;
