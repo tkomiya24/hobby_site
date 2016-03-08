@@ -73,15 +73,7 @@ body {
     ul {
       display: block;
       padding: 0;
-    }
-    li {
-      display: inline-block;
-      vertical-align: top;
-      box-sizing: border-box;
-      margin: 0;
-      width: 32%;
-      padding-left: 3%;
-      padding-right: 3%;
+      list-style: none;
     }
     .explanation {
       padding: 50px 5%;
@@ -100,6 +92,23 @@ body {
     }
     a, p {
       margin: 5px;
+    }
+  }
+}
+
+@media (min-width: 950px) {
+  .welcome {
+    .about {
+      li {
+        display: inline-block;
+        vertical-align: top;
+        box-sizing: border-box;
+        margin: 0;
+        width: 32%;
+        min-width: 165px;
+        padding-left: 3%;
+        padding-right: 3%;
+      }
     }
   }
 }
