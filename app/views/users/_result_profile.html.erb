@@ -1,0 +1,31 @@
+<li class="search-result clearfix">
+  <div class="result-profile">
+    <div class="user-info">
+      <div class="profile-picture">
+        <%= link_to({action: 'show', id: user.id}) do %>
+          <img src="http://placehold.it/150x150" class="img-thumbnail" />
+          <h1><%= user.username %></h1>
+        <% end %>
+      </div>
+      <table>
+        <tr>
+          <th>
+            City
+          </th>
+        </tr>
+        <tr>
+          <td><%= user.city %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="instruments">
+      <ul class="inline-list">
+        <% user.musicians.each do |instrument| %>
+          <li>
+            <%= render(partial: 'musicians/summary', locals: {musician: instrument}) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</li>
