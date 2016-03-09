@@ -60,6 +60,11 @@
   .profile-picture {
     float: left;
   }
+  ul, table {
+    margin: 0 40px;
+    vertical-align: top;
+    display: inline-block;
+  }
 }
 
 ul.search-results {
