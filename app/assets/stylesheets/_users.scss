@@ -57,9 +57,13 @@
 }
 
 .result-profile {
+  .user-info {
+    float: left;
+    width: 20%;
+    box-sizing: border-box;
+  }
   .profile-picture {
     position: relative;
-    float: left;
     h1 {
       position: absolute;
       bottom: -10px;
@@ -70,9 +74,12 @@
   div.instruments, table {
     font-family: 'Catamaran', 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 1.25em;
-    margin: 0 40px;
+  }
+  div.instruments {
     vertical-align: top;
-    display: inline-block;
+    box-sizing: border-box;
+    width: 80%;
+    margin-left: 20%;
   }
 }
 
