@@ -31,7 +31,7 @@
             <ul>
               <% user.musicians.each do |instrument| %>
                 <li>
-                  <%= instrument.specific.class.name %>
+                  <%= render(partial: 'musicians/summary', locals: {musician: instrument}) %>
                 </li>
               <% end %>
             </ul>
