@@ -5,6 +5,13 @@ class UsersController < ApplicationController
   before_action :fetch_user, except: [:login, :new, :create, :attempt_login, :logout]
 
   # CRUD actions
+  def index
+    @users = []
+    User.where.not(id: @user.id).find_each do |user|
+      @users.push(user)
+    end
+  end
+
   def new
     @user = User.new
   end
@@ -64,7 +71,7 @@ class UsersController < ApplicationController
     end
     if authorized_user
       session[:user_id] = user.id
-      redirect_to(user_path)
+      redirect_to(users_path)
     else
       flash[:notice] = 'Invalid username or password'
       redirect_to(action: 'login')
