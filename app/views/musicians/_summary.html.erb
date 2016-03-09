@@ -1,0 +1,18 @@
+<div class="summary">
+  <h3>
+    <%= musician.specific.class.name %>
+  </h3>
+  <ul>
+    <% if musician.background_vocals %>
+    <li>
+      Sings background vocals
+    </li>
+    <% end %>
+    <li>
+      <%= "#{musician.experience} years of experience" %>
+    </li>
+    <li>
+      <%= "#{musician.proficiency} level of proficiency" %>
+    </li>
+  </ul>
+</div>
