@@ -28,7 +28,7 @@
             </tr>
           </table>
           <div class="instruments">
-            <ul>
+            <ul class="inline-list">
               <% user.musicians.each do |instrument| %>
                 <li>
                   <%= render(partial: 'musicians/summary', locals: {musician: instrument}) %>
