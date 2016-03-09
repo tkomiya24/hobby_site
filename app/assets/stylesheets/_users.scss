@@ -58,7 +58,14 @@
 
 .result-profile {
   .profile-picture {
+    position: relative;
     float: left;
+    h1 {
+      position: absolute;
+      bottom: -10px;
+      left: 10px;
+      opacity: 0.7;
+    }
   }
   div.instruments, table {
     font-family: 'Catamaran', 'Helvetica Neue', Helvetica, sans-serif;
