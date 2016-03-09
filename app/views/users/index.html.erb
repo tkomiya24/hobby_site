@@ -19,13 +19,15 @@
             <td><%= user.city %></td>
           </tr>
         </table>
-        <ul>
-          <% user.musicians.each do |instrument| %>
-            <li>
-              <%= instrument.specific.class.name %>
-            </li>
-          <% end %>
-        </ul>
+        <div class="instruments">
+          <ul>
+            <% user.musicians.each do |instrument| %>
+              <li>
+                <%= instrument.specific.class.name %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     <% end %>
     </li>
