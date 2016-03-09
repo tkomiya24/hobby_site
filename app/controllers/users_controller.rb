@@ -71,7 +71,7 @@ class UsersController < ApplicationController
     end
     if authorized_user
       session[:user_id] = user.id
-      redirect_to(user_path)
+      redirect_to(users_path)
     else
       flash[:notice] = 'Invalid username or password'
       redirect_to(action: 'login')
