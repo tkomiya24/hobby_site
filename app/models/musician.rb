@@ -12,4 +12,16 @@ class Musician < ActiveRecord::Base
   def review_from(user)
     reviews.find { |review| review.user == user }
   end
+
+  def average_review
+    score = 0
+    if reviews.length > 0
+      reviews.each do |review|
+        score += review.rating
+      end
+      score /= reviews.length
+    else
+      score
+    end
+  end
 end
