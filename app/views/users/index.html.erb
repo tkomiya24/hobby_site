@@ -8,8 +8,8 @@
     <input type="text"/>
   </form> -->
   <ul class="search-results">
-    <% @users.each do |user| %>
-      <%= render(partial: 'result_profile', locals: {user: user}) %>
+    <% @musicians.each do |musician| %>
+      <%= render(partial: 'musicians/summary', locals: {musician: musician}) %>
     <% end %>
   </ul>
 </section>
