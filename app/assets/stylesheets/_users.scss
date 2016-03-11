@@ -79,7 +79,16 @@
   }
   div.instruments {
     box-sizing: border-box;
-    width: 80%;
+    width: 100%;
+    li {
+      margin-right: 30px;
+      li {
+        padding-left: 10px;
+      }
+    }
+    li:last-of-type {
+      margin-right: 0;
+    }
   }
 }
 
