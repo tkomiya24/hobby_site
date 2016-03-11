@@ -94,12 +94,15 @@ ul.search-results {
     margin: 30px auto;
     display: block;
     min-width: 300px;
-    max-width: 800px;
+    max-width: 638px;
     width: 50%;
   }
 }
 
 @media (min-width: 900px) {
+  ul.search-result {
+    width: 638px;
+  }
   .result-profile {
     .profile-picture {
       float: left;
