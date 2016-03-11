@@ -16,7 +16,7 @@ module MusiciansHelper
               musician_review_path(musician, musician.review_from(authenticated_user)),
               options)
     else
-      link_to 'Write a review', new_musician_review_path(musician)
+      link_to('Write a review', new_musician_review_path(musician), options)
     end
   end
 end
