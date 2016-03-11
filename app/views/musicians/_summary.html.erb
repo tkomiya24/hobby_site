@@ -2,6 +2,15 @@
   <h3>
     <%= musician.specific.class.name %>
   </h3>
+  <% if musician.reviews.count > 0%>
+  <h4>
+    Average review score: <%= musician.average_review %>/5
+  </h4>
+  <% else %>
+  <h4>
+    No reviews yet
+  </h4>
+  <% end %>
   <ul>
     <% if musician.background_vocals %>
     <li>
