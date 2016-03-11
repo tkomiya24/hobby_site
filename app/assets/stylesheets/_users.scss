@@ -76,6 +76,16 @@
   div.summary, table {
     font-family: 'Catamaran', 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 1.25em;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  div.summary {
+    h3 {
+      margin-top: 0;
+    }
+    display: inline-block;
+    vertical-align: top;
   }
 }
 
@@ -86,5 +96,23 @@ ul.search-results {
     min-width: 300px;
     max-width: 800px;
     width: 50%;
+  }
+}
+
+@media (min-width: 900px) {
+  .result-profile {
+    .profile-picture {
+      float: left;
+      margin: 0;
+      width: 158px;
+    }
+    div.summary {
+      float: left;
+      width: 180px;
+      margin: 0 50px;
+    }
+    table {
+      width: 200px;
+    }
   }
 }
