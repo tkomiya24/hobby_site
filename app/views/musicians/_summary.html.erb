@@ -1,28 +1,72 @@
-<div class="summary">
-  <h3>
-    <%= musician.specific.class.name %>
-  </h3>
-  <% if musician.reviews.count > 0%>
-  <h4>
-    Average review score: <%= musician.average_review %>/5
-  </h4>
-  <% else %>
-  <h4>
-    No reviews yet
-  </h4>
-  <% end %>
-  <ul>
-    <% if musician.background_vocals %>
-    <li>
-      Sings background vocals
-    </li>
+<li class="search-result">
+  <div class="result-profile clearfix">
+    <div class="profile-picture">
+      <%= link_to({action: 'show', id: musician.user.id}) do %>
+        <img src="http://placehold.it/150x150" class="img-thumbnail" />
+        <h1><%= musician.user.username %></h1>
+      <% end %>
+    </div>
+    <div class="summary">
+      <h3>
+        <%= musician.specific.class.name %>
+      </h3>
+      <% if musician.reviews.count > 0%>
+      <h4>
+        Average review score: <%= musician.average_review %>/5
+      </h4>
+      <% else %>
+      <h4>
+        No reviews yet
+      </h4>
+      <% end %>
+      <small>
+        <%= link_to('Write one', new_musician_review_path(musician)) %>
+      </small>
+      <ul>
+        <% if musician.background_vocals %>
+        <li>
+          Sings background vocals
+        </li>
+        <% end %>
+        <li>
+          <%= "#{musician.experience} years of experience" %>
+        </li>
+        <li>
+          <%= "#{musician.proficiency} level of proficiency" %>
+        </li>
+        <%= render_specific_summary(musician) %>
+      </ul>
+    </div>
+    <table>
+      <tr>
+        <th>
+          City
+        </th>
+      </tr>
+      <tr>
+        <td><%= musician.user.city %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="reviews">
+    <h5>
+      What some users are saying
+    </h5>
+    <p>
+    <% if musician.reviews.count > 0 %>
+      <q>
+        <%= musician.reviews.first.review %>
+      </q>
+      - <%= musician.reviews.first.user.username %> <%= musician.reviews.first.rating %>/5
+    <% else %>
+      <%= "#{musician.user.username} has no reviews as a #{musician.specific.class.name.downcase} yet." %>
+      Be the first to <%= link_to('write one', new_musician_review_path(musician)) %>!
     <% end %>
-    <li>
-      <%= "#{musician.experience} years of experience" %>
-    </li>
-    <li>
-      <%= "#{musician.proficiency} level of proficiency" %>
-    </li>
-    <%= render_specific_summary(musician) %>
-  </ul>
-</div>
+    </p>
+    <p class="right-align">
+      <small>
+        <%= link_to('See all the reviews', musician_reviews_path(musician)) %>
+      </small>
+    </p>
+  </div>
+</li>

@@ -6,9 +6,9 @@ class UsersController < ApplicationController
 
   # CRUD actions
   def index
-    @users = []
-    User.where.not(id: @user.id).find_each do |user|
-      @users.push(user)
+    @musicians = []
+    Musician.all.limit(10).find_each do |musician|
+      @musicians.push(musician) unless musician.user == @user
     end
   end
 

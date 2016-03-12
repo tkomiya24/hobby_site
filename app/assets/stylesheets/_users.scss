@@ -73,23 +73,19 @@
       opacity: 0.7;
     }
   }
-  div.instruments, table {
+  div.summary, table {
     font-family: 'Catamaran', 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 1.25em;
-  }
-  div.instruments {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    width: 100%;
-    li {
-      margin-right: 30px;
-      li {
-        padding-left: 10px;
-        margin: 0;
-      }
+  }
+  div.summary {
+    h3 {
+      margin-top: 0;
     }
-    li:last-of-type {
-      margin-right: 0;
-    }
+    display: inline-block;
+    vertical-align: top;
   }
 }
 
@@ -97,6 +93,36 @@ ul.search-results {
   li.search-result {
     margin: 30px auto;
     display: block;
-    width: 100%;
+    min-width: 300px;
+    max-width: 638px;
+    width: 50%;
+  }
+  div.reviews {
+    padding: 0 5px;
+    margin-top: 10px;
+    q {
+      font-style: italic;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  ul.search-result {
+    width: 638px;
+  }
+  .result-profile {
+    .profile-picture {
+      float: left;
+      margin: 0;
+      width: 158px;
+    }
+    div.summary {
+      float: left;
+      width: 180px;
+      margin: 0 50px;
+    }
+    table {
+      width: 200px;
+    }
   }
 }
