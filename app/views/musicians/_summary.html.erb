@@ -19,6 +19,9 @@
         No reviews yet
       </h4>
       <% end %>
+      <small>
+        <%= link_to('Write one', new_musician_review_path(musician)) %>
+      </small>
       <ul>
         <% if musician.background_vocals %>
         <li>
