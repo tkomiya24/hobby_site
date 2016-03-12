@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   # CRUD actions
   def index
     @musicians = []
-    Bassist.all.limit(10).find_each do |musician|
-      @musicians.push(musician.acting_as) unless musician.user == @user
+    Musician.all.limit(10).find_each do |musician|
+      @musicians.push(musician) unless musician.user == @user
     end
   end
 
