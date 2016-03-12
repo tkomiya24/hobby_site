@@ -97,6 +97,13 @@ ul.search-results {
     max-width: 638px;
     width: 50%;
   }
+  div.reviews {
+    padding: 0 5px;
+    margin-top: 10px;
+    q {
+      font-style: italic;
+    }
+  }
 }
 
 @media (min-width: 900px) {
