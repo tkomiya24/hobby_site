@@ -6,6 +6,7 @@
   </div>
   <%= form_tag('/musicians/search', method: :get) do %>
     <%= text_field_tag(:query, '', placeholder: 'Enter username') %>
+    <%= select_tag(:type, options_for_select([['Drummers', 'drummer']]))%>
     <%= submit_tag('Search') %>
   <% end %>
   <ul class="search-results">
