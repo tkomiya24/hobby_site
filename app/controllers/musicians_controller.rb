@@ -16,6 +16,7 @@ class MusiciansController < ApplicationController
                    .where.not(users: { id: session[:user_id] })
                    .includes(:user)
     end
+    @selected = params[:type]
     render('users/index')
   end
 
