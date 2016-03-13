@@ -24,3 +24,20 @@ nick = User.create(username: 'nlan23', city: 'Vancouver', password: 'password',
                    password_confirmation: 'password')
 nick.musicians << Guitarist.new(background_vocals: true, experience: 13,
                                 rhythm_or_lead: 'Rhythm', proficiency: 'Advanced')
+
+justin = User.create(username: 'justin1249', city: 'Vancouver', password: 'password',
+                     password_confirmation: 'password')
+justin.musicians << Guitarist.new(background_vocals: true, experience: 4,
+                                  rhythm_or_lead: 'Rhythm', proficiency: 'Beginner')
+review = Review.new
+review.user = justin
+review.reviewable = takeru.drummer.acting_as
+review.rating = 5
+review.review = 'Better than Jesus!!!'
+review.save
+review = Review.new
+review.user = justin
+review.reviewable = takeru.guitarist.acting_as
+review.rating = 5
+review.review = 'The voice of our generation!!!'
+review.save
