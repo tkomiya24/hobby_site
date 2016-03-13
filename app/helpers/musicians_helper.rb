@@ -19,4 +19,12 @@ module MusiciansHelper
       link_to('Write a review', new_musician_review_path(musician), options)
     end
   end
+
+  def musician_type_options
+    options = []
+    Musician.types.each do |type|
+      options.push([type.pluralize.capitalize, type])
+    end
+    options.push(['-- Any --', 'any'])
+  end
 end
