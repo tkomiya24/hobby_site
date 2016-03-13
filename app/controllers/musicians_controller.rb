@@ -3,6 +3,15 @@ class MusiciansController < ApplicationController
 
   before_action :check_login
 
+  def search
+    @musicians = Musician.joins(:user)
+                 .where('users.username LIKE ?', "%#{params[:query]}%")
+                 .where(actable_type: 'drummer')
+                 .where.not(users: { id: session[:user_id] })
+                 .includes(:user)
+    render('users/index')
+  end
+
   def new
     @instrument = params[:instrument]
     if fetch_user.instrument?(@instrument)
