@@ -41,3 +41,9 @@ review.reviewable = takeru.guitarist.acting_as
 review.rating = 5
 review.review = 'The voice of our generation!!!'
 review.save
+review = Review.new
+review.user = takeru
+review.reviewable = justin.guitarist.acting_as
+review.rating = 1
+review.review = 'I\'d rather tear my own eardrums out than listen to this kid struggle'
+review.save
