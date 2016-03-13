@@ -6,7 +6,7 @@ class MusiciansController < ApplicationController
   def search
     @musicians = Musician.joins(:user)
                  .where('users.username LIKE ?', "%#{params[:query]}%")
-                 .where(actable_type: 'drummer')
+                 .where(actable_type: params[:type])
                  .where.not(users: { id: session[:user_id] })
                  .includes(:user)
     render('users/index')
