@@ -25,6 +25,6 @@ module MusiciansHelper
     Musician.types.each do |type|
       options.push([type.pluralize.capitalize, type])
     end
-    options
+    options.push(['-- Any --', 'any'])
   end
 end

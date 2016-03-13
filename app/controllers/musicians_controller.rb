@@ -4,11 +4,18 @@ class MusiciansController < ApplicationController
   before_action :check_login
 
   def search
-    @musicians = Musician.joins(:user)
-                 .where('users.username LIKE ?', "%#{params[:query]}%")
-                 .where(actable_type: params[:type])
-                 .where.not(users: { id: session[:user_id] })
-                 .includes(:user)
+    if params[:type] != 'any'
+      @musicians = Musician.joins(:user)
+                   .where('users.username LIKE ?', "%#{params[:query]}%")
+                   .where(actable_type: params[:type])
+                   .where.not(users: { id: session[:user_id] })
+                   .includes(:user)
+    else
+      @musicians = Musician.joins(:user)
+                   .where('users.username LIKE ?', "%#{params[:query]}%")
+                   .where.not(users: { id: session[:user_id] })
+                   .includes(:user)
+    end
     render('users/index')
   end
 
