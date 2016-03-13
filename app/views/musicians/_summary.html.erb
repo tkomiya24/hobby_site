@@ -29,7 +29,7 @@
         </li>
         <% end %>
         <li>
-          <%= "#{musician.experience} years of experience" %>
+          <%= "#{pluralize(musician.experience, 'year')} of experience" %>
         </li>
         <li>
           <%= "#{musician.proficiency} level of proficiency" %>
