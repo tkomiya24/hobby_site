@@ -9,6 +9,10 @@ class Musician < ActiveRecord::Base
             uniqueness: { scope: :user_id,
                           message: 'has already been added' }
 
+  def self.types
+    %w(drummer singer bassist guitarist)
+  end
+
   def review_from(user)
     reviews.find { |review| review.user == user }
   end
