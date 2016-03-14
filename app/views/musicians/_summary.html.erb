@@ -20,7 +20,11 @@
       </h4>
       <% end %>
       <small>
+        <% if @user.reviewed_musician?(musician) %>
+        <%= link_to('View your review', musician_review_path(musician, musician.review_from(@user))) %>
+        <% else %>
         <%= link_to('Write one', new_musician_review_path(musician)) %>
+        <% end %>
       </small>
       <ul>
         <% if musician.background_vocals %>
