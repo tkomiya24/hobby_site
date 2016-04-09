@@ -1,5 +1,8 @@
 <div class="page-header">
   <h1>Reviews for <%= "#{@musician.specific.class.name.downcase} #{@musician.user.username}" %></h1>
+  <h3>
+    Average score of <strong><%= @musician.average_review %>/5</strong> over <%= "#{@reviews.count} #{'review'.pluralize(@reviews.count)}" %>
+  </h3>
 </div>
 <% if @reviews.any? %>
   <div class="reviews">
