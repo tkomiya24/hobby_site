@@ -18,6 +18,7 @@ class MusiciansController < ApplicationController
     end
     @user = fetch_user
     @selected = params[:type]
+    @query = params[:query]
     render('users/index')
   end
 
