@@ -4,7 +4,7 @@ module UsersHelper
       content_tag(:th, label) +
         content_tag(:td, value) +
         content_tag(:td) do
-          link_to('Edit', {}, class: 'inline-edit-link')
+          button_tag('Edit', class: 'inline-edit-start')
         end +
         content_tag(:td) do
           text_field_tag(attribute, value, placeholder: label, class: 'inline-edit-field')
