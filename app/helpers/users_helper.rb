@@ -4,10 +4,12 @@ module UsersHelper
       content_tag(:th, label) +
         content_tag(:td, value) +
         content_tag(:td) do
-          button_tag('Edit', class: 'inline-edit-start')
+          button_tag('Edit', class: 'inline-edit-start', id: 'inline-edit-start-'.concat(attribute))
         end +
         content_tag(:td) do
-          text_field_tag(attribute, value, placeholder: label, class: 'inline-edit-field')
+          text_field_tag(attribute, value, placeholder: label,
+                                           id: 'inline-edit-field-'.concat(attribute),
+                                           class: 'inline-edit-field')
         end
     end
   end
