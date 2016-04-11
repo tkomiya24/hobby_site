@@ -1,11 +1,13 @@
 module UsersHelper
-  def editable_row(attribute, label, value)
+  def editable_row(entity, attribute, label, value)
     content_tag(:tr) do
       content_tag(:th, label) +
         content_tag(:td) do
-          text_field_tag(attribute, value, placeholder: label,
-                                           id: 'inline-edit-field-'.concat(attribute),
-                                           class: 'inline-edit-field')
+          form_for(entity, url: user_path, method: :put) do |f|
+            f.text_field(attribute, placeholder: label,
+                                    id: 'inline-edit-field-'.concat(attribute),
+                                    class: 'inline-edit-field')
+          end
         end +
         content_tag(:td, value, id: 'inline-edit-value-'.concat(attribute)) +
         content_tag(:td, id: 'inline-edit-'.concat(attribute)) do
