@@ -24,8 +24,7 @@ var inputPrefix = idPrefix + 'field-';
 var valuePrefix = idPrefix + 'value-';
 
 function getFieldName(button) {
-  var a = button.id.split('-');
-  return a[a.length - 1];
+  return $(button).parent().attr('id').replace(idPrefix, '');
 }
 
 function makeFieldDisapper(fieldName) {

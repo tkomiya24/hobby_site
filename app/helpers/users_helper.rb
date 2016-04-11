@@ -8,7 +8,7 @@ module UsersHelper
                                            class: 'inline-edit-field')
         end +
         content_tag(:td, value, id: 'inline-edit-value-'.concat(attribute)) +
-        content_tag(:td) do
+        content_tag(:td, id: 'inline-edit-'.concat(attribute)) do
           button_tag('Edit',
                      class: 'inline-edit-start', id: 'inline-edit-start-'.concat(attribute)) +
             button_tag('Save',
