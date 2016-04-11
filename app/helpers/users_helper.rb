@@ -2,14 +2,14 @@ module UsersHelper
   def editable_row(attribute, label, value)
     content_tag(:tr) do
       content_tag(:th, label) +
-        content_tag(:td, value) +
-        content_tag(:td) do
-          button_tag('Edit', class: 'inline-edit-start', id: 'inline-edit-start-'.concat(attribute))
-        end +
         content_tag(:td) do
           text_field_tag(attribute, value, placeholder: label,
                                            id: 'inline-edit-field-'.concat(attribute),
                                            class: 'inline-edit-field')
+        end +
+        content_tag(:td, value) +
+        content_tag(:td) do
+          button_tag('Edit', class: 'inline-edit-start', id: 'inline-edit-start-'.concat(attribute))
         end
     end
   end
