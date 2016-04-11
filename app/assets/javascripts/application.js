@@ -15,3 +15,39 @@
 //a= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+'use strict';
+
+var idPrefix = 'inline-edit-';
+var editButtonPrefix = idPrefix + 'start-';
+var saveButtonPrefix = idPrefix + 'finish-';
+var inputPrefix = idPrefix + 'field-';
+var valuePrefix = idPrefix + 'value-';
+
+function getFieldName(button) {
+  return button.id.replace(editButtonPrefix, '');
+}
+
+function makeFieldDisapper(fieldName) {
+  $('#' + valuePrefix + fieldName).hide();
+}
+
+function makeTextInputDisappear(fieldName) {
+  $('#' + inputPrefix + fieldName).show();
+}
+
+function makeSaveButtonAppear(fieldName) {
+  $('#' + saveButtonPrefix + fieldName).show();
+}
+
+$(document).ready(function() {
+  $('input.inline-edit-field').hide();
+  $('.inline-edit-finish').hide();
+
+  $('button.inline-edit-start').click(function(event) {
+    var fieldName = getFieldName(this);
+    makeFieldDisapper(fieldName);
+    makeTextInputDisappear(fieldName);
+    $(this).hide(); //make the edit button disappear
+    makeSaveButtonAppear(fieldName);
+  });
+});
