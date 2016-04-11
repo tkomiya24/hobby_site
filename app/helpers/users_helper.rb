@@ -3,7 +3,9 @@ module UsersHelper
     content_tag(:tr) do
       content_tag(:th, label) +
         content_tag(:td) do
-          form_for(entity, url: user_path, method: :put) do |f|
+          form_for(entity,
+                   url: user_path, method: :put,
+                   html: { id: 'inline-edit-form-'.concat(attribute) }) do |f|
             f.text_field(attribute, placeholder: label,
                                     id: 'inline-edit-field-'.concat(attribute),
                                     class: 'inline-edit-field')

@@ -22,6 +22,7 @@ var editButtonPrefix = idPrefix + 'start-';
 var saveButtonPrefix = idPrefix + 'finish-';
 var inputPrefix = idPrefix + 'field-';
 var valuePrefix = idPrefix + 'value-';
+var formPrefix = idPrefix + 'form-';
 
 function getFieldName(button) {
   return $(button).parent().attr('id').replace(idPrefix, '');
@@ -59,13 +60,8 @@ function hideSaveButton(fieldName) {
   $('#' + saveButtonPrefix + fieldName).hide();
 }
 
-function makeUpdateRequest(fieldName, val) {
-  //Will fake a success for now
-  setField(fieldName, val);
-  showField(fieldName);
-  hideTextInput(fieldName);
-  showEditButton(fieldName);
-  hideSaveButton(fieldName);
+function submitForm(fieldName) {
+  $('#' + formPrefix + fieldName).submit();
 }
 
 function getNewValue(fieldName) {
@@ -86,6 +82,6 @@ $(document).ready(function() {
 
   $('button.inline-edit-finish').click(function(event) {
     var fieldName = getFieldName(this);
-    makeUpdateRequest(fieldName, getNewValue(fieldName));
+    submitForm(fieldName);
   });
 });
