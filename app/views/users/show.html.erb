@@ -6,18 +6,9 @@
       <h1><%= @user.username %></h1>
     </div>
     <table class="table">
-      <tr>
-        <th>First Name</th>
-        <td><%= @user.first_name %></td>
-      </tr>
-      <tr>
-        <th>Last Name</th>
-        <td><%= @user.last_name %></td>
-      </tr>
-      <tr>
-        <th>City</th>
-        <td><%= @user.city %></td>
-      </tr>
+      <%= editable_row(@user, 'first_name', 'First Name', @user.first_name) %>
+      <%= editable_row(@user, 'last_name', 'Last Name', @user.last_name) %>
+      <%= editable_row(@user, 'city', 'City', @user.city) %>
     </table>
   </div>
   <div>
