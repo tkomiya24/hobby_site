@@ -35,8 +35,13 @@ function initTypeahead() {
       },
       templates: {
         suggestion: function(user) {
+          var firstName = user.first_name ? user.first_name : '';
+          var lastName = user.last_name ? user.last_name : '';
+          var fullName = firstName + ' ' + lastName;
+          fullName.trim();
           return ['<a class="suggestion-links" href="/users/' + user.id + '">',
-                  user.first_name + ' ' + user.last_name,
+                  '<span>' + user.username + '</span>',
+                  fullName,
                   '</a>'].join('\n');
         }
       }
