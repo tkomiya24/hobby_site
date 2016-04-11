@@ -31,7 +31,7 @@ function makeFieldDisapper(fieldName) {
   $('#' + valuePrefix + fieldName).hide();
 }
 
-function makeTextInputDisappear(fieldName) {
+function makeTextInputAppear(fieldName) {
   $('#' + inputPrefix + fieldName).show();
 }
 
@@ -46,7 +46,7 @@ $(document).ready(function() {
   $('button.inline-edit-start').click(function(event) {
     var fieldName = getFieldName(this);
     makeFieldDisapper(fieldName);
-    makeTextInputDisappear(fieldName);
+    makeTextInputAppear(fieldName);
     $(this).hide(); //make the edit button disappear
     makeSaveButtonAppear(fieldName);
   });
