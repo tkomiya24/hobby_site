@@ -24,7 +24,8 @@ var inputPrefix = idPrefix + 'field-';
 var valuePrefix = idPrefix + 'value-';
 
 function getFieldName(button) {
-  return button.id.replace(editButtonPrefix, '');
+  var a = button.id.split('-');
+  return a[a.length - 1];
 }
 
 function makeFieldDisapper(fieldName) {
@@ -39,6 +40,39 @@ function makeSaveButtonAppear(fieldName) {
   $('#' + saveButtonPrefix + fieldName).show();
 }
 
+function setField(fieldName, val) {
+  $('#' + valuePrefix + fieldName).html(val);
+}
+
+function showField(fieldName) {
+  $('#' + valuePrefix + fieldName).show();
+}
+
+function hideTextInput(fieldName) {
+  $('#' + inputPrefix + fieldName).hide();
+}
+
+function showEditButton(fieldName) {
+  $('#' + editButtonPrefix + fieldName).show();
+}
+
+function hideSaveButton(fieldName) {
+  $('#' + saveButtonPrefix + fieldName).hide();
+}
+
+function makeUpdateRequest(fieldName, val) {
+  //Will fake a success for now
+  setField(fieldName, val);
+  showField(fieldName);
+  hideTextInput(fieldName);
+  showEditButton(fieldName);
+  hideSaveButton(fieldName);
+}
+
+function getNewValue(fieldName) {
+  return $('#' + inputPrefix + fieldName).val();
+}
+
 $(document).ready(function() {
   $('input.inline-edit-field').hide();
   $('.inline-edit-finish').hide();
@@ -49,5 +83,10 @@ $(document).ready(function() {
     makeTextInputAppear(fieldName);
     $(this).hide(); //make the edit button disappear
     makeSaveButtonAppear(fieldName);
+  });
+
+  $('button.inline-edit-finish').click(function(event) {
+    var fieldName = getFieldName(this);
+    makeUpdateRequest(fieldName, getNewValue(fieldName));
   });
 });
