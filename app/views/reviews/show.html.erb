@@ -1,6 +1,11 @@
 <div class="container">
   <h3>
-    Review for
+    <% if authenticated_user?(@review.user) %>
+    Your
+    <% else %>
+    <%= "#{@review.user.username}'s" %>
+    <% end %>
+    review of
     <%= @review.reviewable.specific.class.name.downcase %>
     <%= @review.reviewable.user.username %>
   </h3>
