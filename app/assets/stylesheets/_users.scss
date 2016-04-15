@@ -91,11 +91,14 @@
 
 ul.search-results {
   li.search-result {
-    margin: 30px auto;
+    margin: 30px auto 70px auto;
     display: block;
     min-width: 300px;
     max-width: 638px;
     width: 50%;
+  }
+  li.search-result:last-of-type {
+    margin-bottom: 30px;
   }
   div.reviews {
     padding: 0 5px;
