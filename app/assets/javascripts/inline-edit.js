@@ -7,6 +7,7 @@ var inlineEdit = (function() {
   var inputPrefix = idPrefix + 'field-';
   var valuePrefix = idPrefix + 'value-';
   var formPrefix = idPrefix + 'form-';
+  var cancelButtonPrefix = idPrefix + 'cancel-';
 
   function getFieldName(button) {
     return $(button).parent().attr('id').replace(idPrefix, '');
@@ -52,10 +53,19 @@ var inlineEdit = (function() {
     return $('#' + inputPrefix + fieldName).val();
   }
 
+  function showCancelButton(fieldName) {
+    $('#' + cancelButtonPrefix + fieldName).show();
+  }
+
+  function hideCancelButton(fieldName) {
+    $('#' + cancelButtonPrefix + fieldName).hide();
+  }
+
   var inlineEdit = {};
   inlineEdit.init = function() {
     $('input.inline-edit-field').hide();
     $('.inline-edit-finish').hide();
+    $('.inline-edit-cancel').hide();
 
     $('button.inline-edit-start').click(function(event) {
       var fieldName = getFieldName(this);
@@ -63,6 +73,16 @@ var inlineEdit = (function() {
       makeTextInputAppear(fieldName);
       $(this).hide(); //make the edit button disappear
       makeSaveButtonAppear(fieldName);
+      showCancelButton(fieldName);
+    });
+
+    $('button.inline-edit-cancel').click(function(event) {
+      var fieldName = getFieldName(this);
+      hideTextInput(fieldName);
+      hideSaveButton(fieldName);
+      hideCancelButton(fieldName);
+      showField(fieldName);
+      showEditButton(fieldName);
     });
 
     $('button.inline-edit-finish').click(function(event) {
