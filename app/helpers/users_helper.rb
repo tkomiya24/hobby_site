@@ -16,7 +16,9 @@ module UsersHelper
           button_tag('Edit',
                      class: 'inline-edit-start', id: 'inline-edit-start-'.concat(attribute)) +
             button_tag('Save',
-                       class: 'inline-edit-finish', id: 'inline-edit-finish-'.concat(attribute))
+                       class: 'inline-edit-finish', id: 'inline-edit-finish-'.concat(attribute)) +
+            button_tag('Cancel',
+                       class: 'inline-edit-cancel', id: 'inline-edit-cancel-'.concat(attribute))
         end
     end
   end
