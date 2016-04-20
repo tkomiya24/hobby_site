@@ -1,11 +1,12 @@
+<%= error_messages_for(@user) %>
 <div class="container">
-  <%= form_for(:user, url: {action: 'update'}, html: {class: 'user-form'}) do |user| %>
-    <%= render(partial: 'form', locals: {u: user}) %>
-    <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
-      <i class="glyphicon glyphicon-floppy-save"></i>  Submit
-    <% end %>
-    <%= link_to({action: 'show'}, {class: 'btn btn-danger'}) do %>
-      <i class="glyphicon glyphicon-remove"></i>  Cancel Edit
-    <% end %>
-  <% end %>
+  <table class="table">
+    <tbody>
+      <%= editable_row(@user, 'username', 'Username', @user.username) %>
+      <%= editable_row(@user, 'first_name', 'First Name', @user.first_name) %>
+      <%= editable_row(@user, 'last_name', 'Last Name', @user.last_name) %>
+      <%= editable_row(@user, 'city', 'City', @user.city) %>
+    </tbody>
+  </table>
+  <%= link_to('Change Password', controller: 'users', action: 'change_password') %>
 <div>
