@@ -41,9 +41,9 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       success_flash
-      redirect_to(action: 'show')
+      redirect_to(user_path)
     else
-      render('edit')
+      render(action: 'edit')
     end
   end
 
@@ -93,6 +93,10 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  def change_password
+  end
+
   # private methods
 
   private

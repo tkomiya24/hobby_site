@@ -11,9 +11,10 @@ Rails.application.routes.draw do
       post 'attempt_login'
       post 'logout'
       get 'add_instrument'
+      get 'change_password'
     end
   end
-  resources :users
+  resources :users, only: [:index]
   resource :drummer
   resource :singer
   resource :bassist
